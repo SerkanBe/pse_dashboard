@@ -26,7 +26,7 @@ $group_clause = '';
 $order_clause = '';
 $select_clause = 'p.month,p.quarter,p.year, f.name as fuel, se.name as sector, amount,st.name as state,unit';
 
-$available_fields = array('year' => 'p.year','month'=>'p.month','quarter'=>'p.quarter','fuel'=>'f.name','sector'=>'se.name','state'=>'st.name');
+$available_fields = array('amount'=>'t.amount','year' => 'p.year','month'=>'p.month','quarter'=>'p.quarter','fuel'=>'f.name','sector'=>'se.name','state'=>'st.name');
 
 require_once('get_processor.php');
 $where_clause = do_where($_GET,$available_fields);
