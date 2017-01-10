@@ -137,15 +137,6 @@
                   </div>
                 </div>
               </div>
-
-
-                    <div id="timeSlider" style="height:350px;"></div>
-
-                  </div>
-                </div>
-              </div>
-
-
               <div class="col-md-6 col-sm-6 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
@@ -169,7 +160,7 @@
                   </div>
                   <div class="x_content">
 					
-                    <div id="echart_scatter" style="height:350px;"></div>
+                    <div id="slider" style="height:25px;"></div>
 
                   </div>
                 </div>
@@ -203,6 +194,15 @@
                   </div>
                 </div>
               </div>
+
+                    <div id="timeSlider" style="height:350px;"></div>
+
+                  </div>
+                </div>
+              </div>
+
+
+
 			  
             </div>
           </div>
@@ -349,7 +349,7 @@
 	
 	<script src="/js/nouislider.min.js"></script>
 	<script>
-	var stepSlider = document.getElementById('echart_scatter');
+	var stepSlider = document.getElementById('slider');
 
 		noUiSlider.create(stepSlider, {
 			start: [ 2015 ],
