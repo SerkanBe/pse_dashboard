@@ -8,7 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Gentelella Alela! | </title>
-
+	<!-- NoUISlider -->
+	<link href="/css/nouislider.min.css" rel="stylesheet">
     <!-- Bootstrap -->
     <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
@@ -160,7 +161,7 @@
                   </div>
                   <div class="x_content">
 
-                    <div id="echart_donut" style="height:350px;"></div>
+                    <div id="timeSlider" style="height:350px;"></div>
 
                   </div>
                 </div>
@@ -170,7 +171,7 @@
               <div class="col-md-6 col-sm-6 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Scatter Graph</h2>
+                    <h2>Year Selector</h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
@@ -189,7 +190,7 @@
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-
+					
                     <div id="echart_scatter" style="height:350px;"></div>
 
                   </div>
@@ -677,6 +678,7 @@
 				values[i] = {name: item.fuel, value: item.SUM_amount};
               });
 			  console.log(values);
+			  
       echartPieCollapse.setOption({
         tooltip: {
           trigger: 'item',
@@ -721,6 +723,29 @@
 		  });
 	});
 	</script>
+	
+	<script src="/js/nouislider.min.js"></script>
+	<script>
+	var stepSlider = document.getElementById('echart_scatter');
+
+		noUiSlider.create(stepSlider, {
+			start: [ 2015 ],
+			step: 1,
+			range: {
+			'min': [  2000 ],
+			'max': [ 2015 ]
+			},
+			pips: {
+				mode: 'values',
+				values: [2000],
+				density: 2
+			}
+			
+		});
+	</script>
+
+	
+	
 	<!-- /easy-pie-area-chart>
   </body>
 </html>
