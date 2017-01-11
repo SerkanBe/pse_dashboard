@@ -424,6 +424,7 @@
 <!-- /slider-->
 	
 <!-- echart-linechart -->
+
 	<script>
 	var echartLine = echarts.init(document.getElementById('echart_line'), echart_theme);
 	var lineChartOptions = {
