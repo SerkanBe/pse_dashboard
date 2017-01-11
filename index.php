@@ -8,7 +8,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Gentelella Alela! | </title>
-
+	<!-- NoUISlider -->
+	<link href="/css/nouislider.min.css" rel="stylesheet">
+	
+	<!-- Kartograph Map -->
+	<script src="jquery.min.js"></script>
+    <script src="raphael-min.js"></script>
+    <script src="kartograph.js"></script>
     <!-- Bootstrap -->
     <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
@@ -79,6 +85,35 @@
                 </div>
               </div>
 
+			  <div class="col-md-8 col-sm-8 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Bar Graph</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="#">Settings 1</a>
+                          </li>
+                          <li><a href="#">Settings 2</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+
+                    <div id="usa_map2" style="height:350px !important;"></div>
+
+                  </div>
+                </div>
+              </div>
+			  
               <div class="col-md-4 col-sm-4 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
@@ -136,9 +171,36 @@
                   </div>
                 </div>
               </div>
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Year Selector</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="#">Settings 1</a>
+                          </li>
+                          <li><a href="#">Settings 2</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+					
+                    <div id="slider" style="height:15px;"></div>
 
+                  </div>
+                </div>
+              </div>
 
-              <div class="col-md-8 col-sm-8 col-xs-12">
+              <div class="col-md-6 col-sm-6 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
                     <h2>Line Graph</h2>
@@ -166,6 +228,11 @@
                   </div>
                 </div>
               </div>
+
+                 
+
+
+
 			  
             </div>
           </div>
@@ -175,7 +242,7 @@
         <!-- footer content -->
         <footer>
           <div class="pull-right">
-            Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+            Energy Admin Dashboard - Powered by <a href="https://www.eia.gov/">EIA</a>
           </div>
           <div class="clearfix"></div>
         </footer>
@@ -211,11 +278,11 @@
     
     <!-- JQVMap -->
     <script>
-      $(document).ready(function() {
+	function createUSMap() {
           //http://local.pse/api/elec_gen.php?year[]=2014&group_by[]=state&order_by[state]=ASC&aggr[amount]=SUM&columns[]=state
 
           $.getJSON('/api/elec_gen.php', {
-              "year[]": [2015],
+              "year[]": [slider.noUiSlider.get()],
               "group_by[]": ["state"],
               "order_by[state]": "ASC",
               "aggr[amount]": "SUM",
@@ -241,17 +308,18 @@
                   normalizeFunction: 'polynomial'
               });
           });
-      });
+      }
+      $(document).ready(createUSMap);
     </script>
     <!-- /JQVMap -->
 
 	<!-- easy-pie-area-chart -->
 	<script>	
-	$(document).ready(function() {
+	function createPieChart() {
 	      var echartPieCollapse = echarts.init(document.getElementById('echart_pie2'), echart_theme);
       
 	            $.getJSON('/api/elec_gen.php', {
-              "year[]": [2015],
+              "year[]": [slider.noUiSlider.get()],
               "group_by[]": ["fuel"],
               "order_by[fuel]": "ASC",
               "aggr[amount]": "SUM",
@@ -263,6 +331,7 @@
 				columns[i] = item.fuel;
 				values[i] = {name: item.fuel, value: item.SUM_amount};
               });
+			  
 			  
       echartPieCollapse.setOption({
         tooltip: {
@@ -306,8 +375,37 @@
         }]
       });
 		  });
-	});
+	}
+	$(document).ready(createPieChart);
 	</script>
+	
+	<script src="/js/nouislider.min.js"></script>
+	<script>
+	var slider = document.getElementById('slider');
+
+		noUiSlider.create(slider, {
+			start: [ 2010 ],
+			step: 1,
+			range: {
+			'min': [  2010 ],
+			'max': [ 2015 ]
+			},
+			pips: {
+				mode: 'values',
+				values: [2010,2011,2012,2013,2014,2015],
+				density: 5
+			}
+			
+		});
+		
+		$('#slider').click(createPieChart);
+		$('#slider').click(createUSMap);
+		
+	</script>
+
+	
+	
+	<!-- /easy-pie-area-chart>
 	<!-- /easy-pie-area-chart-->
 	
 	<!-- echart-linechart -->
@@ -376,7 +474,7 @@
               });
 			  
 			  $.each(fuels,function(fuel,fuel_data) {
-console.log(fuel_data);				  
+			  
 				lineChartOptions.series.push({
           name: fuel,
           type: 'line',
