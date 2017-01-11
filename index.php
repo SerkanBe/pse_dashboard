@@ -319,10 +319,11 @@
 	      var echartPieCollapse = echarts.init(document.getElementById('echart_pie2'), echart_theme);
       
 	            $.getJSON('/api/elec_gen.php', {
-              "year[]": [slider.noUiSlider.get()],
+              "year[]": [2015],
               "group_by[]": ["fuel"],
-              "order_by[fuel]": "ASC",
+              "order_by[SUM_amount]": "DESC",
               "aggr[amount]": "SUM",
+			  "range[limit]": 5,
               "columns[]": ["fuel"]
           }).done(function(data) {
               var values = [];
@@ -331,6 +332,9 @@
 				columns[i] = item.fuel;
 				values[i] = {name: item.fuel, value: item.SUM_amount};
               });
+		
+		line_graph_query_params['fuel'] = columns;
+		render_line_graph();
 			  
 			  
       echartPieCollapse.setOption({
@@ -458,40 +462,38 @@
         }],
         series: []
       };
-	  	$.getJSON('/api/elec_gen.php', {
-              "state[]": ["US-TX"],
-              "year[]": 2015,              
-              "order_by[p.month]": "ASC",			  
-              "columns[]": ["month","fuel","amount"]
-          }).done(function(data) {
+	  
+		function render_line_graph() {
+		  //line_graph_query_params['debug'] = 1;
+		$.getJSON('/api/elec_gen.php', line_graph_query_params).done(function(data) {
 			  //console.log(data);
-              var fuels = {};
-              $.each(data, function(i, item) {
+			  var fuels = {};
+			  $.each(data, function(i, item) {
 				  if(typeof fuels[item.fuel] == 'undefined') {
 					  fuels[item.fuel] = [];
 				  }
-				fuels[item.fuel][item.month-1] = item.amount;		
-              });
+				fuels[item.fuel][item.month-1] = item.SUM_amount;		
+			  });
 			  
 			  $.each(fuels,function(fuel,fuel_data) {
-			  
 				lineChartOptions.series.push({
-          name: fuel,
-          type: 'line',
-          smooth: true,
-          itemStyle: {
-            normal: {
-              areaStyle: {
-                type: 'default'
-              }
-            }
-          },
-          data: fuel_data
-        });
+		  name: fuel,
+		  type: 'line',
+		  smooth: true,
+		  itemStyle: {
+			normal: {
+			  areaStyle: {
+				type: 'default'
+			  }
+			}
+		  },
+		  data: fuel_data
+		});
 			  });
 			  
 			  echartLine.setOption(lineChartOptions);			 
-		  });			     
+		  });
+	  }	  
 	  </script>
 	  <!-- echart-linechart -->	  
 	  
