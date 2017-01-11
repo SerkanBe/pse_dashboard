@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Gentelella Alela! | </title>
+    <title>EIA Dashboard</title>
 	<!-- NoUISlider -->
 	<link href="/css/nouislider.min.css" rel="stylesheet">
 	
@@ -291,7 +291,7 @@
     <script>
 	function createUSMap() {
           //http://local.pse/api/elec_gen.php?year[]=2014&group_by[]=state&order_by[state]=ASC&aggr[amount]=SUM&columns[]=state
-
+			
           $.getJSON('/api/elec_gen.php', {
               "year[]": [slider.noUiSlider.get()],
               "group_by[]": ["state"],
@@ -509,36 +509,50 @@
 	  </script>
 <!-- echart-linechart -->
 
-<!-- create us_map2 -->
+<!-- kartograph-us_map2 -->
 	  <script>
-	function createUSMap2() {
+	  function createUSMap2() {
           //http://local.pse/api/elec_gen.php?year[]=2014&group_by[]=state&order_by[state]=ASC&aggr[amount]=SUM&columns[]=state
-			//select name,lat,lon from plant where 'lat' is not NULL and 'lon' is not null limit 3000
-			$.getJSON('/api/plant.php', {
-              "lat[]": ,
+			//select name, lat, lon from plant group by lat, lon
+			
+		/*	
+			var map_data = {};
+			$.getJSON('/api/elec_gen.php', {
+              "year[]": [slider.noUiSlider.get()],
               "group_by[]": ["state"],
               "order_by[state]": "ASC",
               "aggr[amount]": "SUM",
               "columns[]": ["state"]
           }).done(function(data) {
-              var map_data = {};
+              
               $.each(data, function(i, item) {
                   
                   map_data[item.state.substring(3).toLowerCase()] = item.SUM_amount;
               });
-		  });
+			});
+			*/
 			
+			
+			var map_data2 = {};
+			$.getJSON('/api/plant.php', {
+				
+              "group_by[]": ["plant_lat, plant_lon"],
+			  //alles ab 100 aufwärts kann nicht verarbeitet werden
+			  "range[limit]": 99,
+              "columns[]": ["plant_name","plant_lat","plant_lon"]
+			}).done(function(data) {
+				
+              
+			$.each(data, function(i, item) {
+			 // if(typeof map_data2[item.lat] == 'NULL') {
+				  map_data2[item.item] = [];
+			  //}
+			  
+			  map_data2[i] = {name: item.name, lat: item.lat, lon: item.lon};
+				 
+			  });
+		  });
 
-      $(document).ready(createUSMap2);
-    </script>
-<!-- /create us_map2 -->	
-	
-<!-- kartograph-us_map2 -->
-	  <script>
-	  
-		//$.fn.qtip.defaults.style.classes = 'ui-tooltip-bootstrap';
-        //$.fn.qtip.defaults.style.def = false;
-		
 			  var svgUrl = '../images/usa.svg',
 			opts = { };
 
@@ -567,18 +581,21 @@
 					// *event* is the original JavaScript event
 				}}
 			);
-			
-				var plants = [
-					{ name: 'Juneau, AK', lat: 58.3, lon: -134.416667 },
-					{ name: 'Honolulu, HI', lat: 21.3, lon: -157.816667 },
-					{ name: 'San Francisco, CA', lat: 37.783333, lon: -122.416667 }
-				];
+				console.log("hi");
+				var plants = map_data2;
+				console.log(plants);
+				
+				//[
+				//	{ name: 'Juneau, AK', lat: 58.3, lon: -134.416667 },
+				//	{ name: 'Honolulu, HI', lat: 21.3, lon: -157.816667 },
+				//	{ name: 'San Francisco, CA', lat: 37.783333, lon: -122.416667 }
+				//];
 
 				map.addSymbols({
 					type: kartograph.LabeledBubble,
 					data: plants,
 					location: function(d) { return [d.lon, d.lat] },
-					title: function(d) { return d.name; },
+					//title: function(d) { return d.name; },
 					radius: 3,
 					center: false,
 					attrs: { fill: 'black' },
@@ -587,7 +604,8 @@
 				}); 
 		   
 			}
-
+	  }
+	  createUSMap2();
 		</script>
 <!-- /kartograph-map -->
   </body>
