@@ -28,24 +28,18 @@ $select_clause = 'p.month,p.quarter,p.year, f.name as fuel, se.name as sector, a
 
 $available_fields = array('amount'=>'t.amount','year' => 'p.year','month'=>'p.month','quarter'=>'p.quarter','fuel'=>'f.name','sector'=>'se.name','state'=>'st.name');
 
-require_once('get_processor.php');
-$where_clause = do_where($_GET,$available_fields);
-$group_clause = do_group_by($_GET['group_by'],$available_fields);
-$order_clause = do_order_by($_GET['order_by'],$available_fields);
-$select_clause = do_select($_GET['columns'],$_GET['aggr'],$available_fields,$select_clause);
-
-$q_str = 'SELECT '.$select_clause.'
+$q_tables = '
 FROM elec_net_gen t
 LEFT JOIN period p ON (p.id = t.period)
-LEFT JOIN fuel f ON (f.id = t.fuel)
+RIGHT JOIN fuel f ON (f.id = t.fuel AND f.name NOT LIKE \'%(total)\')
 LEFT JOIN gen_cons_sector se ON (se.id = t.sector)
 LEFT JOIN state st ON (st.id = t.state)';
-(empty($where_clause)) ?: $q_str.= $where_clause;
-(empty($group_clause)) ?: $q_str.= $group_clause;
-(empty($order_clause)) ?: $q_str.= $order_clause;
+
+require_once('get_processor.php');
+$q_str = create_query($q_tables, $available_fields,$select_clause);
 
 $query = $db->prepare($q_str);
-$query->execute(array('fuel'));
+$query->execute();
 
 $result = $query->fetchAll(PDO::FETCH_ASSOC);
 echo json_encode(array_values($result));

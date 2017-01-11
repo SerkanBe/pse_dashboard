@@ -43,7 +43,7 @@ $group_clause = do_group_by($_GET['group_by'],$available_fields);
 $order_clause = do_order_by($_GET['order_by'],$available_fields);
 $select_clause = do_select($_GET['columns'],$_GET['aggr'],$available_fields,$select_clause);
 
-$q_str = 'SELECT '.$select_clause.'
+$q_tables = '
 FROM plant_cons t
 LEFT JOIN plant pl ON (pl.id = t.plant)
 LEFT JOIN fuel f ON (f.id = t.fuel)
@@ -53,9 +53,8 @@ LEFT JOIN plant_type plty ON (plty.id = pl.type)
 LEFT JOIN state plst ON (plst.id = pl.state)
 LEFT JOIN fuel plf ON (plf.id = pl.fuel)';
 
-(empty($where_clause)) ?: $q_str.= $where_clause;
-(empty($group_clause)) ?: $q_str.= $group_clause;
-(empty($order_clause)) ?: $q_str.= $order_clause;
+require_once('get_processor.php');
+$q_str = create_query($q_tables, $available_fields,$select_clause);
 
 $query = $db->prepare($q_str);
 $query->execute(array('fuel'));
