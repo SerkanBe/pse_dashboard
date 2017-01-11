@@ -34,7 +34,9 @@ $available_fields = array('year' => 'p.year',
 'plant_id' => 't.plant',
 'plant_name' => 'pl.name',
 'plant_fuel' => 'plf.name',
-'plant_type' => 'plty.name'
+'plant_type' => 'plty.name',
+'plant_lat' => 'pl.lat',
+'plant_lon' => 'pl.lon',
 );
 
 $q_tables = '

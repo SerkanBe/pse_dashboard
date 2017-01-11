@@ -143,7 +143,7 @@
                 </div>
               </div>
 
-              <div class="col-md-8 col-sm-8 col-xs-12">
+              <div class="col-md-4 col-sm-4 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
                     <h2>Pie Chart</h2>
@@ -171,7 +171,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-md-6 col-sm-6 col-xs-12">
+              <div class="col-md-8 col-sm-8 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
                     <h2>Year Selector</h2>
@@ -279,7 +279,7 @@
 	<script>
 	var line_graph_query_params = {
           "state[]": ["US-TX"],
-          "year[]": 2015,              
+          "year[]": 2010,              
           "order_by[month]": "ASC",			
           "columns[]": ["month","fuel"],
 		  "aggr[amount]": "SUM",
@@ -287,7 +287,7 @@
       }
 	</script>
 	
-    <!-- JQVMap -->
+<!-- JQVMap -->
     <script>
 	function createUSMap() {
           //http://local.pse/api/elec_gen.php?year[]=2014&group_by[]=state&order_by[state]=ASC&aggr[amount]=SUM&columns[]=state
@@ -322,12 +322,12 @@
       }
       $(document).ready(createUSMap);
     </script>
-    <!-- /JQVMap -->
+<!-- /JQVMap -->
 
-	<!-- easy-pie-area-chart -->
+<!-- easy-pie-area-chart -->
 	<script>	
 	function createPieChart() {
-	      var echartPieCollapse = echarts.init(document.getElementById('echart_pie2'), echart_theme);
+	      var echartPieCollapse = echarts.init(document.getElementById('echart_mini_pie'), echart_theme);
       
 	            $.getJSON('/api/elec_gen.php', {
               "year[]": [2015],
@@ -346,8 +346,7 @@
 		
 		line_graph_query_params['fuel'] = columns;
 		render_line_graph();
-			  
-			  
+			    
       echartPieCollapse.setOption({
         tooltip: {
           trigger: 'item',
@@ -356,7 +355,7 @@
         legend: {
 			orient: 'vertical',
           x: 'right',
-          y: 'top',
+          y: 'bottom',
           data: columns
         },
         toolbox: {
@@ -380,10 +379,10 @@
         series: [{
           name: 'Area Mode',
           type: 'pie',
-          radius: [25, 90],
-          center: ['25%', 170],
+          radius: [30, 110],
+          center: ['45%', 170],
           roseType: 'area',
-          x: '59%',
+          x: 'right',
           max: 40,
           sort: 'ascending',
           data: values
@@ -393,7 +392,9 @@
 	}
 	$(document).ready(createPieChart);
 	</script>
-	
+<!-- /easy-pie-area-chart -->
+
+<!-- slider -->
 	<script src="/js/nouislider.min.js"></script>
 	<script>
 	var slider = document.getElementById('slider');
@@ -413,17 +414,16 @@
 			
 		});
 		
-		$('#slider').click(createPieChart);
-		$('#slider').click(createUSMap);
-		
+		$('#slider').click(function() {
+			createPieChart();
+			createUSMap();
+			line_graph_query_params['year[]'] = slider.noUiSlider.get();
+			render_line_graph();
+		});
 	</script>
-
+<!-- /slider-->
 	
-	
-	<!-- /easy-pie-area-chart>
-	<!-- /easy-pie-area-chart-->
-	
-	<!-- echart-linechart -->
+<!-- echart-linechart -->
 	<script>
 	var echartLine = echarts.init(document.getElementById('echart_line'), echart_theme);
 	var lineChartOptions = {
@@ -439,6 +439,7 @@
           y: 40,
           data: []
         },
+		
         toolbox: {
           show: true,
           feature: {
@@ -506,12 +507,39 @@
 		  });
 	  }	  
 	  </script>
-	  <!-- echart-linechart -->	  
-	  
-		<!-- kartograph-map -->
+<!-- echart-linechart -->
+
+<!-- create us_map2 -->
+	  <script>
+	function createUSMap2() {
+          //http://local.pse/api/elec_gen.php?year[]=2014&group_by[]=state&order_by[state]=ASC&aggr[amount]=SUM&columns[]=state
+			//select name,lat,lon from plant where 'lat' is not NULL and 'lon' is not null limit 3000
+			$.getJSON('/api/plant.php', {
+              "lat[]": ,
+              "group_by[]": ["state"],
+              "order_by[state]": "ASC",
+              "aggr[amount]": "SUM",
+              "columns[]": ["state"]
+          }).done(function(data) {
+              var map_data = {};
+              $.each(data, function(i, item) {
+                  
+                  map_data[item.state.substring(3).toLowerCase()] = item.SUM_amount;
+              });
+		  });
+			
+
+      $(document).ready(createUSMap2);
+    </script>
+<!-- /create us_map2 -->	
+	
+<!-- kartograph-us_map2 -->
 	  <script>
 	  
-			  var svgUrl = 'http://kartograph.org/showcase/usa-projection/usa.svg',
+		//$.fn.qtip.defaults.style.classes = 'ui-tooltip-bootstrap';
+        //$.fn.qtip.defaults.style.def = false;
+		
+			  var svgUrl = '../images/usa.svg',
 			opts = { };
 
 		kartograph.map('#usa_map2').loadMap(svgUrl, mapLoaded, opts);
@@ -523,35 +551,44 @@
 					fill: '#f6f4f2'
 				},
 				mouseenter: function(d, path) {
-					path.attr('fill', Math.random() < 0.5 ? '#c04' : '#04c');
+					path.attr('fill', '#2ba58a');
+				
+
 				},
 				mouseleave: function(d, path) {
-					path.animate({ fill: '#f6f4f2' }, 1000);
-				}
-			});
+					path.attr('fill', '#f6f4f2');
+				
+				},
+				
+				click: function(data, path, event) {
+					// handle mouse clicks
+					// *data* holds the data dictionary of the clicked path
+					// *path* is the raphael object
+					// *event* is the original JavaScript event
+				}}
+			);
 			
-			var points_of_interest = [
-				{ name: 'Juneau, AK', lat: 58.3, lon: -134.416667 },
-				{ name: 'Honolulu, HI', lat: 21.3, lon: -157.816667 },
-				{ name: 'San Francisco, CA', lat: 37.783333, lon: -122.416667 }
-			];
+				var plants = [
+					{ name: 'Juneau, AK', lat: 58.3, lon: -134.416667 },
+					{ name: 'Honolulu, HI', lat: 21.3, lon: -157.816667 },
+					{ name: 'San Francisco, CA', lat: 37.783333, lon: -122.416667 }
+				];
 
-			map.addSymbols({
-				type: kartograph.LabeledBubble,
-				data: points_of_interest,
-				location: function(d) { return [d.lon, d.lat] },
-				title: function(d) { return d.name; },
-				radius: 3,
-				center: false,
-				attrs: { fill: 'black' },
-				labelattrs: { 'font-size': 11 },
-				buffer: false
-		   });
-		}
-
-
+				map.addSymbols({
+					type: kartograph.LabeledBubble,
+					data: plants,
+					location: function(d) { return [d.lon, d.lat] },
+					title: function(d) { return d.name; },
+					radius: 3,
+					center: false,
+					attrs: { fill: 'black' },
+					labelattrs: { 'font-size': 11 },
+					buffer: false
+				}); 
+		   
+			}
 
 		</script>
-		<!-- /kartograph-map -->
+<!-- /kartograph-map -->
   </body>
 </html>
