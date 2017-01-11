@@ -25,6 +25,11 @@
     <link href="../vendors/iCheck/skins/flat/green.css" rel="stylesheet">
     <!-- JQVMap -->
     <link href="../vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet"/>
+	<!-- JVectorMap -->
+	<link rel="stylesheet" href="jquery-jvectormap-2.0.3.css" type="text/css" media="screen"/>
+	<script src="jquery-jvectormap-2.0.3.min.js"></script>
+	<script src="jquery-jvectormap-us-mill.js"></script>
+	
 
     <!-- Custom Theme Style -->
     <link href="../build/css/custom.min.css" rel="stylesheet">
@@ -117,7 +122,7 @@
               <div class="col-md-4 col-sm-4 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Mini Pie</h2>
+                    <h2>Net generation by fuel</h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
@@ -143,10 +148,10 @@
                 </div>
               </div>
 
-              <div class="col-md-4 col-sm-4 col-xs-12">
+              <div class="col-md-8 col-sm-8 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Pie Chart</h2>
+                    <h2>jVectorMap</h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
@@ -166,7 +171,7 @@
                   </div>
                   <div class="x_content">
 
-                    <div id="echart_pie2" style="height:350px;"></div>
+                    <div id="jvectormapus" style="height:350px;width: 600px"></div>
 
                   </div>
                 </div>
@@ -609,5 +614,85 @@
 	  createUSMap2();
 		</script>
 <!-- /kartograph-map -->
+
+<!-- jVectorMapTest -->
+<script>
+    $(function(){
+      $('#jvectormapus').vectorMap({map: 'us_mill'});
+    });
+</script>
+ <!-- /jVectorMapTest -->
+
+
+<!-- jVectorMap -->
+<script>
+/*
+$(function(){
+  $.getJSON('/data/us-unemployment.json', function(data){
+    var val = 2009;
+        statesValues = jvm.values.apply({}, jvm.values(data.states)),
+        metroPopValues = Array.prototype.concat.apply([], jvm.values(data.metro.population)),
+        metroUnemplValues = Array.prototype.concat.apply([], jvm.values(data.metro.unemployment));
+
+    $('#world-map-gdp').vectorMap({
+      map: 'us_aea',
+      markers: data.metro.coords,
+      series: {
+        markers: [{
+          attribute: 'fill',
+          scale: ['#FEE5D9', '#A50F15'],
+          values: data.metro.unemployment[val],
+          min: jvm.min(metroUnemplValues),
+          max: jvm.max(metroUnemplValues)
+        },{
+          attribute: 'r',
+          scale: [5, 20],
+          values: data.metro.population[val],
+          min: jvm.min(metroPopValues),
+          max: jvm.max(metroPopValues)
+        }],
+        regions: [{
+          scale: ['#DEEBF7', '#08519C'],
+          attribute: 'fill',
+          values: data.states[val],
+          min: jvm.min(statesValues),
+          max: jvm.max(statesValues)
+        }]
+      },
+      onMarkerTipShow: function(event, label, index){
+        label.html(
+          '<b>'+data.metro.names[index]+'</b><br/>'+
+          '<b>Population: </b>'+data.metro.population[val][index]+'</br>'+
+          '<b>Unemployment rate: </b>'+data.metro.unemployment[val][index]+'%'
+        );
+      },
+      onRegionTipShow: function(event, label, code){
+        label.html(
+          '<b>'+label.html()+'</b></br>'+
+          '<b>Unemployment rate: </b>'+data.states[val][code]+'%'
+        );
+      }
+    });
+
+    var mapObject = $('#world-map-gdp').vectorMap('get', 'mapObject');
+
+    $("#slider").slider({
+      value: val,
+      min: 2005,
+      max: 2009,
+      step: 1,
+      slide: function( event, ui ) {
+        val = ui.value;
+        mapObject.series.regions[0].setValues(data.states[ui.value]);
+        mapObject.series.markers[0].setValues(data.metro.unemployment[ui.value]);
+        mapObject.series.markers[1].setValues(data.metro.population[ui.value]);
+      }
+    });
+  });
+});
+*/
+
+</script>
+<!-- /jVectorMap -->
   </body>
 </html>
