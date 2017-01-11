@@ -276,6 +276,17 @@
 	<script src="../js/echart_theme.js"></script>
    
     
+	<script>
+	var line_graph_query_params = {
+          "state[]": ["US-TX"],
+          "year[]": 2015,              
+          "order_by[month]": "ASC",			
+          "columns[]": ["month","fuel"],
+		  "aggr[amount]": "SUM",
+		  "group_by[]": ["state","month","fuel"]
+      }
+	</script>
+	
     <!-- JQVMap -->
     <script>
 	function createUSMap() {
