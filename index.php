@@ -153,6 +153,55 @@
                       <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
                         <ul class="dropdown-menu" role="menu">
+                          <li><a href="#" onclick="myFunction1()">Settings 1</a>
+                          </li>
+                          <li><a href="#" onclick="myFunction2()">Settings 2</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+
+				  <p>Choose Information to Diasplay</p>
+                    <!-- start pop-over -->
+                    <div class="btn-group">
+                      <button id="button1 type="button" class="btn btn-default" onclick="myFunction1()">
+                        Left
+                      </button>
+                      <button id="button2" type="button" class="btn btn-default" onclick="myFunction2()">
+                        Top
+                      </button>
+                      <button id="button3" type="button" class="btn btn-default" onclick="myFunction3()">
+                        Bottom
+                      </button>
+                      <button id="button4" type="button" class="btn btn-default" onclick="myFunction4()">
+                        Right
+                      </button>
+                    </div>
+                    <!-- end pop-over -->
+                    <!--div id="echart_mini_pie2" style="height:275px;"></div-->
+
+                  </div>
+                </div>
+              </div>
+			  
+			  
+			  
+			  
+			  <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2><i class="fa fa-bars"></i> Vertical Tabs <small>Float right</small></h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
                           <li><a href="#">Settings 1</a>
                           </li>
                           <li><a href="#">Settings 2</a>
@@ -166,11 +215,42 @@
                   </div>
                   <div class="x_content">
 
-                    <div id="echart_mini_pie2" style="height:275px;"></div>
+                    <div class="col-xs-9">
+                      <!-- Tab panes -->
+                      <div class="tab-content">
+                        <div class="tab-pane active" id="home-r">
+                          <p class="lead">Home tab</p>
+                          <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher
+                            synth. Cosby sweater eu banh mi, qui irure terr.</p>
+                        </div>
+                        <div class="tab-pane" id="profile-r">Profile Tab.</div>
+                        <div class="tab-pane" id="messages-r">Messages Tab.</div>
+                        <div class="tab-pane" id="settings-r">Settings Tab.</div>
+                      </div>
+                    </div>
+
+                    <div class="col-xs-3">
+                      <!-- required for floating -->
+                      <!-- Nav tabs -->
+                      <ul class="nav nav-tabs tabs-right">
+                        <li class="active"><a href="#home-r" data-toggle="tab" aria-expanded="true">Home</a>
+                        </li>
+                        <li class=""><a href="#profile-r" data-toggle="tab" aria-expanded="false">Profile</a>
+                        </li>
+                        <li class=""><a href="#messages-r" data-toggle="tab" aria-expanded="false">Messages</a>
+                        </li>
+                        <li class=""><a href="#settings-r" data-toggle="tab" aria-expanded="false">Settings</a>
+                        </li>
+                      </ul>
+                    </div>
 
                   </div>
+
                 </div>
               </div>
+			  
+			  
+			  
 			  
 			<div class="col-md-8 col-sm-8 col-xs-12">
                 <div class="x_panel">
@@ -237,6 +317,19 @@
 	<!-- jvectormap -->
 	<script src="../jvectormap/jquery-jvectormap-2.0.3.min.js"></script>
 	<script src="../jvectormap/jquery-jvectormap-us-aea.js"></script>
+  
+  <script>
+  myFunction1(){
+	  
+	  
+	  
+  }
+  </script>
+  
+  
+  
+  
+  
   
  <!-- line_graph_query_params  --> 
 	<script>
