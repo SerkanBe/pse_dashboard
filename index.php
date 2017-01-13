@@ -75,11 +75,13 @@
                   </div>
                   <div class="x_content">
 
+					<div class="resize_window1">
                     <div id="jvectormap_usa" style="height:350px !important;"></div>
 					<div style="height:20px;"></div>
 					<div id="slider" style="height:15px;"></div>
-					<div style="height:40px;"></div>
-
+					<div style="height:35px;"></div>
+					</div>
+					
                   </div>
                 </div>
               </div>
@@ -107,7 +109,7 @@
                   </div>
                   <div class="x_content">
 
-                    <div id="echart_mini_pie" style="height:425px;"></div>
+                    <div id="echart_mini_pie" style="height:420px;"></div>
 
                   </div>
                 </div>
@@ -136,7 +138,7 @@
                   </div>
                   <div class="x_content">
 					
-                    <div id="echart_line" style="height:275px;"></div>
+                    <div id="echart_line" style="height:270px;"></div>
 
                   </div>
                 </div>
@@ -192,7 +194,7 @@
 			  
 			  
 			  
-			  <div class="col-md-6 col-sm-6 col-xs-12">
+			  <div class="col-md-4 col-sm-4 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
                     <h2><i class="fa fa-bars"></i> Vertical Tabs <small>Float right</small></h2>
@@ -220,8 +222,7 @@
                       <div class="tab-content">
                         <div class="tab-pane active" id="home-r">
                           <p class="lead">Home tab</p>
-                          <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher
-                            synth. Cosby sweater eu banh mi, qui irure terr.</p>
+                          <p>INFO ABOUT CURRENT STATE OR WHATEVER</p>
                         </div>
                         <div class="tab-pane" id="profile-r">Profile Tab.</div>
                         <div class="tab-pane" id="messages-r">Messages Tab.</div>
@@ -248,38 +249,6 @@
 
                 </div>
               </div>
-			  
-			  
-			  
-			  
-			<div class="col-md-8 col-sm-8 col-xs-12">
-                <div class="x_panel">
-                  <div class="x_title">
-                    <h2>JQV Map</h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                      </li>
-                      <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                        <ul class="dropdown-menu" role="menu">
-                          <li><a href="#">Settings 1</a>
-                          </li>
-                          <li><a href="#">Settings 2</a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li><a class="close-link"><i class="fa fa-close"></i></a>
-                      </li>
-                    </ul>
-                    <div class="clearfix"></div>
-                  </div>
-                  <div class="x_content">
-
-                    <div id="j_usa" style="height:350px !important;"></div>
-
-                  </div>
-                </div>
-              </div>  
 			  
             </div>
           </div>
@@ -317,47 +286,41 @@
 	<!-- jvectormap -->
 	<script src="../jvectormap/jquery-jvectormap-2.0.3.min.js"></script>
 	<script src="../jvectormap/jquery-jvectormap-us-aea.js"></script>
+	<!-- slider -->
+	<script src="/js/nouislider.min.js"></script>
   
-  <script>
-  myFunction1(){
-	  
-	  
-	  
-  }
-  </script>
-  
-  
-  
-  
-  
-  
+ 
  <!-- line_graph_query_params  --> 
 	<script>
 	var line_graph_query_params = {
-          "state[]": ["US-TX"],
-          "year[]": 2010,              
-          "order_by[month]": "ASC",			
-          "columns[]": ["month","fuel"],
-		  "aggr[amount]": "SUM",
-		  "group_by[]": ["state","month","fuel"]
+          
       }
+	  
+	var jVectormap_query_params1 = {
+		
+	}
+	
+	var jVectormap_query_params2 = { jVectormap_query_params1
+
+	}
 	</script>
 	<!-- line_graph_query_params  --> 
 	
 <!-- jVectorMapTest -->
 	<script>
-			
-			$.getJSON('/api/plant.php', {
-              "group_by[]": ["plant_lat, plant_lon"],
-			  "range[limit]": 500,
-              "columns[]": ["plant_name","plant_lat","plant_lon"]
+	function createUsMap(){
+			$.getJSON('/api/plant.php', { 
+				"group_by[]": ["plant_lat, plant_lon"],
+				"range[limit]": 100,
+				"columns[]": ["plant_name","plant_lat","plant_lon"]
+				
 			}).done(function(data) {
 				var myMarkers = [];
 		
 				$.each(data, function(i, item) {
 					
 				  myMarkers[i] = {latLng:[parseFloat(item.lat),parseFloat(item.lon)], name: item.name, style: {"fill": "yellow"}};
-					console.log(myMarkers[i]);
+					//console.log(myMarkers[i]);
 				  });
 
 				$(function(){
@@ -390,25 +353,42 @@
 								stroke: '#383f47'
 							  }
 					},
-					markers: myMarkers
+					markers: myMarkers,
+					onRegionClick: function (event, code) {
+						//window.location.href = "yourpage?regionCode=" + code
+						createPieChart();
+					},
+					
+					
+					
+					
+					
+					
 				});
 				});
+				//jVector Map Function END
+				
+				
+				
 			});
+	};
+	$(document).ready(createUsMap);
 	</script>
 <!-- /jVectorMapTest -->
-
+	
 <!-- easy-pie-area-chart -->
 	<script>	
 	function createPieChart() {
 	      var echartPieCollapse = echarts.init(document.getElementById('echart_mini_pie'), echart_theme);
       
 	            $.getJSON('/api/elec_gen.php', {
-				  "year[]": [2015],
-				  "group_by[]": ["fuel"],
-				  "order_by[SUM_amount]": "DESC",
-				  "aggr[amount]": "SUM",
-				  "range[limit]": 5,
-				  "columns[]": ["fuel"]
+					
+					"year[]": [slider.noUiSlider.get()],
+					"group_by[]": ["fuel"],
+					"order_by[SUM_amount]": "DESC",
+					"aggr[amount]": "SUM",
+					"range[limit]": 5,
+					"columns[]": ["fuel"]
           }).done(function(data) {
               var values = [];
 			  var columns = [];
@@ -417,7 +397,7 @@
 				values[i] = {name: item.fuel, value: item.SUM_amount};
               });
 		
-		line_graph_query_params['fuel'] = columns;
+		//line_graph_query_params['fuel'] = columns;
 		render_line_graph();
 			    
       echartPieCollapse.setOption({
@@ -468,28 +448,28 @@
 <!-- /easy-pie-area-chart -->
 
 <!-- slider -->
-	<script src="/js/nouislider.min.js"></script>
+
 	<script>
 	var slider = document.getElementById('slider');
 
 		noUiSlider.create(slider, {
-			start: [ 2010 ],
+			start: [ 2003 ],
 			step: 1,
 			range: {
-			'min': [  2010 ],
+			'min': [  2003 ],
 			'max': [ 2015 ]
 			},
 			pips: {
 				mode: 'values',
-				values: [2010,2011,2012,2013,2014,2015],
+				values: [2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015],
 				density: 5
 			}	
 		});
 		
 		$('#slider').click(function() {
 			createPieChart();
-			//createUSMap();
-			line_graph_query_params['year[]'] = slider.noUiSlider.get();
+			createUSMap();
+			//line_graph_query_params['year[]'] = slider.noUiSlider.get();
 			render_line_graph();
 		});
 	</script>
@@ -497,7 +477,44 @@
 	
 <!-- echart-linechart -->
 	<script>
+	function render_line_graph() {
 	var echartLine = echarts.init(document.getElementById('echart_line'), echart_theme);
+	
+		$.getJSON('/api/elec_gen.php', {
+			"state[]": ["US-TX"],
+          "year[]": [slider.noUiSlider.get()],              
+          "order_by[month]": "ASC",			
+          "columns[]": ["month","fuel"],
+		  "aggr[amount]": "SUM",
+		  "group_by[]": ["state","month","fuel"]
+		}).done(function(data) {
+			  //console.log(data);
+			  var fuels = {};
+			  $.each(data, function(i, item) {
+				  if(typeof fuels[item.fuel] == 'undefined') {
+					  fuels[item.fuel] = [];
+				  }
+				fuels[item.fuel][item.month-1] = item.SUM_amount;		
+			  });
+			  
+			$.each(fuels,function(fuel,fuel_data) {
+				lineChartOptions.series.push({
+					name: fuel,
+					type: 'line',
+					smooth: true,
+					itemStyle: {
+					normal: {
+							areaStyle: {
+								type: 'default'
+							}
+						}
+					},
+				data: fuel_data
+				});
+			});
+			echartLine.setOption(lineChartOptions);			 
+		  });
+
 	var lineChartOptions = {
         title: {
           text: 'Line Graph',
@@ -547,37 +564,11 @@
         series: []
       };
 	  
-		function render_line_graph() {
+		
 		  //line_graph_query_params['debug'] = 1;
-		$.getJSON('/api/elec_gen.php', line_graph_query_params).done(function(data) {
-			  //console.log(data);
-			  var fuels = {};
-			  $.each(data, function(i, item) {
-				  if(typeof fuels[item.fuel] == 'undefined') {
-					  fuels[item.fuel] = [];
-				  }
-				fuels[item.fuel][item.month-1] = item.SUM_amount;		
-			  });
-			  
-			  $.each(fuels,function(fuel,fuel_data) {
-				lineChartOptions.series.push({
-		  name: fuel,
-		  type: 'line',
-		  smooth: true,
-		  itemStyle: {
-			normal: {
-			  areaStyle: {
-				type: 'default'
-			  }
-			}
-		  },
-		  data: fuel_data
-		});
-			  });
-			  
-			  echartLine.setOption(lineChartOptions);			 
-		  });
-	  }	  
+	
+	  }
+$(document).ready(render_line_graph);	  
 	  </script>
 <!-- /echart-linechart -->
 
