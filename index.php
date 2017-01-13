@@ -9,7 +9,7 @@
 
     <title>EIA Dashboard</title>
     <!-- NoUISlider -->
-    <link href="/css/nouislider.min.css" rel="stylesheet">
+    <link href="../vendors/nouislider/css/nouislider.min.css" rel="stylesheet">
 
 
     <!-- Bootstrap -->
@@ -479,7 +479,7 @@
 <!-- /easy-pie-area-chart -->
 
 <!-- slider -->
-<script type="application/javascript" src="/js/nouislider.min.js"></script>
+<script type="application/javascript" src="../vendors/nouislider/js/nouislider.min.js"></script>
 <script type="application/javascript">
     var slider = document.getElementById('slider');
 
