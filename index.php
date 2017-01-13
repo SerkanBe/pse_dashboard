@@ -346,7 +346,7 @@
         "order_by[month]": "ASC",
         "columns[]": ["month", "fuel"],
         "aggr[amount]": "SUM",
-        "group_by[]": ["state", "month", "fuel"]
+        "group_by[]": ["state", "month", "fuel"],
     }
 </script>
 <!-- line_graph_query_params  -->
@@ -435,7 +435,6 @@
             });
 
             line_graph_query_params['fuel'] = columns;
-            render_line_graph();
 
             echartPieCollapse.setOption({
                 tooltip: {
@@ -478,6 +477,7 @@
                     data: values
                 }]
             });
+            render_line_graph();
             echartPieCollapse.hideLoading();
         });
 
@@ -509,7 +509,6 @@
         createPieChart();
         //createUSMap();
         line_graph_query_params['year[]'] = slider.noUiSlider.get();
-        render_line_graph();
     });
 </script>
 <!-- /slider-->
@@ -577,7 +576,7 @@
                 }
                 fuels[item.fuel][item.month - 1] = item.SUM_amount;
             });
-
+            lineChartOptions.series = [];
             $.each(fuels, function (fuel, fuel_data) {
                 lineChartOptions.series.push({
                     name: fuel,
@@ -593,10 +592,10 @@
                     data: fuel_data
                 });
             });
-
             echartLine.setOption(lineChartOptions);
         });
     }
+    //$(document).ready(render_line_graph);
 </script>
 <!-- /echart-linechart -->
 
