@@ -13,18 +13,15 @@
 
 
     <!-- Bootstrap -->
-    <link href="../vendors/bootstrap/dist/css/bootstrap.min.css"
-          rel="stylesheet">
+    <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
-    <link href="../vendors/font-awesome/css/font-awesome.min.css"
-          rel="stylesheet">
+    <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <!-- NProgress -->
     <link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
     <!-- iCheck -->
     <link href="../vendors/iCheck/skins/flat/green.css" rel="stylesheet">
     <!-- jVectorMap -->
-    <link rel="stylesheet" href="../jvectormap/jquery-jvectormap-2.0.3.css"
-          type="text/css" media="screen"/>
+    <link rel="stylesheet" href="../jvectormap/jquery-jvectormap-2.0.3.css" type="text/css" media="screen"/>
     <!-- Custom Theme Style -->
     <link href="../build/css/custom.min.css" rel="stylesheet">
 </head>
@@ -45,11 +42,10 @@
                     <div class="title_right">
                         <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
                             <div class="input-group">
-                                <input type="text" class="form-control"
-                                       placeholder="Search for...">
+                                <input type="text" class="form-control" placeholder="Search for...">
                                 <span class="input-group-btn">
-                      <button class="btn btn-default" type="button">Go!</button>
-                    </span>
+                                  <button class="btn btn-default" type="button">Go!</button>
+                                </span>
                             </div>
                         </div>
                     </div>
@@ -61,33 +57,17 @@
                     <div class="col-md-6 col-sm-6 col-xs-12">
                         <div class="x_panel">
                             <div class="x_title">
-                                <h2>jVector Map</h2>
+                                <h2>Excess/Shortage</h2>
                                 <ul class="nav navbar-right panel_toolbox">
-                                    <li><a class="collapse-link"><i
-                                                    class="fa fa-chevron-up"></i></a>
-                                    </li>
-                                    <li class="dropdown">
-                                        <a href="#" class="dropdown-toggle"
-                                           data-toggle="dropdown" role="button"
-                                           aria-expanded="false"><i
-                                                    class="fa fa-wrench"></i></a>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li><a href="#">Settings 1</a>
-                                            </li>
-                                            <li><a href="#">Settings 2</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li><a class="close-link"><i
-                                                    class="fa fa-close"></i></a>
+                                    <li><a class="collapse-link">
+                                            <i class="fa fa-chevron-up"></i></a>
                                     </li>
                                 </ul>
                                 <div class="clearfix"></div>
                             </div>
                             <div class="x_content">
 
-                                <div id="jvectormap_usa"
-                                     style="height:350px !important;"></div>
+                                <div id="jvectormap_usa" style="height:350px !important;"></div>
                                 <div style="height:20px;"></div>
                                 <div id="slider" style="height:15px;"></div>
                                 <div style="height:40px;"></div>
@@ -101,14 +81,10 @@
                             <div class="x_title">
                                 <h2>Net generation by fuel</h2>
                                 <ul class="nav navbar-right panel_toolbox">
-                                    <li><a class="collapse-link"><i
-                                                    class="fa fa-chevron-up"></i></a>
+                                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                     </li>
                                     <li class="dropdown">
-                                        <a href="#" class="dropdown-toggle"
-                                           data-toggle="dropdown" role="button"
-                                           aria-expanded="false"><i
-                                                    class="fa fa-wrench"></i></a>
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
                                         <ul class="dropdown-menu" role="menu">
                                             <li><a href="#">Settings 1</a>
                                             </li>
@@ -116,16 +92,14 @@
                                             </li>
                                         </ul>
                                     </li>
-                                    <li><a class="close-link"><i
-                                                    class="fa fa-close"></i></a>
+                                    <li><a class="close-link"><i class="fa fa-close"></i></a>
                                     </li>
                                 </ul>
                                 <div class="clearfix"></div>
                             </div>
                             <div class="x_content">
 
-                                <div id="echart_mini_pie"
-                                     style="height:425px;"></div>
+                                <div id="echart_mini_pie" style="height:425px;"></div>
 
                             </div>
                         </div>
@@ -136,14 +110,10 @@
                             <div class="x_title">
                                 <h2>EChart Line Graph</h2>
                                 <ul class="nav navbar-right panel_toolbox">
-                                    <li><a class="collapse-link"><i
-                                                    class="fa fa-chevron-up"></i></a>
+                                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                     </li>
                                     <li class="dropdown">
-                                        <a href="#" class="dropdown-toggle"
-                                           data-toggle="dropdown" role="button"
-                                           aria-expanded="false"><i
-                                                    class="fa fa-wrench"></i></a>
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
                                         <ul class="dropdown-menu" role="menu">
                                             <li><a href="#">Settings 1</a>
                                             </li>
@@ -151,16 +121,14 @@
                                             </li>
                                         </ul>
                                     </li>
-                                    <li><a class="close-link"><i
-                                                    class="fa fa-close"></i></a>
+                                    <li><a class="close-link"><i class="fa fa-close"></i></a>
                                     </li>
                                 </ul>
                                 <div class="clearfix"></div>
                             </div>
                             <div class="x_content">
 
-                                <div id="echart_line"
-                                     style="height:275px;"></div>
+                                <div id="echart_line" style="height:275px;"></div>
 
                             </div>
                         </div>
@@ -172,27 +140,20 @@
                             <div class="x_title">
                                 <h2>Net generation by fuel2</h2>
                                 <ul class="nav navbar-right panel_toolbox">
-                                    <li><a class="collapse-link"><i
-                                                    class="fa fa-chevron-up"></i></a>
+                                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                     </li>
                                     <li class="dropdown">
-                                        <a href="#" class="dropdown-toggle"
-                                           data-toggle="dropdown" role="button"
-                                           aria-expanded="false"><i
-                                                    class="fa fa-wrench"></i></a>
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
                                         <ul class="dropdown-menu" role="menu">
-                                            <li><a href="#"
-                                                   onclick="myFunction1()">Settings
+                                            <li><a href="#" onclick="myFunction1()">Settings
                                                     1</a>
                                             </li>
-                                            <li><a href="#"
-                                                   onclick="myFunction2()">Settings
+                                            <li><a href="#" onclick="myFunction2()">Settings
                                                     2</a>
                                             </li>
                                         </ul>
                                     </li>
-                                    <li><a class="close-link"><i
-                                                    class="fa fa-close"></i></a>
+                                    <li><a class="close-link"><i class="fa fa-close"></i></a>
                                     </li>
                                 </ul>
                                 <div class="clearfix"></div>
@@ -207,19 +168,13 @@
                                     onclick="myFunction1()">
                                     Left
                                     </button>
-                                    <button id="button2" type="button"
-                                            class="btn btn-default"
-                                            onclick="myFunction2()">
+                                    <button id="button2" type="button" class="btn btn-default" onclick="myFunction2()">
                                         Top
                                     </button>
-                                    <button id="button3" type="button"
-                                            class="btn btn-default"
-                                            onclick="myFunction3()">
+                                    <button id="button3" type="button" class="btn btn-default" onclick="myFunction3()">
                                         Bottom
                                     </button>
-                                    <button id="button4" type="button"
-                                            class="btn btn-default"
-                                            onclick="myFunction4()">
+                                    <button id="button4" type="button" class="btn btn-default" onclick="myFunction4()">
                                         Right
                                     </button>
                                 </div>
@@ -238,14 +193,10 @@
                                     <small>Float right</small>
                                 </h2>
                                 <ul class="nav navbar-right panel_toolbox">
-                                    <li><a class="collapse-link"><i
-                                                    class="fa fa-chevron-up"></i></a>
+                                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                     </li>
                                     <li class="dropdown">
-                                        <a href="#" class="dropdown-toggle"
-                                           data-toggle="dropdown" role="button"
-                                           aria-expanded="false"><i
-                                                    class="fa fa-wrench"></i></a>
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
                                         <ul class="dropdown-menu" role="menu">
                                             <li><a href="#">Settings 1</a>
                                             </li>
@@ -253,8 +204,7 @@
                                             </li>
                                         </ul>
                                     </li>
-                                    <li><a class="close-link"><i
-                                                    class="fa fa-close"></i></a>
+                                    <li><a class="close-link"><i class="fa fa-close"></i></a>
                                     </li>
                                 </ul>
                                 <div class="clearfix"></div>
@@ -264,8 +214,7 @@
                                 <div class="col-xs-9">
                                     <!-- Tab panes -->
                                     <div class="tab-content">
-                                        <div class="tab-pane active"
-                                             id="home-r">
+                                        <div class="tab-pane active" id="home-r">
                                             <p class="lead">Home tab</p>
                                             <p>Raw denim you probably haven't
                                                 heard of them jean shorts
@@ -294,21 +243,17 @@
                                     <!-- required for floating -->
                                     <!-- Nav tabs -->
                                     <ul class="nav nav-tabs tabs-right">
-                                        <li class="active"><a href="#home-r"
-                                                              data-toggle="tab"
-                                                              aria-expanded="true">Home</a>
+                                        <li class="active">
+                                            <a href="#home-r" data-toggle="tab" aria-expanded="true">Home</a>
                                         </li>
-                                        <li class=""><a href="#profile-r"
-                                                        data-toggle="tab"
-                                                        aria-expanded="false">Profile</a>
+                                        <li class="">
+                                            <a href="#profile-r" data-toggle="tab" aria-expanded="false">Profile</a>
                                         </li>
-                                        <li class=""><a href="#messages-r"
-                                                        data-toggle="tab"
-                                                        aria-expanded="false">Messages</a>
+                                        <li class="">
+                                            <a href="#messages-r" data-toggle="tab" aria-expanded="false">Messages</a>
                                         </li>
-                                        <li class=""><a href="#settings-r"
-                                                        data-toggle="tab"
-                                                        aria-expanded="false">Settings</a>
+                                        <li class="">
+                                            <a href="#settings-r" data-toggle="tab" aria-expanded="false">Settings</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -324,14 +269,10 @@
                             <div class="x_title">
                                 <h2>JQV Map</h2>
                                 <ul class="nav navbar-right panel_toolbox">
-                                    <li><a class="collapse-link"><i
-                                                    class="fa fa-chevron-up"></i></a>
+                                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                     </li>
                                     <li class="dropdown">
-                                        <a href="#" class="dropdown-toggle"
-                                           data-toggle="dropdown" role="button"
-                                           aria-expanded="false"><i
-                                                    class="fa fa-wrench"></i></a>
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
                                         <ul class="dropdown-menu" role="menu">
                                             <li><a href="#">Settings 1</a>
                                             </li>
@@ -339,16 +280,14 @@
                                             </li>
                                         </ul>
                                     </li>
-                                    <li><a class="close-link"><i
-                                                    class="fa fa-close"></i></a>
+                                    <li><a class="close-link"><i class="fa fa-close"></i></a>
                                     </li>
                                 </ul>
                                 <div class="clearfix"></div>
                             </div>
                             <div class="x_content">
 
-                                <div id="j_usa"
-                                     style="height:350px !important;"></div>
+                                <div id="j_usa" style="height:350px !important;"></div>
 
                             </div>
                         </div>
@@ -362,8 +301,7 @@
         <!-- footer content -->
         <footer>
             <div class="pull-right">
-                Energy Admin Dashboard - Powered by <a
-                        href="https://www.eia.gov/">EIA</a>
+                Energy Admin Dashboard - Powered by <a href="https://www.eia.gov/">EIA</a>
             </div>
             <div class="clearfix"></div>
         </footer>
@@ -372,28 +310,28 @@
 </div>
 
 <!-- jQuery -->
-<script src="../vendors/jquery/dist/jquery.min.js"></script>
+<script type="application/javascript" src="../vendors/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap -->
-<script src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="application/javascript" src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- FastClick -->
-<script src="../vendors/fastclick/lib/fastclick.js"></script>
+<script type="application/javascript" src="../vendors/fastclick/lib/fastclick.js"></script>
 <!-- NProgress -->
-<script src="../vendors/nprogress/nprogress.js"></script>
+<script type="application/javascript" src="../vendors/nprogress/nprogress.js"></script>
 <!-- jQuery Sparklines -->
-<script src="../vendors/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
+<script type="application/javascript" src="../vendors/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
 <!-- easy-pie-chart -->
-<script src="../vendors/jquery.easy-pie-chart/dist/jquery.easypiechart.min.js"></script>
+<script type="application/javascript" src="../vendors/jquery.easy-pie-chart/dist/jquery.easypiechart.min.js"></script>
 <!-- Custom Theme Scripts -->
-<script src="../build/js/custom.min.js"></script>
+<script type="application/javascript" src="../build/js/custom.min.js"></script>
 <!-- ECharts -->
-<script src="../vendors/echarts/dist/echarts.min.js"></script>
-<script src="../js/echart_theme.js"></script>
+<script type="application/javascript" src="../vendors/echarts/dist/echarts.min.js"></script>
+<script type="application/javascript" src="../js/echart_theme.js"></script>
 <!-- jvectormap -->
-<script src="../jvectormap/jquery-jvectormap-2.0.3.min.js"></script>
-<script src="../jvectormap/jquery-jvectormap-us-aea.js"></script>
+<script type="application/javascript" src="../jvectormap/jquery-jvectormap-2.0.3.min.js"></script>
+<script type="application/javascript" src="../jvectormap/jquery-jvectormap-us-aea.js"></script>
 
 <!-- line_graph_query_params  -->
-<script>
+<script type="application/javascript">
     var line_graph_query_params = {
         "state[]": ["US-TX"],
         "year[]": 2010,
@@ -406,7 +344,7 @@
 <!-- line_graph_query_params  -->
 
 <!-- jVectorMapTest -->
-<script>
+<script type="application/javascript">
 
     $.getJSON('/api/plant.php', {
         "group_by[]": ["plant_lat, plant_lon"],
@@ -462,14 +400,14 @@
 <!-- /jVectorMapTest -->
 
 <!-- easy-pie-area-chart -->
-<script>
+<script type="application/javascript">
     function createPieChart() {
         var echartPieCollapse = echarts.init(document.getElementById('echart_mini_pie'), echart_theme);
-        echartPieCollapse.showLoading('default',{
+        echartPieCollapse.showLoading('default', {
             text: 'Lade Daten...',
             effect: 'bubble',
-            textStyle : {
-                fontSize : 20
+            textStyle: {
+                fontSize: 20
             }
         });
         console.log('loading');
@@ -541,8 +479,8 @@
 <!-- /easy-pie-area-chart -->
 
 <!-- slider -->
-<script src="/js/nouislider.min.js"></script>
-<script>
+<script type="application/javascript" src="/js/nouislider.min.js"></script>
+<script type="application/javascript">
     var slider = document.getElementById('slider');
 
     noUiSlider.create(slider, {
@@ -570,7 +508,7 @@
 <!-- /slider-->
 
 <!-- echart-linechart -->
-<script>
+<script type="application/javascript">
     var echartLine = echarts.init(document.getElementById('echart_line'), echart_theme);
     var lineChartOptions = {
         title: {
