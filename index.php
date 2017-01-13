@@ -109,7 +109,7 @@
                   </div>
                   <div class="x_content">
 
-                    <div id="echart_mini_pie" style="height:420px;"></div>
+                    <div id="echart_mini_pie" style="height:425px;"></div>
 
                   </div>
                 </div>
@@ -138,7 +138,7 @@
                   </div>
                   <div class="x_content">
 					
-                    <div id="echart_line" style="height:270px;"></div>
+                    <div id="echart_line" style="height:275px;"></div>
 
                   </div>
                 </div>
@@ -306,75 +306,7 @@
 	</script>
 	<!-- line_graph_query_params  --> 
 	
-<!-- jVectorMapTest -->
-	<script>
-	function createUsMap(){
-			$.getJSON('/api/plant.php', { 
-				"group_by[]": ["plant_lat, plant_lon"],
-				"range[limit]": 100,
-				"columns[]": ["plant_name","plant_lat","plant_lon"]
-				
-			}).done(function(data) {
-				var myMarkers = [];
-		
-				$.each(data, function(i, item) {
-					
-				  myMarkers[i] = {latLng:[parseFloat(item.lat),parseFloat(item.lon)], name: item.name, style: {"fill": "yellow"}};
-					//console.log(myMarkers[i]);
-				  });
 
-				$(function(){
-				$('#jvectormap_usa').vectorMap({
-					map: 'us_aea',
-					
-					
-					backgroundColor: 'white',
-					regionStyle: {
-						initial: {
-							fill: '#009688',
-							"fill-opacity": 1,
-							stroke: 'none',
-							"stroke-width": 0,
-							"stroke-opacity": 1
-						},
-						hover: {
-							"fill-opacity": 0.8,
-							cursor: 'pointer'
-						},
-						selected: {
-							fill: 'yellow'
-						},
-						selectedHover: {
-						}	
-					},
-					markerStyle: {
-							initial: {
-								fill: '#F8E23B',
-								stroke: '#383f47'
-							  }
-					},
-					markers: myMarkers,
-					onRegionClick: function (event, code) {
-						//window.location.href = "yourpage?regionCode=" + code
-						createPieChart();
-					},
-					
-					
-					
-					
-					
-					
-				});
-				});
-				//jVector Map Function END
-				
-				
-				
-			});
-	};
-	$(document).ready(createUsMap);
-	</script>
-<!-- /jVectorMapTest -->
 	
 <!-- easy-pie-area-chart -->
 	<script>	
@@ -571,6 +503,96 @@
 $(document).ready(render_line_graph);	  
 	  </script>
 <!-- /echart-linechart -->
+<!-- jVectorMapTest -->
+	<script>
+	function createUsMap(){
+			$.getJSON('/api/plant.php', { 
+				
+				"group_by[]": ["plant_lat, plant_lon"],
+				"range[limit]": 1000,
+				"columns[]": ["plant_name","plant_lat","plant_lon"]
+				
+			}).done(function(data) {
+				var myMarkers = [];
+		
+				$.each(data, function(i, item) {
+					
+					if(item.fuel == "nuclear"){
+					myMarkers[i] = {latLng:[parseFloat(item.lat),parseFloat(item.lon)], name: item.name, style: {"fill": "#212121"}};
+					}
+					else if(item.fuel == "solar"){
+					myMarkers[i] = {latLng:[parseFloat(item.lat),parseFloat(item.lon)], name: item.name, style: {"fill": "#FFEB3B"}};
+					}
+					else if(item.fuel == "Coal"){
+					myMarkers[i] = {latLng:[parseFloat(item.lat),parseFloat(item.lon)], name: item.name, style: {"fill": "#4E342E"}};
+					}
+					else if(item.fuel == "conventional hydroelectric"){
+					myMarkers[i] = {latLng:[parseFloat(item.lat),parseFloat(item.lon)], name: item.name, style: {"fill": "#039BE5"}};
+					}
+					else if(item.fuel == "wind"){
+					myMarkers[i] = {latLng:[parseFloat(item.lat),parseFloat(item.lon)], name: item.name, style: {"fill": "#E0F7FA"}};
+					}
+					else if(item.fuel == "natural gas"){
+					myMarkers[i] = {latLng:[parseFloat(item.lat),parseFloat(item.lon)], name: item.name, style: {"fill": "#BDBDBD"}};
+					}
+					else{
+					myMarkers[i] = {latLng:[parseFloat(item.lat),parseFloat(item.lon)], name: item.name, style: {"fill": "#F06292"}};
+					}
+					
+					//console.log(myMarkers[i]);
+				  });
 
+				$(function(){
+				$('#jvectormap_usa').vectorMap({
+					map: 'us_aea',
+					
+					
+					backgroundColor: 'white',
+					regionStyle: {
+						initial: {
+							fill: '#009688',
+							"fill-opacity": 1,
+							stroke: 'none',
+							"stroke-width": 0,
+							"stroke-opacity": 1
+						},
+						hover: {
+							"fill-opacity": 0.8,
+							cursor: 'pointer'
+						},
+						selected: {
+							fill: 'yellow'
+						},
+						selectedHover: {
+						}	
+					},
+					markerStyle: {
+							initial: {
+								fill: '#F8E23B',
+								stroke: '#383f47'
+							  }
+					},
+					markers: myMarkers,
+					onRegionClick: function (event, code) {
+						//window.location.href = "yourpage?regionCode=" + code
+						createPieChart();
+					},
+					
+					
+					
+					
+					
+					
+				});
+				});
+				//jVector Map Function END
+				
+				
+				
+			});
+	};
+	$(document).ready(createUsMap);
+	</script>
+<!-- /jVectorMapTest -->
   </body>
 </html>
