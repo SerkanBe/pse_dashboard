@@ -8,22 +8,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>EIA Dashboard</title>
-    <!-- NoUISlider -->
-    <link href="../vendors/nouislider/css/nouislider.min.css" rel="stylesheet">
 
+    <!-- jQuery -->
+    <script type="application/javascript" src="../vendors/jquery/dist/jquery.min.js"></script>
 
     <!-- Bootstrap -->
     <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script type="application/javascript" src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- Font Awesome -->
     <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- NoUISlider -->
+    <link href="../vendors/nouislider/css/nouislider.min.css" rel="stylesheet">
+    <script type="application/javascript" src="../vendors/nouislider/js/nouislider.min.js"></script>
+
     <!-- NProgress -->
     <link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
-    <!-- iCheck -->
-    <link href="../vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+    <script type="application/javascript" src="../vendors/nprogress/nprogress.js"></script>
+
     <!-- jVectorMap -->
     <link rel="stylesheet" href="../jvectormap/jquery-jvectormap-2.0.3.css" type="text/css" media="screen"/>
+
+    <!-- FastClick -->
+    <script type="application/javascript" src="../vendors/fastclick/lib/fastclick.js"></script>
+
+    <!-- jQuery Sparklines -->
+    <script type="application/javascript" src="../vendors/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
+    <!-- easy-pie-chart -->
+    <script type="application/javascript" src="../vendors/jquery.easy-pie-chart/dist/jquery.easypiechart.min.js"></script>
+
     <!-- Custom Theme Style -->
     <link href="../build/css/custom.min.css" rel="stylesheet">
+    <!-- Custom Theme Scripts -->
+    <script type="application/javascript" src="../build/js/custom.min.js"></script>
+
+    <!-- ECharts -->
+    <script type="application/javascript" src="../vendors/echarts/dist/echarts.min.js"></script>
+    <script type="application/javascript" src="../js/echart_theme.js"></script>
+
+    <!-- jvectormap -->
+    <script type="application/javascript" src="../jvectormap/jquery-jvectormap-2.0.3.min.js"></script>
+    <script type="application/javascript" src="../jvectormap/jquery-jvectormap-us-aea.js"></script>
+
+    <!-- iCheck -->
+    <link href="../vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+
 </head>
 
 <body class="nav-md">
@@ -309,27 +338,6 @@
     </div>
 </div>
 
-<!-- jQuery -->
-<script type="application/javascript" src="../vendors/jquery/dist/jquery.min.js"></script>
-<!-- Bootstrap -->
-<script type="application/javascript" src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-<!-- FastClick -->
-<script type="application/javascript" src="../vendors/fastclick/lib/fastclick.js"></script>
-<!-- NProgress -->
-<script type="application/javascript" src="../vendors/nprogress/nprogress.js"></script>
-<!-- jQuery Sparklines -->
-<script type="application/javascript" src="../vendors/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
-<!-- easy-pie-chart -->
-<script type="application/javascript" src="../vendors/jquery.easy-pie-chart/dist/jquery.easypiechart.min.js"></script>
-<!-- Custom Theme Scripts -->
-<script type="application/javascript" src="../build/js/custom.min.js"></script>
-<!-- ECharts -->
-<script type="application/javascript" src="../vendors/echarts/dist/echarts.min.js"></script>
-<script type="application/javascript" src="../js/echart_theme.js"></script>
-<!-- jvectormap -->
-<script type="application/javascript" src="../jvectormap/jquery-jvectormap-2.0.3.min.js"></script>
-<script type="application/javascript" src="../jvectormap/jquery-jvectormap-us-aea.js"></script>
-
 <!-- line_graph_query_params  -->
 <script type="application/javascript">
     var line_graph_query_params = {
@@ -479,7 +487,6 @@
 <!-- /easy-pie-area-chart -->
 
 <!-- slider -->
-<script type="application/javascript" src="../vendors/nouislider/js/nouislider.min.js"></script>
 <script type="application/javascript">
     var slider = document.getElementById('slider');
 
