@@ -11,7 +11,10 @@
 	<!-- NoUISlider -->
 	<link href="/css/nouislider.min.css" rel="stylesheet">
 	
-	
+	<!-- Kartograph Map -->
+	<!--script src="../vendors/jquery/dist/jquery.min.js"></script>
+    <script src="../vendors/raphael/raphael.min.js"></script>
+    <script src="../vendors/kartograph/kartograph.min.js"></script>
     <!-- Bootstrap -->
     <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
@@ -20,8 +23,15 @@
     <link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
     <!-- iCheck -->
     <link href="../vendors/iCheck/skins/flat/green.css" rel="stylesheet">
-	<!-- jVectorMap -->
-	<link rel="stylesheet" href="../jvectormap/jquery-jvectormap-2.0.3.css" type="text/css" media="screen"/>
+    <!-- JQVMap -->
+    <!-- link href="../vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet"/>
+	<!-- JVectorMap -->
+	<!--link rel="stylesheet" href="../jvectormap/jquery-jvectormap.min.css" type="text/css" media="screen"/>
+	<script src="../jvectormap/jquery-3.1.1.min.js"></script>
+	<script src="../jvectormap/jquery-jvectormap.min.js"></script>
+	<script src="../jvectormap/jquery-jvectormap-world-mill.js"></script>
+	
+
     <!-- Custom Theme Style -->
     <link href="../build/css/custom.min.css" rel="stylesheet">
   </head>
@@ -52,10 +62,10 @@
             <div class="clearfix"></div>
 
             <div class="row">
-              <div class="col-md-6 col-sm-6 col-xs-12">
+              <div class="col-md-8 col-sm-8 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>jVector Map</h2>
+                    <h2>JQV MAP</h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
@@ -75,16 +85,42 @@
                   </div>
                   <div class="x_content">
 
-                    <div id="jvectormap_usa" style="height:350px !important;"></div>
-					<div style="height:20px;"></div>
-					<div id="slider" style="height:15px;"></div>
-					<div style="height:40px;"></div>
+                    <div id="jqvmap_usa" style="height:350px !important;"></div>
 
                   </div>
                 </div>
               </div>
-  			  
-			  <div class="col-md-4 col-sm-4 col-xs-12">
+
+			  <div class="col-md-8 col-sm-8 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Kartograph Map</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="#">Settings 1</a>
+                          </li>
+                          <li><a href="#">Settings 2</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+
+                    <div id="kartographmap_usa" style="height:350px !important;"></div>
+
+                  </div>
+                </div>
+              </div>
+			  
+              <div class="col-md-4 col-sm-4 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
                     <h2>Net generation by fuel</h2>
@@ -107,12 +143,78 @@
                   </div>
                   <div class="x_content">
 
-                    <div id="echart_mini_pie" style="height:425px;"></div>
+                    <div id="echart_mini_pie" style="height:350px;"></div>
 
                   </div>
                 </div>
               </div>
+			  
+              <div class="col-md-8 col-sm-8 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>jVectorMap</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="#">Settings 1</a>
+                          </li>
+                          <li><a href="#">Settings 2</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
 
+                    <div id="jvectormap_usa" style="height:350px;width: 600px"></div>
+					<!-- jVectorMapTest -->
+					<script>
+						$(function(){
+						  $('#jvectormap_usa').vectorMap({map: 'us_mill'});
+						});
+					</script>
+					 <!-- /jVectorMapTest -->
+					 
+                  </div>
+                </div>
+              </div>
+			  
+              <div class="col-md-8 col-sm-8 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Time Slider</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="#">Settings 1</a>
+                          </li>
+                          <li><a href="#">Settings 2</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+					
+                    <div id="slider" style="height:15px;"></div>
+					<div style="height:30px;"></div>
+
+                  </div>
+                </div>
+              </div>
+			  
               <div class="col-md-6 col-sm-6 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
@@ -135,152 +237,12 @@
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-					
-                    <div id="echart_line" style="height:275px;"></div>
+
+                    <div id="echart_line" style="height:350px;"></div>
 
                   </div>
                 </div>
               </div>
-			  
-			  			  
-			  <div class="col-md-4 col-sm-4 col-xs-12">
-                <div class="x_panel">
-                  <div class="x_title">
-                    <h2>Net generation by fuel2</h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                      </li>
-                      <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                        <ul class="dropdown-menu" role="menu">
-                          <li><a href="#" onclick="myFunction1()">Settings 1</a>
-                          </li>
-                          <li><a href="#" onclick="myFunction2()">Settings 2</a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li><a class="close-link"><i class="fa fa-close"></i></a>
-                      </li>
-                    </ul>
-                    <div class="clearfix"></div>
-                  </div>
-                  <div class="x_content">
-
-				  <p>Choose Information to Diasplay</p>
-                    <!-- start pop-over -->
-                    <div class="btn-group">
-                      <button id="button1 type="button" class="btn btn-default" onclick="myFunction1()">
-                        Left
-                      </button>
-                      <button id="button2" type="button" class="btn btn-default" onclick="myFunction2()">
-                        Top
-                      </button>
-                      <button id="button3" type="button" class="btn btn-default" onclick="myFunction3()">
-                        Bottom
-                      </button>
-                      <button id="button4" type="button" class="btn btn-default" onclick="myFunction4()">
-                        Right
-                      </button>
-                    </div>
-                    <!-- end pop-over -->
-                    <!--div id="echart_mini_pie2" style="height:275px;"></div-->
-
-                  </div>
-                </div>
-              </div>
-			  
-			  
-			  
-			  
-			  <div class="col-md-6 col-sm-6 col-xs-12">
-                <div class="x_panel">
-                  <div class="x_title">
-                    <h2><i class="fa fa-bars"></i> Vertical Tabs <small>Float right</small></h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                      </li>
-                      <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                        <ul class="dropdown-menu" role="menu">
-                          <li><a href="#">Settings 1</a>
-                          </li>
-                          <li><a href="#">Settings 2</a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li><a class="close-link"><i class="fa fa-close"></i></a>
-                      </li>
-                    </ul>
-                    <div class="clearfix"></div>
-                  </div>
-                  <div class="x_content">
-
-                    <div class="col-xs-9">
-                      <!-- Tab panes -->
-                      <div class="tab-content">
-                        <div class="tab-pane active" id="home-r">
-                          <p class="lead">Home tab</p>
-                          <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher
-                            synth. Cosby sweater eu banh mi, qui irure terr.</p>
-                        </div>
-                        <div class="tab-pane" id="profile-r">Profile Tab.</div>
-                        <div class="tab-pane" id="messages-r">Messages Tab.</div>
-                        <div class="tab-pane" id="settings-r">Settings Tab.</div>
-                      </div>
-                    </div>
-
-                    <div class="col-xs-3">
-                      <!-- required for floating -->
-                      <!-- Nav tabs -->
-                      <ul class="nav nav-tabs tabs-right">
-                        <li class="active"><a href="#home-r" data-toggle="tab" aria-expanded="true">Home</a>
-                        </li>
-                        <li class=""><a href="#profile-r" data-toggle="tab" aria-expanded="false">Profile</a>
-                        </li>
-                        <li class=""><a href="#messages-r" data-toggle="tab" aria-expanded="false">Messages</a>
-                        </li>
-                        <li class=""><a href="#settings-r" data-toggle="tab" aria-expanded="false">Settings</a>
-                        </li>
-                      </ul>
-                    </div>
-
-                  </div>
-
-                </div>
-              </div>
-			  
-			  
-			  
-			  
-			<div class="col-md-8 col-sm-8 col-xs-12">
-                <div class="x_panel">
-                  <div class="x_title">
-                    <h2>JQV Map</h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                      </li>
-                      <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                        <ul class="dropdown-menu" role="menu">
-                          <li><a href="#">Settings 1</a>
-                          </li>
-                          <li><a href="#">Settings 2</a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li><a class="close-link"><i class="fa fa-close"></i></a>
-                      </li>
-                    </ul>
-                    <div class="clearfix"></div>
-                  </div>
-                  <div class="x_content">
-
-                    <div id="j_usa" style="height:350px !important;"></div>
-
-                  </div>
-                </div>
-              </div>  
-			  
             </div>
           </div>
         </div>
@@ -307,31 +269,21 @@
     <script src="../vendors/nprogress/nprogress.js"></script>
     <!-- jQuery Sparklines -->
     <script src="../vendors/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
+    <!-- JQVMap -->
+    <script src="../vendors/jqvmap/dist/jquery.vmap.js"></script>
+    <script src="../vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+    <script src="../vendors/jqvmap/dist/maps/jquery.vmap.usa.js"></script>
+    <script src="../vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
     <!-- easy-pie-chart -->
     <script src="../vendors/jquery.easy-pie-chart/dist/jquery.easypiechart.min.js"></script>
+
     <!-- Custom Theme Scripts -->
     <script src="../build/js/custom.min.js"></script>
+	
 	<!-- ECharts -->
     <script src="../vendors/echarts/dist/echarts.min.js"></script>
 	<script src="../js/echart_theme.js"></script>
-	<!-- jvectormap -->
-	<script src="../jvectormap/jquery-jvectormap-2.0.3.min.js"></script>
-	<script src="../jvectormap/jquery-jvectormap-us-aea.js"></script>
   
-  <script>
-  myFunction1(){
-	  
-	  
-	  
-  }
-  </script>
-  
-  
-  
-  
-  
-  
- <!-- line_graph_query_params  --> 
 	<script>
 	var line_graph_query_params = {
           "state[]": ["US-TX"],
@@ -342,60 +294,44 @@
 		  "group_by[]": ["state","month","fuel"]
       }
 	</script>
-	<!-- line_graph_query_params  --> 
 	
-<!-- jVectorMapTest -->
-	<script>
+<!-- JQVMap -->
+    <script>
+	
+	function createUSMap() {
+          //http://local.pse/api/elec_gen.php?year[]=2014&group_by[]=state&order_by[state]=ASC&aggr[amount]=SUM&columns[]=state
 			
-			$.getJSON('/api/plant.php', {
-              "group_by[]": ["plant_lat, plant_lon"],
-			  "range[limit]": 500,
-              "columns[]": ["plant_name","plant_lat","plant_lon"]
-			}).done(function(data) {
-				var myMarkers = [];
-		
-				$.each(data, function(i, item) {
-					
-				  myMarkers[i] = {latLng:[parseFloat(item.lat),parseFloat(item.lon)], name: item.name, style: {"fill": "yellow"}};
-					console.log(myMarkers[i]);
-				  });
+          $.getJSON('/api/elec_gen.php', {
+              "year[]": [slider.noUiSlider.get()],
+              "group_by[]": ["state"],
+              "order_by[state]": "ASC",
+              "aggr[amount]": "SUM",
+              "columns[]": ["state"]
+          }).done(function(data) {
+              var map_data = {};
+              $.each(data, function(i, item) {
+                  
+                  map_data[item.state.substring(3).toLowerCase()] = item.SUM_amount;
+              });
 
-				$(function(){
-				$('#jvectormap_usa').vectorMap({
-					map: 'us_aea',
-					
-					
-					backgroundColor: 'white',
-					regionStyle: {
-						initial: {
-							fill: '#009688',
-							"fill-opacity": 1,
-							stroke: 'none',
-							"stroke-width": 0,
-							"stroke-opacity": 1
-						},
-						hover: {
-							"fill-opacity": 0.8,
-							cursor: 'pointer'
-						},
-						selected: {
-							fill: 'yellow'
-						},
-						selectedHover: {
-						}	
-					},
-					markerStyle: {
-							initial: {
-								fill: '#F8E23B',
-								stroke: '#383f47'
-							  }
-					},
-					markers: myMarkers
-				});
-				});
-			});
-	</script>
-<!-- /jVectorMapTest -->
+              $('#jqvmap_usa').vectorMap({
+                  map: 'usa_en',
+                  backgroundColor: null,
+                  color: '#ffffff',
+                  hoverOpacity: 0.7,
+                  selectedColor: '#666666',
+                  enableZoom: true,
+                  showTooltip: true,
+                  values: map_data,
+                  scaleColors: ['#E6F2F0', '#149B7E'],
+                  normalizeFunction: 'polynomial'
+              });
+          });
+      }
+      $(document).ready(createUSMap);
+	  
+    </script>
+<!-- /JQVMap -->
 
 <!-- easy-pie-area-chart -->
 	<script>	
@@ -488,7 +424,7 @@
 		
 		$('#slider').click(function() {
 			createPieChart();
-			//createUSMap();
+			createUSMap();
 			line_graph_query_params['year[]'] = slider.noUiSlider.get();
 			render_line_graph();
 		});
@@ -496,6 +432,7 @@
 <!-- /slider-->
 	
 <!-- echart-linechart -->
+
 	<script>
 	var echartLine = echarts.init(document.getElementById('echart_line'), echart_theme);
 	var lineChartOptions = {
@@ -579,7 +516,180 @@
 		  });
 	  }	  
 	  </script>
-<!-- /echart-linechart -->
+<!-- echart-linechart -->
+
+<!-- kartograph-us_map2 -->
+	  <script>
+	  function createUSMap2() {
+          //http://local.pse/api/elec_gen.php?year[]=2014&group_by[]=state&order_by[state]=ASC&aggr[amount]=SUM&columns[]=state
+			//select name, lat, lon from plant group by lat, lon
+			
+		/*	
+			var map_data = {};
+			$.getJSON('/api/elec_gen.php', {
+              "year[]": [slider.noUiSlider.get()],
+              "group_by[]": ["state"],
+              "order_by[state]": "ASC",
+              "aggr[amount]": "SUM",
+              "columns[]": ["state"]
+          }).done(function(data) {
+              
+              $.each(data, function(i, item) {
+                  
+                  map_data[item.state.substring(3).toLowerCase()] = item.SUM_amount;
+              });
+			});
+			*/
+			
+			
+			var map_data2 = {};
+			$.getJSON('/api/plant.php', {
+				
+              "group_by[]": ["plant_lat, plant_lon"],
+			  //alles ab 100 aufwärts kann nicht verarbeitet werden
+			  "range[limit]": 99,
+              "columns[]": ["plant_name","plant_lat","plant_lon"]
+			}).done(function(data) {
+				
+              
+			$.each(data, function(i, item) {
+			 // if(typeof map_data2[item.lat] == 'NULL') {
+				  map_data2[item.item] = [];
+			  //}
+			  
+			  map_data2[i] = {name: item.name, lat: item.lat, lon: item.lon};
+				 
+			  });
+		  });
+
+			  var svgUrl = '../images/usa.svg',
+			opts = { };
+
+		kartograph.map('#kartographmap_usa').loadMap(svgUrl, mapLoaded, opts);
+
+		function mapLoaded(map) {
+			map.addLayer('layer0', {
+				styles: {
+					stroke: '#aaa',
+					fill: '#f6f4f2'
+				},
+				mouseenter: function(d, path) {
+					path.attr('fill', '#2ba58a');
+				
+
+				},
+				mouseleave: function(d, path) {
+					path.attr('fill', '#f6f4f2');
+				
+				},
+				
+				click: function(data, path, event) {
+					// handle mouse clicks
+					// *data* holds the data dictionary of the clicked path
+					// *path* is the raphael object
+					// *event* is the original JavaScript event
+				}}
+			);
+				console.log("hi");
+				var plants = map_data2;
+				console.log(plants);
+				
+				//[
+				//	{ name: 'Juneau, AK', lat: 58.3, lon: -134.416667 },
+				//	{ name: 'Honolulu, HI', lat: 21.3, lon: -157.816667 },
+				//	{ name: 'San Francisco, CA', lat: 37.783333, lon: -122.416667 }
+				//];
+
+				map.addSymbols({
+					type: kartograph.LabeledBubble,
+					data: plants,
+					location: function(d) { return [d.lon, d.lat] },
+					//title: function(d) { return d.name; },
+					radius: 3,
+					center: false,
+					attrs: { fill: 'black' },
+					labelattrs: { 'font-size': 11 },
+					buffer: false
+				}); 
+		   
+			}
+	  }
+	  createUSMap2();
+		</script>
+<!-- /kartograph-map -->
+
+
+
+<!-- jVectorMap -->
+<script>
+/*
+$(function(){
+  $.getJSON('/data/us-unemployment.json', function(data){
+    var val = 2009;
+        statesValues = jvm.values.apply({}, jvm.values(data.states)),
+        metroPopValues = Array.prototype.concat.apply([], jvm.values(data.metro.population)),
+        metroUnemplValues = Array.prototype.concat.apply([], jvm.values(data.metro.unemployment));
+
+    $('#world-map-gdp').vectorMap({
+      map: 'us_aea',
+      markers: data.metro.coords,
+      series: {
+        markers: [{
+          attribute: 'fill',
+          scale: ['#FEE5D9', '#A50F15'],
+          values: data.metro.unemployment[val],
+          min: jvm.min(metroUnemplValues),
+          max: jvm.max(metroUnemplValues)
+        },{
+          attribute: 'r',
+          scale: [5, 20],
+          values: data.metro.population[val],
+          min: jvm.min(metroPopValues),
+          max: jvm.max(metroPopValues)
+        }],
+        regions: [{
+          scale: ['#DEEBF7', '#08519C'],
+          attribute: 'fill',
+          values: data.states[val],
+          min: jvm.min(statesValues),
+          max: jvm.max(statesValues)
+        }]
+      },
+      onMarkerTipShow: function(event, label, index){
+        label.html(
+          '<b>'+data.metro.names[index]+'</b><br/>'+
+          '<b>Population: </b>'+data.metro.population[val][index]+'</br>'+
+          '<b>Unemployment rate: </b>'+data.metro.unemployment[val][index]+'%'
+        );
+      },
+      onRegionTipShow: function(event, label, code){
+        label.html(
+          '<b>'+label.html()+'</b></br>'+
+          '<b>Unemployment rate: </b>'+data.states[val][code]+'%'
+        );
+      }
+    });
+
+    var mapObject = $('#world-map-gdp').vectorMap('get', 'mapObject');
+
+    $("#slider").slider({
+      value: val,
+      min: 2005,
+      max: 2009,
+      step: 1,
+      slide: function( event, ui ) {
+        val = ui.value;
+        mapObject.series.regions[0].setValues(data.states[ui.value]);
+        mapObject.series.markers[0].setValues(data.metro.unemployment[ui.value]);
+        mapObject.series.markers[1].setValues(data.metro.population[ui.value]);
+      }
+    });
+  });
+});
+*/
+
+</script>
+<!-- /jVectorMap -->
 
   </body>
 </html>
