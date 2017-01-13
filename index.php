@@ -392,15 +392,6 @@
 <script src="../jvectormap/jquery-jvectormap-2.0.3.min.js"></script>
 <script src="../jvectormap/jquery-jvectormap-us-aea.js"></script>
 
-<script>
-    myFunction1()
-    {
-
-
-    }
-</script>
-
-
 <!-- line_graph_query_params  -->
 <script>
     var line_graph_query_params = {
@@ -431,7 +422,7 @@
                 name: item.name,
                 style: {"fill": "yellow"}
             };
-            console.log(myMarkers[i]);
+            //console.log(myMarkers[i]);
         });
 
         $(function () {
@@ -474,7 +465,14 @@
 <script>
     function createPieChart() {
         var echartPieCollapse = echarts.init(document.getElementById('echart_mini_pie'), echart_theme);
-
+        echartPieCollapse.showLoading('default',{
+            text: 'Lade Daten...',
+            effect: 'bubble',
+            textStyle : {
+                fontSize : 20
+            }
+        });
+        console.log('loading');
         $.getJSON('/api/elec_gen.php', {
             "year[]": [2015],
             "group_by[]": ["fuel"],
@@ -534,7 +532,9 @@
                     data: values
                 }]
             });
+            echartPieCollapse.hideLoading();
         });
+
     }
     $(document).ready(createPieChart);
 </script>
@@ -559,7 +559,7 @@
         }
     });
 
-    slider.noUiSlider.on('change',function () {
+    slider.noUiSlider.on('change', function () {
         console.log("CHANGE!");
         createPieChart();
         //createUSMap();
