@@ -38,7 +38,7 @@
     <script type="application/javascript" src="../vendors/jquery.easy-pie-chart/dist/jquery.easypiechart.min.js"></script>
 
     <!-- Custom Theme Style -->
-    <link href="../build/css/custom.min.css" rel="stylesheet">
+    <link href="../build/css/custom.css" rel="stylesheet">
     <!-- Custom Theme Scripts -->
     <script type="application/javascript" src="../build/js/custom.min.js"></script>
 
@@ -63,20 +63,7 @@
             <div class="">
                 <div class="page-title">
                     <div class="title_left">
-                        <h3>Echarts
-                            <small>Some examples to get you started</small>
-                        </h3>
-                    </div>
-
-                    <div class="title_right">
-                        <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Search for...">
-                                <span class="input-group-btn">
-                                  <button class="btn btn-default" type="button">Go!</button>
-                                </span>
-                            </div>
-                        </div>
+                        <h3>EIA Dashboard</h3>
                     </div>
                 </div>
 
@@ -88,8 +75,10 @@
                             <div class="x_title">
                                 <h2>Excess/Shortage</h2>
                                 <ul class="nav navbar-right panel_toolbox">
-                                    <li><a class="collapse-link">
-                                            <i class="fa fa-chevron-up"></i></a>
+                                    <li>
+                                        <a class="collapse-link">
+                                            <i class="fa fa-chevron-up"></i>
+                                        </a>
                                     </li>
                                 </ul>
                                 <div class="clearfix"></div>
