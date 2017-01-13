@@ -559,7 +559,8 @@
         }
     });
 
-    $('#slider').click(function () {
+    slider.noUiSlider.on('change',function () {
+        console.log("CHANGE!");
         createPieChart();
         //createUSMap();
         line_graph_query_params['year[]'] = slider.noUiSlider.get();
