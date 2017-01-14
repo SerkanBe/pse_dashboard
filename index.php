@@ -50,6 +50,10 @@
     <script type="application/javascript" src="../jvectormap/jquery-jvectormap-2.0.3.min.js"></script>
     <script type="application/javascript" src="../jvectormap/jquery-jvectormap-us-aea.js"></script>
 
+    <!-- select2 -->
+    <script type="application/javascript" src="/vendors/select2/dist/js/select2.full.min.js"></script>
+    <link href="/vendors/select2/dist/css/select2.min.css" rel="stylesheet">
+
     <!-- iCheck -->
     <link href="../vendors/iCheck/skins/flat/green.css" rel="stylesheet">
 
@@ -61,11 +65,6 @@
     var dashboardState = {};
 </script>
 
-<script type="application/javascript" src="/js/blocks/piechart.js"></script>
-<script type="application/javascript" src="/js/blocks/timeline.js"></script>
-<script type="application/javascript" src="/js/blocks/linechart.js"></script>
-<script type="application/javascript" src="/js/blocks/us_map.js"></script>
-<script type="application/javascript" src="/js/blocks/filter.js"></script>
 
 <div class="container body">
     <div class="main_container">
@@ -96,7 +95,7 @@
                     <div class="col-md-4 col-sm-4 col-xs-12">
                         <div class="x_panel">
                             <div class="x_title">
-                                <h2>Net generation by fuel2</h2>
+                                <h2>Filter</h2>
                                 <ul class="nav navbar-right panel_toolbox">
                                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                     </li>
@@ -104,24 +103,9 @@
                                 <div class="clearfix"></div>
                             </div>
                             <div class="x_content">
-
-                                <p>Choose Information to Diasplay</p>
-                                <!-- start pop-over -->
-                                <div class="btn-group">
-                                    <button id="button1" type="button" class="btn btn-default" onclick="myFunction1(1)">
-                                        Solar
-                                    </button>
-                                    <button id="button2" type="button" class="btn btn-default" onclick="myFunction1(2)">
-                                        Coal
-                                    </button>
-                                    <button id="button3" type="button" class="btn btn-default" onclick="myFunction1(3)">
-                                        Wind
-                                    </button>
-                                    <button id="button4" type="button" class="btn btn-default" onclick="myFunction1(4)">
-                                        Nuclear
-                                    </button>
-                                </div>
-                                <!-- end pop-over -->
+                                <h3>By plant-type</h3>
+                                <select name="plant_type" multiple="multiple">
+                                </select>
                                 <!--div id="echart_mini_pie2" style="height:275px;"></div-->
 
                             </div>
@@ -202,5 +186,11 @@
                     <!-- /footer content -->
                 </div>
             </div>
+
+            <script type="application/javascript" src="/js/blocks/piechart.js"></script>
+            <script type="application/javascript" src="/js/blocks/timeline.js"></script>
+            <script type="application/javascript" src="/js/blocks/linechart.js"></script>
+            <script type="application/javascript" src="/js/blocks/us_map.js"></script>
+            <script type="application/javascript" src="/js/blocks/filter.js"></script>
 </body>
 </html>

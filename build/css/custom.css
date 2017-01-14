@@ -4864,3 +4864,7 @@ ul.notifications {
 }
 
 /** /Dropzone.js **/
+
+select[name='plant_type'] {
+    width: 100%;
+}
