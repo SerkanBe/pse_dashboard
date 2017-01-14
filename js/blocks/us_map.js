@@ -11,62 +11,18 @@ function createUsMap() {
 
     }).done(function (data) {
         var myMarkers = [];
-
+        var markerValues = {};
         $.each(data, function (i, item) {
 
-            if (item.fuel == "nuclear") {
-                myMarkers[i] = {
-                    latLng: [parseFloat(item.lat), parseFloat(item.lon)],
-                    name: item.name,
-                    style: {"fill": "#212121"}
-                };
-            }
-            else if (item.fuel == "solar") {
-                myMarkers[i] = {
-                    latLng: [parseFloat(item.lat), parseFloat(item.lon)],
-                    name: item.name,
-                    style: {"fill": "#FFEB3B"}
-                };
-            }
-            else if (item.fuel == "Coal") {
-                myMarkers[i] = {
-                    latLng: [parseFloat(item.lat), parseFloat(item.lon)],
-                    name: item.name,
-                    style: {"fill": "#4E342E"}
-                };
-            }
-            else if (item.fuel == "conventional hydroelectric") {
-                myMarkers[i] = {
-                    latLng: [parseFloat(item.lat), parseFloat(item.lon)],
-                    name: item.name,
-                    style: {"fill": "#039BE5"}
-                };
-            }
-            else if (item.fuel == "wind") {
-                myMarkers[i] = {
-                    latLng: [parseFloat(item.lat), parseFloat(item.lon)],
-                    name: item.name,
-                    style: {"fill": "#E0F7FA"}
-                };
-            }
-            else if (item.fuel == "natural gas") {
-                myMarkers[i] = {
-                    latLng: [parseFloat(item.lat), parseFloat(item.lon)],
-                    name: item.name,
-                    style: {"fill": "#BDBDBD"}
-                };
-            }
-            else {
-                myMarkers[i] = {
-                    latLng: [parseFloat(item.lat), parseFloat(item.lon)],
-                    name: item.name,
-                    style: {"fill": "#F06292"}
-                };
-            }
+            myMarkers[i] = {
+                latLng: [parseFloat(item.lat), parseFloat(item.lon)],
+                name: item.name,
+            };
+            markerValues[i] = item.fuel;
 
             //console.log(myMarkers[i]);
         });
-
+console.log(markerValues);
         $(function () {
             $('#jvectormap_usa').vectorMap({
                 map: 'us_aea',
@@ -92,11 +48,30 @@ function createUsMap() {
                 },
                 markerStyle: {
                     initial: {
-                        fill: '#F8E23B',
+                        fill: '#F06292',
                         stroke: '#383f47'
                     }
                 },
                 markers: myMarkers,
+                series: {
+                    markers: [{
+                        attribute: 'fill',
+                        scale: {
+                            nuclear: '#212121',
+                            solar: '#FFEB3B',
+                            coal: '#4E343E',
+                            'conventional hydroelectric': '#039BE5',
+                            wind: '#039BE5',
+                            'natural gas': '#BDBDBD',
+                            default: '#F06292'
+                        },
+                        legend: {
+                            vertical: true,
+                            title: 'Kraftwerke'
+                        },
+                        values: markerValues
+                    }]
+                }
                 /*
                  onRegionClick: function (event, code) {
                  //window.location.href = "yourpage?regionCode=" + code
