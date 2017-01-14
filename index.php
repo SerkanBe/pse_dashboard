@@ -108,9 +108,8 @@
                                 <p>Choose Information to Diasplay</p>
                                 <!-- start pop-over -->
                                 <div class="btn-group">
-                                    <button id="button1 type=" button
-                                    " class="btn btn-default" onclick="myFunction1(1)">
-                                    Solar
+                                    <button id="button1" type="button" class="btn btn-default" onclick="myFunction1(1)">
+                                        Solar
                                     </button>
                                     <button id="button2" type="button" class="btn btn-default" onclick="myFunction1(2)">
                                         Coal
