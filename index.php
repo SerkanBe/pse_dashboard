@@ -73,7 +73,21 @@
                     <div class="col-md-8 col-sm-8 col-xs-12">
                         <div class="x_panel">
                             <div class="x_title">
-                                <h2>jVector Map</h2>
+                                <h2>TimeLine</h2>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="x_content">
+                                <div id="slider" style="height:15px;"></div>
+                                <div style="height:40px;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8 col-sm-8 col-xs-12">
+                        <div class="x_panel">
+                            <div class="x_title">
+                                <h2>Excess/Shortage</h2>
                                 <ul class="nav navbar-right panel_toolbox">
                                     <li>
                                         <a class="collapse-link">
@@ -236,11 +250,74 @@
                 </div>
             </div>
 
+
+<script type="application/javascript">
+    var dashboardState = {};
+
+    var ecConfig = require('echarts/config');
+</script>
+
+
+<!-- jVectorMapTest -->
+<script type="application/javascript">
+
+    $.getJSON('/api/plant.php', {
+        "group_by[]": ["plant_lat, plant_lon"],
+        "range[limit]": 500,
+        "columns[]": ["plant_name", "plant_lat", "plant_lon"]
+    }).done(function (data) {
+        var myMarkers = [];
+
+        $.each(data, function (i, item) {
+
+            myMarkers[i] = {
+                latLng: [parseFloat(item.lat), parseFloat(item.lon)],
+                name: item.name,
+                style: {"fill": "yellow"}
+            };
+            //console.log(myMarkers[i]);
+        });
+
+        $(function () {
+            $('#jvectormap_usa').vectorMap({
+                map: 'us_aea',
+
+
+                backgroundColor: 'white',
+                regionStyle: {
+                    initial: {
+                        fill: '#009688',
+                        "fill-opacity": 1,
+                        stroke: 'none',
+                        "stroke-width": 0,
+                        "stroke-opacity": 1
+                    },
+                    hover: {
+                        "fill-opacity": 0.8,
+                        cursor: 'pointer'
+                    },
+                    selected: {
+                        fill: 'yellow'
+                    },
+                    selectedHover: {}
+                },
+                markerStyle: {
+                    initial: {
+                        fill: '#F8E23B',
+                        stroke: '#383f47'
+                    }
+                },
+                markers: myMarkers
+            });
+        });
+    });
+</script>
+<!-- /jVectorMapTest -->
+
             <!-- easy-pie-area-chart -->
             <script>
+    var echartPieCollapse = echarts.init(document.getElementById('echart_mini_pie'), echart_theme);
                 function createPieChart() {
-
-                    var echartPieCollapse = echarts.init(document.getElementById('echart_mini_pie'), echart_theme);
                     echartPieCollapse.showLoading('default', {
                         text: 'Lade Daten...',
                         effect: 'bubble',
@@ -248,10 +325,8 @@
                             fontSize: 20
                         }
                     });
-
                     $.getJSON('/api/elec_gen.php', {
-                        "state[]": 'US-TX',
-                        "year[]": [slider.noUiSlider.get()],
+            "year[]": (dashboardState.year || 2015),
                         "group_by[]": ["fuel"],
                         "order_by[SUM_amount]": "DESC",
                         "aggr[amount]": "SUM",
@@ -265,7 +340,7 @@
                             values[i] = {name: item.fuel, value: item.SUM_amount};
                         });
 
-                        //line_graph_query_params['fuel'] = columns;
+            dashboardState.fuel = columns;
 
                         echartPieCollapse.setOption({
                             tooltip: {
@@ -336,8 +411,7 @@
 
                 slider.noUiSlider.on('change', function () {
                     createPieChart();
-                    createUSMap();
-                    //line_graph_query_params['year[]'] = slider.noUiSlider.get();
+        //createUSMap();
                 });
             </script>
             <!-- /slider-->
@@ -449,7 +523,8 @@
                         //"state[]": 'US-TX',
                         "group_by[]": ["plant_lat, plant_lon"],
                         "range[limit]": 1000,
-                        "columns[]": ["plant_name", "plant_lat", "plant_lon"]
+                        "columns[]": ["plant_name", "plant_lat", "plant_lon"],
+                        "year[]": (dashboardState.year || 2015)
 
                     }).done(function (data) {
                         var myMarkers = [];

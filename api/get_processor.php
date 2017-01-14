@@ -13,10 +13,13 @@ function do_where($get_values = NULL, $available_fields = array(), $where_clause
     $filters = array();
     foreach($available_fields as $field => $col) {
       if (isset($get_values[$field])) {
-        $filters[$field] = $col . ' IN (' . implode(',', array_map(array(
-          $db,
-          'quote'
-        ) , $get_values[$field])) . ')';
+        $get_values[$field] = array_filter($get_values[$field], function($v) {return $v!=='*';});
+        if(!empty($get_values[$field])) {
+            $filters[$field] = $col . ' IN (' . implode(',', array_map(array(
+                    $db,
+                    'quote'
+                ), $get_values[$field])) . ')';
+        }
       }
     }
 
@@ -55,7 +58,7 @@ function do_group_by($group_by = NULL, $available_fields = array(), $group_claus
 function do_order_by($order_by = NULL, $available_fields = array(), $order_clause = '')
 {
 	global $db;
-  if ($order_by !== NULL) {    
+  if ($order_by !== NULL) {
     $fields = array();
     foreach($order_by as $field => $order) {
 		$fields[] = $field.' '.$order;
@@ -71,7 +74,7 @@ function do_order_by($order_by = NULL, $available_fields = array(), $order_claus
 
 function do_select($columns = NULL, $aggregations = array(), $available_fields = array(), $select_clause = '')
 {
-	global $db;	
+	global $db;
   if ($columns !== NULL) {
     $fields = array();
     foreach($available_fields as $field => $col) {
@@ -79,7 +82,7 @@ function do_select($columns = NULL, $aggregations = array(), $available_fields =
         $fields[$field] = $col . ' as ' . $field;
       }
     }
-	
+
     // We want to aggregate fields?!
 
     if (isset($aggregations)) {
@@ -105,19 +108,19 @@ function do_limit($offset=NULL,$limit=NULL) {
 	if($offset === NULL && $limit === NULL) {
 		return NULL; // Nothing to do, get all rows
 	}
-	
+
 	if($offset === NULL && $limit !== NULL) {
 		return ' LIMIT 0,'.$limit	;
 	}
-	
+
 	if($offset !== 0 && $limit == NULL) {
 		// Get all rows from an offset... http://dev.mysql.com/doc/refman/5.7/en/select.html#id4651990
 		$get_all_rows_limit = '18446744073709551615';
 		return ' LIMIT '.$offset.','.$get_all_rows_limit;
 	}
-	
+
 	return ' LIMIT '.$offset.','.$limit;
-	
+
 }
 
 function create_query($q_tables, $available_fields, $select_clause) {
