@@ -171,17 +171,17 @@
 				  <p>Choose Information to Diasplay</p>
                     <!-- start pop-over -->
                     <div class="btn-group">
-                      <button id="button1 type="button" class="btn btn-default" onclick="myFunction1()">
-                        Left
+                      <button id="button1 type="button" class="btn btn-default" onclick="myFunction1(1)">
+                        Solar
                       </button>
-                      <button id="button2" type="button" class="btn btn-default" onclick="myFunction2()">
-                        Top
+                      <button id="button2" type="button" class="btn btn-default" onclick="myFunction1(2)">
+                        Coal
                       </button>
-                      <button id="button3" type="button" class="btn btn-default" onclick="myFunction3()">
-                        Bottom
+                      <button id="button3" type="button" class="btn btn-default" onclick="myFunction1(3)">
+                        Wind
                       </button>
-                      <button id="button4" type="button" class="btn btn-default" onclick="myFunction4()">
-                        Right
+                      <button id="button4" type="button" class="btn btn-default" onclick="myFunction1(4)">
+                        Nuclear
                       </button>
                     </div>
                     <!-- end pop-over -->
@@ -292,6 +292,16 @@
  
  <!-- line_graph_query_params  --> 
 	<script>
+	
+	function myFunction1(i){
+		
+		if (i==1){ createUsMap("solar");}
+		else if (i==2) {createUsMap("Coal");}
+		else if (i==3) {createUsMap("wind");}
+		else if (i==4) {createUsMap("nuclear");}
+		else {};
+		
+	}
 	var line_graph_query_params = {
           
       }
@@ -310,11 +320,17 @@
 	
 <!-- easy-pie-area-chart -->
 	<script>	
-	function createPieChart() {
+	function createPieChart(code) {
+		
 	      var echartPieCollapse = echarts.init(document.getElementById('echart_mini_pie'), echart_theme);
       
+		//var fuelinput;
+		//if (code === undefined){fuelinput = "";}
+		//else {fuelinput = "state[]:"+code;}
 	            $.getJSON('/api/elec_gen.php', {
-					
+					//TODO fix initialization of chart without specific statefilter
+					//fuelinput,
+					"state[]": code,
 					"year[]": [slider.noUiSlider.get()],
 					"group_by[]": ["fuel"],
 					"order_by[SUM_amount]": "DESC",
@@ -503,11 +519,18 @@
 $(document).ready(render_line_graph);	  
 	  </script>
 <!-- /echart-linechart -->
+
 <!-- jVectorMapTest -->
 	<script>
-	function createUsMap(){
+	function createUsMap(code){
+		//var fuelinput;
+		//if (code === undefined){fuelinput = "";}
+		//else {fuelinput = "fuel[]:"+code;}
 			$.getJSON('/api/plant.php', { 
-				
+				//fuelinput,
+				//TODO fix initialization of chart without specific fuelfilter
+				//TODO do not reload full map after new markers are set
+				"state[]": code,
 				"group_by[]": ["plant_lat, plant_lon"],
 				"range[limit]": 1000,
 				"columns[]": ["plant_name","plant_lat","plant_lon"]
@@ -575,7 +598,7 @@ $(document).ready(render_line_graph);
 					markers: myMarkers,
 					onRegionClick: function (event, code) {
 						//window.location.href = "yourpage?regionCode=" + code
-						createPieChart();
+						createPieChart(code); // add parameter with region for sql query
 					},
 					
 					
