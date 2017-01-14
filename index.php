@@ -70,7 +70,7 @@
                 <div class="clearfix"></div>
 
                 <div class="row">
-                    <div class="col-md-6 col-sm-6 col-xs-12">
+                    <div class="col-md-8 col-sm-8 col-xs-12">
                         <div class="x_panel">
                             <div class="x_title">
                                 <h2>jVector Map</h2>
@@ -95,44 +95,6 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="col-md-4 col-sm-4 col-xs-12">
-                        <div class="x_panel">
-                            <div class="x_title">
-                                <h2>Net generation by fuel</h2>
-                                <ul class="nav navbar-right panel_toolbox">
-                                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                                    </li>
-                                </ul>
-                                <div class="clearfix"></div>
-                            </div>
-                            <div class="x_content">
-
-                                <div id="echart_mini_pie" style="height:425px;"></div>
-
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 col-sm-6 col-xs-12">
-                        <div class="x_panel">
-                            <div class="x_title">
-                                <h2>EChart Line Graph</h2>
-                                <ul class="nav navbar-right panel_toolbox">
-                                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                                    </li>
-                                </ul>
-                                <div class="clearfix"></div>
-                            </div>
-                            <div class="x_content">
-
-                                <div id="echart_line" style="height:275px;"></div>
-
-                            </div>
-                        </div>
-                    </div>
-
-
                     <div class="col-md-4 col-sm-4 col-xs-12">
                         <div class="x_panel">
                             <div class="x_title">
@@ -168,6 +130,45 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="x_panel">
+                            <div class="x_title">
+                                <h2>Net generation by fuel</h2>
+                                <ul class="nav navbar-right panel_toolbox">
+                                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                    </li>
+                                </ul>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="x_content">
+
+                                <div id="echart_mini_pie" style="height:425px;"></div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <div class="x_panel">
+                            <div class="x_title">
+                                <h2>EChart Line Graph</h2>
+                                <ul class="nav navbar-right panel_toolbox">
+                                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                    </li>
+                                </ul>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="x_content">
+
+                                <div id="echart_line" style="height:275px;"></div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
 
 
                     <div class="col-md-4 col-sm-4 col-xs-12">
@@ -220,6 +221,8 @@
 
                         </div>
                     </div>
+                </div>
+                <div class="row">
                     <!-- /page content -->
 
                     <!-- footer content -->
@@ -536,11 +539,11 @@
                                     }
                                 },
                                 markers: myMarkers,
-                                    /*
-                                onRegionClick: function (event, code) {
-                                    //window.location.href = "yourpage?regionCode=" + code
-                                    createPieChart(code); // add parameter with region for sql query
-                                },*/
+                                /*
+                                 onRegionClick: function (event, code) {
+                                 //window.location.href = "yourpage?regionCode=" + code
+                                 createPieChart(code); // add parameter with region for sql query
+                                 },*/
 
 
                             });
