@@ -70,7 +70,7 @@
                 <div class="clearfix"></div>
 
                 <div class="row">
-                    <div class="col-md-8 col-sm-8 col-xs-12">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
                         <div class="x_panel">
                             <div class="x_title">
                                 <h2>TimeLine</h2>
@@ -102,8 +102,6 @@
                                 <div class="resize_window1">
                                     <div id="jvectormap_usa" style="height:350px !important;"></div>
                                     <div style="height:20px;"></div>
-                                    <div id="slider" style="height:15px;"></div>
-                                    <div style="height:35px;"></div>
                                 </div>
 
                             </div>
@@ -251,72 +249,15 @@
             </div>
 
 
-<script type="application/javascript">
-    var dashboardState = {};
+            <script type="application/javascript">
+                var dashboardState = {};
 
-    var ecConfig = require('echarts/config');
-</script>
-
-
-<!-- jVectorMapTest -->
-<script type="application/javascript">
-
-    $.getJSON('/api/plant.php', {
-        "group_by[]": ["plant_lat, plant_lon"],
-        "range[limit]": 500,
-        "columns[]": ["plant_name", "plant_lat", "plant_lon"]
-    }).done(function (data) {
-        var myMarkers = [];
-
-        $.each(data, function (i, item) {
-
-            myMarkers[i] = {
-                latLng: [parseFloat(item.lat), parseFloat(item.lon)],
-                name: item.name,
-                style: {"fill": "yellow"}
-            };
-            //console.log(myMarkers[i]);
-        });
-
-        $(function () {
-            $('#jvectormap_usa').vectorMap({
-                map: 'us_aea',
-
-
-                backgroundColor: 'white',
-                regionStyle: {
-                    initial: {
-                        fill: '#009688',
-                        "fill-opacity": 1,
-                        stroke: 'none',
-                        "stroke-width": 0,
-                        "stroke-opacity": 1
-                    },
-                    hover: {
-                        "fill-opacity": 0.8,
-                        cursor: 'pointer'
-                    },
-                    selected: {
-                        fill: 'yellow'
-                    },
-                    selectedHover: {}
-                },
-                markerStyle: {
-                    initial: {
-                        fill: '#F8E23B',
-                        stroke: '#383f47'
-                    }
-                },
-                markers: myMarkers
-            });
-        });
-    });
-</script>
-<!-- /jVectorMapTest -->
+                var ecConfig = require('echarts/config');
+            </script>
 
             <!-- easy-pie-area-chart -->
             <script>
-    var echartPieCollapse = echarts.init(document.getElementById('echart_mini_pie'), echart_theme);
+                var echartPieCollapse = echarts.init(document.getElementById('echart_mini_pie'), echart_theme);
                 function createPieChart() {
                     echartPieCollapse.showLoading('default', {
                         text: 'Lade Daten...',
@@ -326,7 +267,7 @@
                         }
                     });
                     $.getJSON('/api/elec_gen.php', {
-            "year[]": (dashboardState.year || 2015),
+                        "year[]": (dashboardState.year || 2015),
                         "group_by[]": ["fuel"],
                         "order_by[SUM_amount]": "DESC",
                         "aggr[amount]": "SUM",
@@ -340,7 +281,7 @@
                             values[i] = {name: item.fuel, value: item.SUM_amount};
                         });
 
-            dashboardState.fuel = columns;
+                        dashboardState.fuel = columns;
 
                         echartPieCollapse.setOption({
                             tooltip: {
@@ -396,22 +337,22 @@
                 var slider = document.getElementById('slider');
 
                 noUiSlider.create(slider, {
-                    start: [2003],
+                    start: [2001],
                     step: 1,
                     range: {
-                        'min': [2003],
+                        'min': [2001],
                         'max': [2015]
                     },
                     pips: {
                         mode: 'values',
-                        values: [2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015],
+                        values: [2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015],
                         density: 5
                     }
                 });
 
                 slider.noUiSlider.on('change', function () {
                     createPieChart();
-        //createUSMap();
+                    //createUSMap();
                 });
             </script>
             <!-- /slider-->
