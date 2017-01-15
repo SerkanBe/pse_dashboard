@@ -92,23 +92,7 @@
                         </div>
                     </div>
                     <div class="col-md-4 col-sm-4 col-xs-12">
-                        <div class="x_panel">
-                            <div class="x_title">
-                                <h2>Filter</h2>
-                                <ul class="nav navbar-right panel_toolbox">
-                                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                                    </li>
-                                </ul>
-                                <div class="clearfix"></div>
-                            </div>
-                            <div class="x_content">
-                                <h3>By plant-type</h3>
-                                <select name="plant_type" multiple="multiple">
-                                </select>
-                                <!--div id="echart_mini_pie2" style="height:275px;"></div-->
 
-                            </div>
-                        </div>
                     </div>
                 </div>
                 <div class="row">
@@ -133,12 +117,46 @@
                                 </div>
 
                             </div>
+
+                            <div class="x_title">
+                                <h2>Filter Plants</h2>
+                                <ul class="nav navbar-right panel_toolbox">
+                                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                    </li>
+                                </ul>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <div class="x_content">
+                                        <h4>By energy source</h4>
+                                        <select name="plant_type" multiple="multiple"></select>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-6 col-sm-6 col-xs-12">
+                </div>
+                <div class="row">
+                    <div class="col-md-3 col-sm-3 col-xs-12">
                         <div class="x_panel">
                             <div class="x_title">
-                                <h2>Net generation by fuel</h2>
+                                <h2>Top 5 generation fuels</h2>
+                                <ul class="nav navbar-right panel_toolbox">
+                                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                    </li>
+                                </ul>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="x_content">
+                                <div id="echart_mini_pie" style="height:425px;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-xs-12">
+                        <div class="x_panel">
+                            <div class="x_title">
+                                <h2>Electricity generating sectors</h2>
                                 <ul class="nav navbar-right panel_toolbox">
                                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                     </li>
@@ -147,14 +165,14 @@
                             </div>
                             <div class="x_content">
 
-                                <div id="echart_mini_pie" style="height:425px;"></div>
+                                <div id="generating_secotrs_pie" style="height:425px;"></div>
 
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-6 col-sm-6 col-xs-12">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
                         <div class="x_panel">
                             <div class="x_title">
                                 <h2>EChart Line Graph</h2>

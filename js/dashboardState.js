@@ -22,8 +22,6 @@ var dashboardState = {
         if (dashboardState.filter[filter] == null || typeof dashboardState.filter[filter] == 'undefined') {
             dashboardState.filter[filter] = [];
         }
-        console.log(filter);
-        console.log(value);
         dashboardState.filter[filter].push(value);
     },
 
