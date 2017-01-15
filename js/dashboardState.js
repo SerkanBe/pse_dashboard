@@ -6,6 +6,7 @@ var dashboardState = {
     filter: {
         // Some default-values
         year: [2001],
+		yearend: [2015],
         state: ['*'],
         fuel: ['*'],
         plant_fuel: ['*']

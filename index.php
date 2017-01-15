@@ -56,6 +56,8 @@
 
     <!-- iCheck -->
     <link href="../vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+	
+	
 
 	
 </head>
@@ -67,8 +69,12 @@
 
 <div class="container body">
     <div class="main_container">
+	
+	
+       
+
         <!-- page content -->
-        <div class="right_col" role="main">
+        <div class="right_col" role="main" >
             <div class="">
                 <div class="page-title">
                     <div class="title_left">
@@ -79,7 +85,7 @@
                 <div class="clearfix"></div>
 
                 <div class="row">
-                    <div class="col-md-8 col-sm-8 col-xs-12">
+                    <div class="col-md-6 col-sm-6 col-xs-12">
                         <div class="x_panel">
                             <div class="x_title">
                                 <h2>TimeLine</h2>
@@ -198,10 +204,12 @@
                         <div class="pull-right">
                             Energy Admin Dashboard - Powered by <a href="https://www.eia.gov/">EIA</a>
                         </div>
-                        <div class="clearfix"></div>
+                        <div class="clearfix">
+						</div>
                     </footer>
                     <!-- /footer content -->
                 </div>
+				
             </div>
 
             <script type="application/javascript" src="/js/blocks/piechart.js"></script>

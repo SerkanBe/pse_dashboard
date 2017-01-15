@@ -3,7 +3,8 @@ $(document).ready(function () {
     slider = document.getElementById('slider');
 
     noUiSlider.create(slider, {
-        start: [2001],
+        start: [2001,2015],
+		connect: [false, true, false],
         step: 1,
         range: {
             'min': [2001],
@@ -18,8 +19,8 @@ $(document).ready(function () {
 
     slider.noUiSlider.on('change', function () {
 		
-		dashboardState.setFilter('year',[slider.noUiSlider.get()]);
-		
+		dashboardState.setFilter('year',[slider.noUiSlider.get()[0]]);
+		dashboardState.setFilter('yearend',[slider.noUiSlider.get()[1]]);
         updatePieChart();
 		updateLinegraph();
     });

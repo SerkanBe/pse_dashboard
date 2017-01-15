@@ -1,0 +1,5 @@
+/* New way of prioritization */
+#bootstrap-overrides select[name='plant_type'] {
+  width:100%;
+}
+ 

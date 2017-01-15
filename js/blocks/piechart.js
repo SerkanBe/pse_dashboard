@@ -13,9 +13,24 @@ function updatePieChart() {
             fontSize: 20
         }
     });
+	
+		function aggregateYears(){
+		var year = dashboardState.getFilter('year');
+		var yearend = dashboardState.getFilter('yearend');
+		var y = "[";
+		for (i = year;i<=yearend;i++){
+		 y += i + ",";
+		 
+		}
+		y = y.slice(0, -1);
+		y+= "]";
+		return y;
+	}
+	
+	
     $.getJSON('/api/elec_gen.php', {
 //GET FILTER
-        "year[]": dashboardState.getFilter('year'),
+        "year[]": aggregateYears(),
         "group_by[]": ["fuel"],
         "order_by[SUM_amount]": "DESC",
         "aggr[amount]": "SUM",
