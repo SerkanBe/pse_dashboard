@@ -17,6 +17,10 @@ $(document).ready(function () {
     });
 
     slider.noUiSlider.on('change', function () {
-        createPieChart();
+		
+		dashboardState.setFilter('year',[slider.noUiSlider.get()]);
+		
+        updatePieChart();
+		updateLinegraph();
     });
 })

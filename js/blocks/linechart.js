@@ -2,10 +2,10 @@ var echartLine;
 $(document).ready(function() {
 echartLine = echarts.init(document.getElementById('echart_line'), echart_theme);
 })
-function render_line_graph() {
+function updateLinegraph() {
     $.getJSON('/api/elec_gen.php', {
-        "state[]": (dashboardState.state || '*'),
-        "year[]": (dashboardState.year || 2001),
+		"state[]": (dashboardState.filter.state),
+        "year[]": (dashboardState.filter.year),
         "order_by[month]": "ASC",
         "columns[]": ["month", "fuel"],
         "aggr[amount]": "SUM",
@@ -91,4 +91,4 @@ function render_line_graph() {
     //line_graph_query_params['debug'] = 1;
 
 }
-$(document).ready(render_line_graph);
+$(document).ready(updateLinegraph);

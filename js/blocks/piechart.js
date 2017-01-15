@@ -3,7 +3,7 @@ var echartPieCollapse;
 $(document).ready(function() {
     echartPieCollapse = echarts.init(document.getElementById('echart_mini_pie'), echart_theme);
 });
-function createPieChart() {
+function updatePieChart() {
     echartPieCollapse.showLoading('default', {
         text: 'Lade Daten...',
         effect: 'bubble',
@@ -12,6 +12,7 @@ function createPieChart() {
         }
     });
     $.getJSON('/api/elec_gen.php', {
+//GET FILTER
         "year[]": dashboardState.getFilter('year'),
         "group_by[]": ["fuel"],
         "order_by[SUM_amount]": "DESC",
@@ -24,7 +25,7 @@ function createPieChart() {
         $.each(data, function (i, item) {
             columns[i] = item.fuel;
             values[i] = {name: item.fuel, value: item.SUM_amount};
-
+//ADD FILTER
             dashboardState.addFilter('fuel', item.fuel);
         });
 
@@ -69,8 +70,9 @@ function createPieChart() {
                 data: values
             }]
         });
-        render_line_graph();
-        echartPieCollapse.hideLoading();
+		echartPieCollapse.hideLoading();
+        //render_line_graph();
+        
     });
 }
-$(document).ready(createPieChart);
+$(document).ready(updatePieChart);

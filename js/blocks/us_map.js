@@ -60,10 +60,13 @@ $(document).ready(function () {
         },
         onRegionSelected: function (event, code, isSelected) {
             if (isSelected) {
+//ADD FILTER
                 dashboardState.addFilter('state', code);
             } else {
+//REMOVE FILTER
                 dashboardState.removeFilter('state', code);
             }
+//UPDATEMAP
             updateUsMap();
         }
     });
