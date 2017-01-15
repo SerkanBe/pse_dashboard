@@ -12,7 +12,7 @@ function createPieChart() {
         }
     });
     $.getJSON('/api/elec_gen.php', {
-        "year[]": (dashboardState.year || 2015),
+        "year[]": dashboardState.getFilter('year'),
         "group_by[]": ["fuel"],
         "order_by[SUM_amount]": "DESC",
         "aggr[amount]": "SUM",
@@ -24,9 +24,9 @@ function createPieChart() {
         $.each(data, function (i, item) {
             columns[i] = item.fuel;
             values[i] = {name: item.fuel, value: item.SUM_amount};
-        });
 
-        dashboardState.fuel = columns;
+            dashboardState.addFilter('fuel', item.fuel);
+        });
 
         echartPieCollapse.setOption({
             tooltip: {

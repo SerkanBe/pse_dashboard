@@ -23,7 +23,7 @@ $(document).ready(function () {
     });
 
     plantTypeFilter.change(function() {
-        dashboardState.plantFuel = $(this).val();
+        dashboardState.addFilter('plantFuel', $(this).val());
         updateUsMap();
     });
 

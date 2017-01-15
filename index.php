@@ -61,9 +61,7 @@
 
 <body class="nav-md">
 
-<script type="application/javascript">
-    var dashboardState = {};
-</script>
+<script type="application/javascript" src="js/dashboardState.js"></script>
 
 
 <div class="container body">

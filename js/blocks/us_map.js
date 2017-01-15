@@ -8,8 +8,9 @@ function updateUsMap() {
         "group_by[]": ["plant_lat, plant_lon"],
         //"range[limit]": 1000,
         "columns[]": ["plant_name", "plant_lat", "plant_lon"],
-        "year[]": (dashboardState.year || 2015),
-        "fuel[]": (dashboardState.plantFuel || '*')
+        "year[]": dashboardState.getFilter('year'),
+        "state[]": dashboardState.getFilter('state'),
+        "fuel[]": dashboardState.getFilter('plantFuel'),
 
     }).done(function (data) {
         var myMarkers = [];
@@ -22,20 +23,15 @@ function updateUsMap() {
             };
             markerValues[i] = item.fuel;
         });
-
-        console.log(usMap);
         usMap.removeAllMarkers();
-        usMap.addMarkers(myMarkers)
-        /*
-         onRegionClick: function (event, code) {
-         //window.location.href = "yourpage?regionCode=" + code
-         createPieChart(code); // add parameter with region for sql query
-         },*/
+        usMap.addMarkers(myMarkers);
     });
 }
+
 $(document).ready(function () {
     $('#jvectormap_usa').vectorMap({
         map: 'us_aea',
+        regionsSelectable: true,
         backgroundColor: 'white',
         regionStyle: {
             initial: {
@@ -62,7 +58,14 @@ $(document).ready(function () {
                 r: 2,
             }
         },
-        series: {}
+        onRegionSelected: function (event, code, isSelected) {
+            if (isSelected) {
+                dashboardState.addFilter('state', code);
+            } else {
+                dashboardState.removeFilter('state', code);
+            }
+            updateUsMap();
+        }
     });
     usMap = $('#jvectormap_usa').vectorMap('get', 'mapObject');
     updateUsMap();
