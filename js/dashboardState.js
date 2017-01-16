@@ -18,12 +18,16 @@ var dashboardState = {
 
         dashboardState.filter[filter] = values;
         this.fixEmptyFilter(filter);
+
+        this.triggerChartUpdates(filter);
     },
     addFilter: function (filter, value) {
         if (dashboardState.filter[filter] == null || typeof dashboardState.filter[filter] == 'undefined') {
             dashboardState.filter[filter] = [];
         }
         dashboardState.filter[filter].push(value);
+
+        this.triggerChartUpdates(filter);
     },
 
     removeFilter: function (filter, value) {
@@ -41,6 +45,8 @@ var dashboardState = {
 
         dashboardState.filter[filter].splice(index, 1);
         this.fixEmptyFilter(filter);
+
+        this.triggerChartUpdates(filter);
     },
     fixEmptyFilter: function (filter) {
         if (dashboardState.filter[filter] == null || dashboardState.filter[filter].length == 0) {
@@ -54,6 +60,27 @@ var dashboardState = {
 
         return dashboardState.filter[filter];
     },
+
+    filterCallbacks: {
+        '_all': [], // callbacks which should be called on every filter change
+    },
+    registerForFilterChange: function(filters,callback) {
+        $.each(filters, function(i,filter) {
+            if (typeof dashboardState.filterCallbacks[filter] == 'undefined') {
+                dashboardState.filterCallbacks[filter] = [];
+            }
+            dashboardState.filterCallbacks[filter].push(callback);
+        });
+    },
+
+    triggerChartUpdates: function(filter) {
+        if(typeof this.filterCallbacks[filter] != 'undefined') {
+            $.each(this.filterCallbacks[filter].concat(this.filterCallbacks['_all']), function (i, item) {
+                window[item]();
+            });
+        }
+    },
+
     fuelType: {
         green: {
             solar: [

@@ -12,7 +12,6 @@ function updateLinegraph() {
         "aggr[amount]": "SUM",
         "group_by[]": ["state", "month", "fuel"]
     }).done(function (data) {
-        //console.log(data);
         var fuels = {};
         $.each(data, function (i, item) {
             if (typeof fuels[item.fuel] == 'undefined') {

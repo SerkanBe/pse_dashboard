@@ -60,16 +60,17 @@ $(document).ready(function () {
         },
         onRegionSelected: function (event, code, isSelected) {
             if (isSelected) {
-//ADD FILTER
+                //ADD FILTER
                 dashboardState.addFilter('state', code);
             } else {
-//REMOVE FILTER
+                //REMOVE FILTER
                 dashboardState.removeFilter('state', code);
             }
-//UPDATEMAP
-            updateUsMap();
+            //UPDATEMAP
+            //updateUsMap();
         }
     });
     usMap = $('#jvectormap_usa').vectorMap('get', 'mapObject');
-    updateUsMap();
+    //updateUsMap();
+    dashboardState.registerForFilterChange(['state','plantFuel'],'updateUsMap');
 })

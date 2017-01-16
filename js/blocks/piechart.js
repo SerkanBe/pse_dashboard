@@ -6,6 +6,10 @@ $(document).ready(function () {
     echartPieCollapse = echarts.init(document.getElementById('echart_mini_pie'), echart_theme);
     generatingSectorsPie = echarts.init(document.getElementById('generating_secotrs_pie'), echart_theme);
 	echartPieTopRenewable = echarts.init(document.getElementById('echart_mini_pie_top_renewable'), echart_theme);
+
+	dashboardState.registerForFilterChange(['year','yearend'],'updatePieChart');
+	dashboardState.registerForFilterChange(['year','yearend'],'updatePieChartTopRenewable');
+	dashboardState.registerForFilterChange(['year','yearend'],'updateLinegraph');
 });
 function updatePieChart() {
     echartPieCollapse.showLoading('default', {
@@ -26,7 +30,7 @@ function updatePieChart() {
 			
 			return y;
 		}
-		console.log(aggregateYears());
+
     $.getJSON('/api/elec_gen.php', {
 		"year[]": aggregateYears(),
         "group_by[]": ["fuel"],
@@ -236,7 +240,7 @@ function updatePieChartTopRenewable() {
         var values = [];
         var columns = [];
         $.each(data, function (i, item) {
-			console.log(data[i].fuel);
+
 			
 			if(['wind','All solar','conventional hydroelectric','geothermal'].indexOf(item.fuel) > -1){
 				columns.push(item.fuel);
@@ -244,7 +248,7 @@ function updatePieChartTopRenewable() {
 				dashboardState.addFilter('fuel', item.fuel);
 			}
         });
-console.log(values);
+
         echartPieTopRenewable.setOption({
             tooltip: {
                 trigger: 'item',
@@ -296,7 +300,5 @@ console.log(values);
             }]
         });
         echartPieTopRenewable.hideLoading();
-        //render_line_graph();
-
     });
 }

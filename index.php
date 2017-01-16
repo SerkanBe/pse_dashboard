@@ -267,7 +267,7 @@
             <script type="application/javascript" src="/js/blocks/piechart.js"></script>
             <script type="application/javascript" src="/js/blocks/timeline.js"></script>
             <script type="application/javascript" src="/js/blocks/linechart.js"></script>
-			
+
             <script type="application/javascript" src="/js/blocks/us_map.js"></script>
             <script type="application/javascript" src="/js/blocks/filter.js"></script>
 </body>

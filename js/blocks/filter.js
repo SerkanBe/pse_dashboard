@@ -24,7 +24,7 @@ $(document).ready(function () {
 
     plantTypeFilter.change(function() {
         dashboardState.setFilter('plantFuel', $(this).val());
-        updateUsMap();
+
     });
 
 
@@ -49,13 +49,9 @@ $(document).ready(function () {
         }
 
         $.each(fuel_keys,function(i,item) {
-            console.log(item);
            fuel_names = fuel_names.concat(dashboardState.plantFuel[item]);
         });
 
         plantTypeFilter.val(fuel_names).trigger("change");
     });
-
-
-
 });
