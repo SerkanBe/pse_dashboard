@@ -57,8 +57,8 @@
     <!-- iCheck -->
     <link href="../vendors/iCheck/skins/flat/green.css" rel="stylesheet">
 	
-	
-
+    <!-- jQuery custom content scroller -->
+    <script src="../vendors/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
 	
 </head>
 
@@ -66,12 +66,6 @@
 
 		<script type="application/javascript" src="js/dashboardState.js"></script>
 
-            <script type="application/javascript" src="/js/blocks/piechart.js"></script>
-            <script type="application/javascript" src="/js/blocks/timeline.js"></script>
-            <script type="application/javascript" src="/js/blocks/linechart.js"></script>
-			
-            <script type="application/javascript" src="/js/blocks/us_map.js"></script>
-            <script type="application/javascript" src="/js/blocks/filter.js"></script>
 			
 		<!-- Bootstrap -->
     <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -395,17 +389,14 @@
       </div>
     </div>
 
- 
-    <!-- Bootstrap -->
-    <script src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-    <!-- FastClick -->
-    <script src="../vendors/fastclick/lib/fastclick.js"></script>
-    <!-- NProgress -->
-    <script src="../vendors/nprogress/nprogress.js"></script>
-    <!-- jQuery custom content scroller -->
-    <script src="../vendors/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+            <script type="application/javascript" src="/js/blocks/piechart.js"></script>
+            <script type="application/javascript" src="/js/blocks/timeline.js"></script>
+            <script type="application/javascript" src="/js/blocks/linechart.js"></script>
+            <script type="application/javascript" src="/js/blocks/us_map.js"></script>
+            <script type="application/javascript" src="/js/blocks/filter.js"></script>
 
-    <!-- Custom Theme Scripts -->
-    <script src="../build/js/custom.min.js"></script>	
+
+ 
+
 </body>
 </html>
