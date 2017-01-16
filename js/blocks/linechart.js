@@ -1,13 +1,14 @@
 var echartLine;
-$(document).ready(function() {
-echartLine = echarts.init(document.getElementById('echart_line'), echart_theme);
+$(document).ready(function () {
+    echartLine = echarts.init(document.getElementById('echart_line'), echart_theme);
 })
 
 function updateLinegraph() {
+    var dateRange = {start: dashboardState.get('year'), end: dashboardState.get('yearend')};
     $.getJSON('/api/elec_gen.php', {
-		//"state[]": (dashboardState.filter.state),
-		"place":'linechart',
-		"year[]": [2001,2002,2003],
+        //"state[]": (dashboardState.filter.state),
+        "place": 'linechart',
+        "between[year][]": dateRange,
         "order_by[year, fuel]": "ASC",
         "columns[]": ["year", "fuel"],
         "aggr[amount]": "SUM",
@@ -15,18 +16,26 @@ function updateLinegraph() {
     }).done(function (data) {
         var years = [];
         var fuels = {};
-		// 1: 
+        var legend = [];
+        for (var i = dateRange.start; i <= dateRange.end; i++) {
+            years.push(i); // Just make sure we have an element for every year we want to show.
+        }
+
+        // 1:
         $.each(data, function (i, item) {
             if (typeof fuels[item.fuel] == 'undefined') {
                 fuels[item.fuel] = [];
+                $.each(years, function (i, year) {
+                    fuels[item.fuel][i] = 0
+                })
             }
-			if (years.indexOf(item.year) == -1) {
-                years.push(item.year);
+            if(legend.indexOf(item.fuel == -1)) {
+                legend.push(item.fuel);
             }
-            fuels[item.fuel][years.indexOf(item.year)] = item.SUM_amount;
+
+            fuels[item.fuel][years.indexOf(item.year*1)] = item.SUM_amount;
         });
-		console.log(years);
-		console.log(fuels);
+
         lineChartOptions.series = [];
         $.each(fuels, function (fuel, fuel_data) {
             lineChartOptions.series.push({
@@ -40,10 +49,13 @@ function updateLinegraph() {
                         }
                     }
                 },
-				
+
                 data: fuel_data
             });
         });
+
+        lineChartOptions.xAxis.data = years;
+        lineChartOptions.legend.data = legend;
         echartLine.setOption(lineChartOptions);
     });
 
@@ -56,8 +68,9 @@ function updateLinegraph() {
             trigger: 'axis'
         },
         legend: {
-            x: 240,
-            y: 40,
+            x: 'center',
+            y: 'bottom',
+            padding: 15,
             data: []
         },
 
@@ -88,7 +101,7 @@ function updateLinegraph() {
         xAxis: [{
             type: 'category',
             boundaryGap: false,
-			data: ['2001','2002']
+            data: [],
             //data: ['2001', '2002', '2003', '2004', '2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014', //'2015', '2016']
         }],
         yAxis: [{

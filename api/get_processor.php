@@ -34,6 +34,12 @@ function do_where($get_values = NULL, $available_fields = array(), $where_clause
                         ), $get_values[$neg_field])) . ')';
                 }
             }
+            if(isset($get_values['between'][$field])) {
+                $between = $get_values['between'][$field];
+                if(isset($between['start']) && isset($between['end'])) {
+                    $filters['between_'.$field] = $col.' BETWEEN '.$between['start'].' AND '.$between['end'];
+                }
+            }
         }
 
         if (!empty($filters)) {

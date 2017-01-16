@@ -5,8 +5,8 @@
 var dashboardState = {
     filter: {
         // Some default-values
-        year: [2001],
-        yearend: [2015],
+        year: 2001,
+        yearend: 2015,
         state: ['*'],
         fuel: ['*'],
         plant_fuel: ['*']
@@ -53,7 +53,7 @@ var dashboardState = {
             dashboardState.addFilter(filter, '*');
         }
     },
-    getFilter: function (filter) {
+    get: function (filter) {
         if (typeof dashboardState.filter[filter] == 'undefined') {
             return [];
         }

@@ -21,8 +21,8 @@ function updatePieChart() {
     });
 	
 		function aggregateYears(){
-			var year = dashboardState.getFilter('year');
-			var yearend = dashboardState.getFilter('yearend');
+			var year = dashboardState.get('year');
+			var yearend = dashboardState.get('yearend');
 			var y = [];
 			for (i = year;i<=yearend;i++){
 			 y.push(i);
@@ -121,7 +121,7 @@ function createGeneratingSectorsPie() {
         }
     });
     $.getJSON('/api/elec_gen.php', {
-        "year[]": dashboardState.getFilter('year'),
+        "year[]": dashboardState.get('year'),
         "group_by[]": ["sector"],
         "order_by[SUM_amount]": "DESC",
         "aggr[amount]": "SUM",
@@ -218,8 +218,8 @@ function updatePieChartTopRenewable() {
     });
 	
 		function aggregateYears(){
-			var year = dashboardState.getFilter('year');
-			var yearend = dashboardState.getFilter('yearend');
+			var year = dashboardState.get('year');
+			var yearend = dashboardState.get('yearend');
 			var y = [];
 			for (i = year;i<=yearend;i++){
 			 y.push(i);

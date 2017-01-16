@@ -8,9 +8,9 @@ function updateUsMap() {
         "group_by[]": ["plant_lat, plant_lon"],
         "range[limit]": 10,
         "columns[]": ["plant_name", "plant_lat", "plant_lon"],
-        "year[]": dashboardState.getFilter('year'),
-        "state[]": dashboardState.getFilter('state'),
-        "fuel[]": dashboardState.getFilter('plantFuel'),
+        "year[]": dashboardState.get('year'),
+        "state[]": dashboardState.get('state'),
+        "fuel[]": dashboardState.get('plantFuel'),
 
     }).done(function (data) {
         var myMarkers = [];
