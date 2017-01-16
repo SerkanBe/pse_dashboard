@@ -18,10 +18,14 @@ $(document).ready(function () {
     });
 
     slider.noUiSlider.on('change', function () {
-		
+		// ADJUST piechart 
 		dashboardState.setFilter('year',[slider.noUiSlider.get()[0]]);
 		dashboardState.setFilter('yearend',[slider.noUiSlider.get()[1]]);
         updatePieChart();
+		updatePieChartTopRenewable();
 		updateLinegraph();
+		//updateLinegraphtotal();
+		$("#top5").innerHTML = "Top 5 gen. fuels "+ ~~slider.noUiSlider.get()[0] +" - "+ ~~slider.noUiSlider.get()[1] ;
+		document.getElementById("linecharttotal").innerHTML = "Energy generation by fuel average "+ ~~slider.noUiSlider.get()[0] +" - "+ ~~slider.noUiSlider.get()[1] ;
     });
 })

@@ -2,6 +2,7 @@ var echartLine;
 $(document).ready(function() {
 echartLine = echarts.init(document.getElementById('echart_line'), echart_theme);
 })
+
 function updateLinegraph() {
     $.getJSON('/api/elec_gen.php', {
 		"state[]": (dashboardState.filter.state),

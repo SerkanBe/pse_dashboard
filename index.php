@@ -43,7 +43,7 @@
     <script type="application/javascript" src="../build/js/custom.min.js"></script>
 
     <!-- ECharts -->
-    <script type="application/javascript" src="../vendors/echarts/dist/echarts.min.js"></script>
+    <script type="application/javascript" src="../vendors/echarts/dist/echarts.js"></script>
     <script type="application/javascript" src="../js/echart_theme.js"></script>
 
     <!-- jvectormap -->
@@ -80,20 +80,7 @@
 
                 <div class="clearfix"></div>
 
-                <div class="row">
-                    <div class="col-md-6 col-sm-6 col-xs-12">
-                        <div class="x_panel">
-                            <div class="x_title">
-                                <h2>TimeLine</h2>
-                                <div class="clearfix"></div>
-                            </div>
-                            <div class="x_content">
-                                <div id="slider" style="height:15px;"></div>
-                                <div style="height:40px;"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                
                 <div class="row">
                     <div class="col-md-6 col-sm-6 col-xs-12">
                         <div class="x_panel">
@@ -119,10 +106,10 @@
 
                             <div class="x_title">
                                 <h2>Filter Plants</h2>
-                                <ul class="nav navbar-right panel_toolbox">
+                                <!--ul class="nav navbar-right panel_toolbox">
                                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                     </li>
-                                </ul>
+                                </ul-->
                                 <div class="clearfix"></div>
                             </div>
                             <div class="row">
@@ -149,11 +136,30 @@
                         </div>
                     </div>
                 </div>
+				
+				
+				<div class="row">
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <div class="x_panel">
+                            <div class="x_title">
+                                <h2>Adjust time period</h2>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="x_content">
+                                <div id="slider" style="height:15px;"></div>
+                                <div style="height:40px;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+
+                    </div>
+                </div>
                 <div class="row">
                     <div class="col-md-3 col-sm-3 col-xs-12">
                         <div class="x_panel">
                             <div class="x_title">
-                                <h2>Top 5 generation fuels</h2>
+                                <h2 id="top5">Top 5 generation fuels</h2>
                                 <ul class="nav navbar-right panel_toolbox">
                                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                     </li>
@@ -161,7 +167,23 @@
                                 <div class="clearfix"></div>
                             </div>
                             <div class="x_content">
-                                <div id="echart_mini_pie" style="height:425px;"></div>
+                                <div id="echart_mini_pie" style="height:400px;"></div>
+                            </div>
+                        </div>
+                    </div>
+					
+					<div class="col-md-3 col-sm-3 col-xs-12">
+                        <div class="x_panel">
+                            <div class="x_title">
+                                <h2 id="top5">Top 5 renewable fuels</h2>
+                                <ul class="nav navbar-right panel_toolbox">
+                                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                    </li>
+                                </ul>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="x_content">
+                                <div id="echart_mini_pie_top_renewable" style="height:400px;"></div>
                             </div>
                         </div>
                     </div>
@@ -177,12 +199,16 @@
                             </div>
                             <div class="x_content">
 
-                                <div id="generating_secotrs_pie" style="height:425px;"></div>
+                                <div id="generating_secotrs_pie" style="height:400px;"></div>
 
                             </div>
                         </div>
                     </div>
+					
+					
                 </div>
+				
+
                 <div class="row">
                     <div class="col-md-12 col-sm-12 col-xs-12">
                         <div class="x_panel">
@@ -197,6 +223,26 @@
                             <div class="x_content">
 
                                 <div id="echart_line" style="height:275px;"></div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+				
+				<div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="x_panel">
+                            <div class="x_title">
+                                <h2 id="linecharttotal">Energy generation average</h2>
+                                <ul class="nav navbar-right panel_toolbox">
+                                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                    </li>
+                                </ul>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="x_content">
+
+                                <div id="echart_line_total" style="height:275px;"></div>
 
                             </div>
                         </div>
@@ -221,6 +267,7 @@
             <script type="application/javascript" src="/js/blocks/piechart.js"></script>
             <script type="application/javascript" src="/js/blocks/timeline.js"></script>
             <script type="application/javascript" src="/js/blocks/linechart.js"></script>
+			
             <script type="application/javascript" src="/js/blocks/us_map.js"></script>
             <script type="application/javascript" src="/js/blocks/filter.js"></script>
 </body>
