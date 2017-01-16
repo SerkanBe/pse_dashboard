@@ -279,7 +279,7 @@
 				
 				
 				<div class="row">
-                    <div class="col-md-6 col-sm-6 col-xs-12">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
                         <div class="x_panel">
                             <div class="x_title">
                                 <h2>Adjust time period</h2>
@@ -359,32 +359,13 @@
                             </div>
                             <div class="x_content">
 
-                                <div id="echart_line" style="height:275px;"></div>
+                                <div id="echart_line" style="height:350px;"></div>
 
                             </div>
                         </div>
                     </div>
                 </div>
 				
-				<div class="row">
-                    <div class="col-md-12 col-sm-12 col-xs-12">
-                        <div class="x_panel">
-                            <div class="x_title">
-                                <h2 id="linecharttotal">Energy generation average</h2>
-                                <ul class="nav navbar-right panel_toolbox">
-                                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                                    </li>
-                                </ul>
-                                <div class="clearfix"></div>
-                            </div>
-                            <div class="x_content">
-
-                                <div id="echart_line_total" style="height:275px;"></div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 <div class="row">
         <!-- /page content -->
 

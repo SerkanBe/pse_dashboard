@@ -7,9 +7,9 @@ $(document).ready(function () {
     generatingSectorsPie = echarts.init(document.getElementById('generating_secotrs_pie'), echart_theme);
 	echartPieTopRenewable = echarts.init(document.getElementById('echart_mini_pie_top_renewable'), echart_theme);
 
-	dashboardState.registerForFilterChange(['year','yearend'],'updatePieChart');
-	dashboardState.registerForFilterChange(['year','yearend'],'updatePieChartTopRenewable');
-	dashboardState.registerForFilterChange(['year','yearend'],'updateLinegraph');
+	dashboardState.registerForFilterChange(['year','yearend','state'],'updatePieChart');
+	dashboardState.registerForFilterChange(['year','yearend','state'],'updatePieChartTopRenewable');
+	dashboardState.registerForFilterChange(['year','yearend','state'],'createGeneratingSectorsPie');
 });
 function updatePieChart() {
     echartPieCollapse.showLoading('default', {
@@ -30,9 +30,11 @@ function updatePieChart() {
 			
 			return y;
 		}
+		
 		//console.log(aggregateYears());
     $.getJSON('/api/elec_gen.php', {
 		"year[]": aggregateYears(),
+		"state[]": dashboardState.get('state'),
         "group_by[]": ["fuel"],
         "order_by[SUM_amount]": "DESC",
         "aggr[amount]": "SUM",
@@ -89,7 +91,7 @@ function updatePieChart() {
                     },
                 },
                 type: 'pie',
-                radius: [80, 160],
+                radius: [70, 140],
                 center: ['40%', 170],
                 roseType: 'area',
                 x: 'center',
@@ -122,6 +124,7 @@ function createGeneratingSectorsPie() {
     });
     $.getJSON('/api/elec_gen.php', {
         "year[]": dashboardState.get('year'),
+		"state[]": dashboardState.get('state'),
         "group_by[]": ["sector"],
         "order_by[SUM_amount]": "DESC",
         "aggr[amount]": "SUM",
@@ -175,7 +178,7 @@ function createGeneratingSectorsPie() {
             series: [{
                 name: 'Parent sectors',
                 type: 'pie',
-                radius: ['72%', '80%'],
+                radius: ['50%', '55%'],
                 center: ['50%', '35%'],
                 itemStyle: {
                     normal: {
@@ -190,7 +193,7 @@ function createGeneratingSectorsPie() {
             }, {
                 name: 'Child sectors',
                 type: 'pie',
-                radius: ['48%','60%'],
+                radius: ['20%','50%'],
                 center: ['50%', '35%'],
                 itemStyle: {
                     normal: {
@@ -224,12 +227,14 @@ function updatePieChartTopRenewable() {
 			for (i = year;i<=yearend;i++){
 			 y.push(i);
 			}
-			
+
 			return y;
 		}
-		//console.log(aggregateYears());
+		
+		
     $.getJSON('/api/elec_gen.php', {
 		"year[]": aggregateYears(),
+		"state[]": dashboardState.get('state'),
         "group_by[]": ["fuel"],
         "order_by[SUM_amount]": "DESC",
         "aggr[amount]": "SUM",
@@ -289,7 +294,7 @@ function updatePieChartTopRenewable() {
                     },
                 },
                 type: 'pie',
-                radius: [80, 160],
+                radius: [70, 140],
                 center: ['40%', 170],
                 roseType: 'area',
                 x: 'center',
