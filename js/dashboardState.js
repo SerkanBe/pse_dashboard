@@ -29,13 +29,13 @@ var dashboardState = {
     removeFilter: function (filter, value) {
         // If 'filter' is not set we can't remove anything from it.
         if (dashboardState.filter[filter] == null || typeof dashboardState.filter[filter] == 'undefined') {
-            console.log("no filter found for " + filter);
+            //console.log("no filter found for " + filter);
             return;
         }
 
         index = dashboardState.filter[filter].indexOf(value);
         if (index < 0) {
-            console.log("no filter-index found for " + value);
+            //console.log("no filter-index found for " + value);
             return;
         }
 
