@@ -6,12 +6,12 @@ var dashboardState = {
     filter: {
         // Some default-values
         year: [2001],
-		yearend: [2015],
+        yearend: [2015],
         state: ['*'],
         fuel: ['*'],
         plant_fuel: ['*']
     },
-    setFilter: function(filter,values) {
+    setFilter: function (filter, values) {
         if (dashboardState.filter[filter] == null || typeof dashboardState.filter[filter] == 'undefined') {
             dashboardState.filter[filter] = [];
         }
@@ -42,7 +42,7 @@ var dashboardState = {
         dashboardState.filter[filter].splice(index, 1);
         this.fixEmptyFilter(filter);
     },
-    fixEmptyFilter: function(filter) {
+    fixEmptyFilter: function (filter) {
         if (dashboardState.filter[filter] == null || dashboardState.filter[filter].length == 0) {
             dashboardState.addFilter(filter, '*');
         }
@@ -53,6 +53,41 @@ var dashboardState = {
         }
 
         return dashboardState.filter[filter];
+    },
+    fuelType: {
+        green: {
+            solar: [
+                'all_soll',
+                'all_util_sol',
+                'util_sol_photo',
+                'dist_photovolt',
+            ],
+            thermal: [
+                'geotherm',
+                'util_therm',
+            ],
+            hydro: [
+                'con_hydro',
+                'hydro_pump',
+            ],
+            wind: [
+                'wind',
+            ],
+            other: [
+                'other_ren',
+            ]
+        },
+        brown: [
+            'nat_gas',
+            'pet_coke',
+            'coal',
+            'pet_liq',
+            'other_gas',
+            'wood',
+            'other_bio',
+            'waste',
+        ],
+        nuclear: ['nuclear']
     },
     fuels: {
         con_hydro: 'conventional hydroelectric',
@@ -75,41 +110,72 @@ var dashboardState = {
         all_soll: 'All solar',
         dist_photovolt: 'Distributed photovoltaic',
     },
+
     plantFuel: {
-        'conventional hydroelectric': '',
-        'distillate fuel oil': '',
-        'natural gas': '',
-        'bituminous coal': '',
-        'lignite coal': '',
-        'subbituminous coal': '',
-        'gaseous propane': '',
-        'residual fuel oil': '',
-        'petroleum coke': '',
-        'kerosene': '',
-        'wind': '',
-        'landfill gas': '',
-        'coal-derived synthetic gas': '',
-        'jet fuel': '',
-        'geothermal': '',
-        'nuclear': '',
-        'waste/other oil': '',
-        'solar': '',
-        'wood/wood waste solids': '',
-        'other biomass gas': '',
-        'purchased steam': '',
-        'waste heat': '',
-        'black liquour': '',
-        'sludge waste': '',
-        'waste/other coal': '',
-        'other biomass solids': '',
-        'agricultural by-products': '',
-        'other gas': '',
-        'tire-derived fuels': '',
-        'other biomass liquids': '',
-        'non-biogenic municipal solid waste': '',
-        'biogenic municipal solid waste': '',
-        'blast furnace gas': '',
-        'other': '',
-        'municipal solid waste': ''
+        con_hydro: [
+            'conventional hydroelectric',
+        ],
+        pet_liq: [
+            'distillate fuel oil',
+            'residual fuel oil',
+            'kerosene',
+            'jet fuel',
+            'waste/other oil',
+        ],
+        nat_gas: [
+            'natural gas',
+            'gaseous propane',
+        ],
+        coal: [
+            'bituminous coal',
+            'lignite coal',
+            'subbituminous coal',
+            'waste/other coal',
+        ],
+        pet_coke: [
+            'petroleum coke',
+        ],
+        wind: [
+            'wind',
+        ],
+        other_gas: [
+            'landfill gas',
+            'coal-derived synthetic gas',
+            'other gas',
+            'blast furnace gas',
+        ],
+        geotherm: [
+            'geothermal',
+        ],
+        nuclear: [
+            'nuclear'
+        ],
+        all_soll: [
+            'solar'
+        ],
+        wood: [
+            'wood/wood waste solids',
+        ],
+        other_bio: [
+            'other biomass gas',
+            'other biomass solids',
+            'agricultural by-products',
+            'other biomass liquids',
+            'black liquour',
+        ],
+        other: [
+            'other',
+        ],
+        waste: [
+            'non-biogenic municipal solid waste',
+            'biogenic municipal solid waste',
+            'municipal solid waste',
+            'waste heat',
+            'sludge waste',
+            'tire-derived fuels',
+        ],
+        purch_steam: [
+            'purchased steam'
+        ]
     }
 }

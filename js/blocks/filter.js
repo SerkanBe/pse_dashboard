@@ -27,4 +27,35 @@ $(document).ready(function () {
         updateUsMap();
     });
 
+
+
+    $('button[name^="plant_type_predef"]').click(function() {
+        var btn_val = $(this).val();
+
+        var fuel_names = []; // plantTypeFilter.val() || [];
+        var fuel_keys = [];
+        switch(btn_val) {
+            case 'green':
+                $.each(dashboardState.fuelType.green,function(i,item) {
+                    fuel_keys = fuel_keys.concat(item);
+                });
+                break;
+            case 'brown':
+                fuel_keys = dashboardState.fuelType.brown;
+                break;
+            case 'nuclear':
+                fuel_keys = dashboardState.fuelType.nuclear;
+                break;
+        }
+
+        $.each(fuel_keys,function(i,item) {
+            console.log(item);
+           fuel_names = fuel_names.concat(dashboardState.plantFuel[item]);
+        });
+
+        plantTypeFilter.val(fuel_names).trigger("change");
+    });
+
+
+
 });

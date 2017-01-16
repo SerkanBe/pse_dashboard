@@ -56,10 +56,8 @@
 
     <!-- iCheck -->
     <link href="../vendors/iCheck/skins/flat/green.css" rel="stylesheet">
-	
-	
 
-	
+
 </head>
 
 <body class="nav-md">
@@ -69,12 +67,10 @@
 
 <div class="container body">
     <div class="main_container">
-	
-	
-       
+
 
         <!-- page content -->
-        <div class="right_col" role="main" >
+        <div class="right_col" role="main">
             <div class="">
                 <div class="page-title">
                     <div class="title_left">
@@ -96,9 +92,6 @@
                                 <div style="height:40px;"></div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-4 col-sm-4 col-xs-12">
-
                     </div>
                 </div>
                 <div class="row">
@@ -133,10 +126,23 @@
                                 <div class="clearfix"></div>
                             </div>
                             <div class="row">
-                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
                                     <div class="x_content">
                                         <h4>By energy source</h4>
-                                        <select name="plant_type" multiple="multiple"></select>
+                                        <select name="plant_type" multiple="multiple" style="width:100%"></select>
+                                        <br><br>
+                                        <div class="clearfix"></div>
+                                        <div class="btn-group">
+                                            <button name="plant_type_predef[green]" value="green" type="button"
+                                                    class="btn btn-default">Green-Energy
+                                            </button>
+                                            <button name="plant_type_predef[brown]" value="brown" type="button"
+                                                    class="btn btn-default">Coal/Oil/Gas
+                                            </button>
+                                            <button name="plant_type_predef[nuclear]" value="nuclear" type="button"
+                                                    class="btn btn-default">Nuclear
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -205,11 +211,11 @@
                             Energy Admin Dashboard - Powered by <a href="https://www.eia.gov/">EIA</a>
                         </div>
                         <div class="clearfix">
-						</div>
+                        </div>
                     </footer>
                     <!-- /footer content -->
                 </div>
-				
+
             </div>
 
             <script type="application/javascript" src="/js/blocks/piechart.js"></script>
