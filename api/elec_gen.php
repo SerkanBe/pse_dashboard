@@ -31,7 +31,7 @@ $available_fields = array('amount'=>'t.amount','year' => 'p.year','month'=>'p.mo
 $q_tables = '
 FROM elec_net_gen t
 LEFT JOIN period p ON (p.id = t.period)
-RIGHT JOIN fuel f ON (f.id = t.fuel AND f.name NOT LIKE \'%(total)\')
+INNER JOIN fuel f ON (f.id = t.fuel AND f.name NOT LIKE \'%(total)\')
 LEFT JOIN gen_cons_sector se ON (se.id = t.sector)
 LEFT JOIN state st ON (st.id = t.state)';
 

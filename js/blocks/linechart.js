@@ -5,20 +5,28 @@ echartLine = echarts.init(document.getElementById('echart_line'), echart_theme);
 
 function updateLinegraph() {
     $.getJSON('/api/elec_gen.php', {
-		"state[]": (dashboardState.filter.state),
-        "year[]": (dashboardState.filter.year),
-        "order_by[month]": "ASC",
-        "columns[]": ["month", "fuel"],
+		//"state[]": (dashboardState.filter.state),
+		"place":'linechart',
+		"year[]": [2001,2002,2003],
+        "order_by[year, fuel]": "ASC",
+        "columns[]": ["year", "fuel"],
         "aggr[amount]": "SUM",
-        "group_by[]": ["state", "month", "fuel"]
+        "group_by[]": ["year", "fuel"]
     }).done(function (data) {
+        var years = [];
         var fuels = {};
+		// 1: 
         $.each(data, function (i, item) {
             if (typeof fuels[item.fuel] == 'undefined') {
                 fuels[item.fuel] = [];
             }
-            fuels[item.fuel][item.month - 1] = item.SUM_amount;
+			if (years.indexOf(item.year) == -1) {
+                years.push(item.year);
+            }
+            fuels[item.fuel][years.indexOf(item.year)] = item.SUM_amount;
         });
+		console.log(years);
+		console.log(fuels);
         lineChartOptions.series = [];
         $.each(fuels, function (fuel, fuel_data) {
             lineChartOptions.series.push({
@@ -32,6 +40,7 @@ function updateLinegraph() {
                         }
                     }
                 },
+				
                 data: fuel_data
             });
         });
@@ -47,7 +56,7 @@ function updateLinegraph() {
             trigger: 'axis'
         },
         legend: {
-            x: 220,
+            x: 240,
             y: 40,
             data: []
         },
@@ -79,7 +88,8 @@ function updateLinegraph() {
         xAxis: [{
             type: 'category',
             boundaryGap: false,
-            data: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec']
+			data: ['2001','2002']
+            //data: ['2001', '2002', '2003', '2004', '2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014', //'2015', '2016']
         }],
         yAxis: [{
             type: 'value'
