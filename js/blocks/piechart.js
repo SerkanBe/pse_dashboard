@@ -15,22 +15,18 @@ function updatePieChart() {
     });
 	
 		function aggregateYears(){
-		var year = dashboardState.getFilter('year');
-		var yearend = dashboardState.getFilter('yearend');
-		var y = "[";
-		for (i = year;i<=yearend;i++){
-		 y += i + ",";
-		 
+			var year = dashboardState.getFilter('year');
+			var yearend = dashboardState.getFilter('yearend');
+			var y = "";
+			for (i = year;i<=yearend;i++){
+			 y += i + ",";
+			}
+			y = y.slice(0, -1);
+			return y;
 		}
-		y = y.slice(0, -1);
-		y+= "]";
-		return y;
-	}
-	
-	
+		
     $.getJSON('/api/elec_gen.php', {
-//GET FILTER
-        "year[]": aggregateYears(),
+		"year[]": [aggregateYears()],
         "group_by[]": ["fuel"],
         "order_by[SUM_amount]": "DESC",
         "aggr[amount]": "SUM",
