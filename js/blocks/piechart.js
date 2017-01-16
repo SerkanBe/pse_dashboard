@@ -177,7 +177,6 @@ function createGeneratingSectorsPie() {
                 type: 'pie',
                 radius: ['72%', '80%'],
                 center: ['50%', '35%'],
-                startAngle: 0,
                 itemStyle: {
                     normal: {
                         label: {
