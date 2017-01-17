@@ -1,6 +1,7 @@
 /**
  * Collection of functions to work with the dashboard-state
  */
+var numberFormatter = new Intl.NumberFormat('de-DE')
 
 var dashboardState = {
     filter: {

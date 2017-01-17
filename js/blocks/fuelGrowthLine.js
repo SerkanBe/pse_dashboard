@@ -40,7 +40,7 @@ function updateFuelGrowthLine() {
             if (typeof fuels[item.fuel] == 'undefined') {
                 fuels[item.fuel] = [];
                 $.each(years, function (i, year) {
-                    fuels[item.fuel][i] = 0
+                    fuels[item.fuel][i] = 0;
                 })
             }
             if(legend.indexOf(item.fuel*1 == -1)) {
@@ -84,6 +84,19 @@ function updateFuelGrowthLine() {
         },
         tooltip: {
             trigger: 'axis',
+            transitionDuration: 0,
+            enterable: true,
+            formatter: function (params, ticket, callback) {
+                var res = params[0].name;
+                var colorEl = '';
+                $.each(params, function (i, item) {
+                        colorEl = '<span style="display:inline-block;margin-right:5px;'
+                            + 'border-radius:10px;width:9px;height:9px;background-color:' + item.color + '"></span>';
+                        res += '<br/><span style="float:right">' + colorEl + item.seriesName + ' : ' + numberFormatter.format((item.value*100).toFixed(2)) + '%</span>';
+                });
+                return res;
+            }
+
         },
         legend: {
             x: 'center',

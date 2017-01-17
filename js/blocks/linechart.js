@@ -34,7 +34,7 @@ function updateLinegraph() {
             if (typeof fuels[item.fuel] == 'undefined') {
                 fuels[item.fuel] = [];
                 $.each(years, function (i, year) {
-                    fuels[item.fuel][i] = 0
+                    fuels[item.fuel][i] = 0;
                 })
             }
             if(legend.indexOf(item.fuel*1 == -1)) {
@@ -75,7 +75,24 @@ function updateLinegraph() {
             subtext: ''
         },
         tooltip: {
-            trigger: 'axis'
+            trigger: 'axis',
+            formatter: function (params, ticket, callback) {
+                var res = params[0].name;
+                var colorEl = '';
+                var unit = '';
+                $.each(params, function (i, item) {
+                    unit = 'GW/h';
+                    colorEl = '<span style="display:inline-block;margin-right:5px;'
+                        + 'border-radius:10px;width:9px;height:9px;background-color:' + item.color + '"></span>';
+                    item.value *=1;
+                    if(item.value > 100000) {
+                        item.value = item.value/1000;
+                        unit = 'TW/h';
+                    }
+                    res += '<br/><span style="float:right">' + colorEl + item.seriesName + ' : ' + numberFormatter.format(item.value.toFixed(2)) + ' ' + unit + '</span>';
+                });
+                return res;
+            }
         },
         legend: {
             x: 'center',
