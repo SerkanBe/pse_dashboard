@@ -11,9 +11,6 @@ var dashboardState = {
         state: ['*'],
         fuel: ['*'],
         plant_fuel: [''],
-        windspeed: ['off'],
-        showtemp: ['off'],
-        mapclear: ['off']
     },
     setFilter: function (filter, values) {
         if (dashboardState.filter[filter] == null || typeof dashboardState.filter[filter] == 'undefined') {
