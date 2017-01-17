@@ -86,6 +86,12 @@ $(document).ready(function () {
 					dashboardState.setFilter('showtemp', 'on');
 					return;
 					break;
+				case 'clear':
+					dashboardState.filter.windspeed = 'off';
+					dashboardState.filter.showtemp = 'off';
+					dashboardState.setFilter('mapclear', 'on');
+					return;
+					break;
 			}
 	   });
 });

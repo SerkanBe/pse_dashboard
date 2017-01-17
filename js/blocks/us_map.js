@@ -38,6 +38,22 @@ function updateUsMap() {
 
 
 function updateUsMap2() {
+	
+		if (dashboardState.filter.mapclear == 'on'){
+			
+			usMap.series.regions[0].clear();
+			//usMap.series.regions[0].params.min = undefined;
+			//usMap.series.regions[0].params.max = undefined;
+			//usMap.series.regions[0].params.min = 2120;
+			//usMap.series.regions[0].params.max = 3806;
+			//usMap.series.regions[0].setScale(['#009688', '#009688']);
+			//usMap.series.regions[0].setValues(dashboardState.statedata.sunlighttotalhrs);
+			dashboardState.filter.mapclear = 'off';
+			//dashboardState.setFilter('mapclear', 'off');
+			
+			return;
+		}
+	
 		if (dashboardState.filter.windspeed == 'on'){
 		console.log("in windspeed: "+dashboardState.filter.windspeed);
 		console.log("in windspeed: showtemp: "+dashboardState.filter.showtemp);
@@ -49,7 +65,7 @@ function updateUsMap2() {
 		usMap.series.regions[0].params.max = 31.44;
 		usMap.series.regions[0].setScale(['#DEEBF7', '#08519C']);
 		usMap.series.regions[0].setValues(dashboardState.statedata.avgwindspeed);
-		
+		return;
 	}
 
 	if (dashboardState.filter.showtemp == 'on'){
@@ -63,7 +79,7 @@ function updateUsMap2() {
 		usMap.series.regions[0].params.max = 3806;
 		usMap.series.regions[0].setScale(['#feeee5', '#f95800']);
 		usMap.series.regions[0].setValues(dashboardState.statedata.sunlighttotalhrs);
-		
+		return;
 	}
 }
 	
