@@ -1,12 +1,18 @@
 var usMap;
 function updateUsMap() {
+
+    usMap.removeAllMarkers();
+    if(dashboardState.get('plantFuel') == ['_none']) {
+        return;
+    }
+
     $.getJSON('/api/plant.php', {
         //fuelinput,
         //TODO fix initialization of chart without specific fuelfilter
         //TODO do not reload full map after new markers are set
         //"state[]": 'US-TX',
         "group_by[]": ["plant_lat, plant_lon"],
-        "range[limit]": 10,
+        "range[limit]": 100,
         "columns[]": ["plant_name", "plant_lat", "plant_lon"],
         "year[]": dashboardState.get('year'),
         "state[]": dashboardState.get('state'),
@@ -23,7 +29,6 @@ function updateUsMap() {
             };
             markerValues[i] = item.fuel;
         });
-        usMap.removeAllMarkers();
         usMap.addMarkers(myMarkers);
     });
 }
