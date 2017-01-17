@@ -249,6 +249,16 @@
                                                     class="btn btn-default">Clear
                                             </button>
                                         </div>
+										
+										<div class="btn-group">
+                                            <button name="plant_type_predef[windspeed]" value="windspeed" type="button"
+                                                    class="btn btn-default">mean windspeed mp/h
+                                            </button>
+                                            <button name="plant_type_predef[temp]" value="temp" type="button"
+                                                    class="btn btn-default">mean Temp/mean sunlight hrs
+                                            </button>
+                                            
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -275,7 +285,7 @@
                     <div class="col-md-4 col-sm-4 col-xs-12">
                         <div class="x_panel">
                             <div class="x_title">
-                                <h2 id="top5">Top 5 generation fuels</h2>
+                                <h2 id="top5">Top generation fuels in 1000 MW/h</h2>
                                 <ul class="nav navbar-right panel_toolbox">
                                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                     </li>
@@ -291,7 +301,7 @@
                     <div class="col-md-4 col-sm-4 col-xs-12">
                         <div class="x_panel">
                             <div class="x_title">
-                                <h2 id="top5">Top 5 renewable fuels</h2>
+                                <h2 id="top5">Top renewable fuels</h2>
                                 <ul class="nav navbar-right panel_toolbox">
                                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                     </li>
@@ -306,7 +316,7 @@
                     <div class="col-md-4 col-sm-4 col-xs-12">
                         <div class="x_panel">
                             <div class="x_title">
-                                <h2>Electricity generating sectors</h2>
+                                <h2>Electricity generating sectors in 1000 MW/h</h2>
                                 <ul class="nav navbar-right panel_toolbox">
                                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                     </li>
@@ -329,7 +339,7 @@
                     <div class="col-md-12 col-sm-12 col-xs-12">
                         <div class="x_panel">
                             <div class="x_title">
-                                <h2>EChart Line Graph</h2>
+                                <h2>Electricity generation by fuel in 1000 MW/h</h2>
                                 <ul class="nav navbar-right panel_toolbox">
                                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                     </li>
@@ -338,7 +348,7 @@
                             </div>
                             <div class="x_content">
 
-                                <div id="echart_line" style="height:350px;"></div>
+                                <div id="echart_line" style="height:400px;"></div>
 
                             </div>
                         </div>

@@ -61,8 +61,8 @@ function updateLinegraph() {
 
     var lineChartOptions = {
         title: {
-            text: 'Line Graph',
-            subtext: 'Subtitle'
+            text: '',
+            subtext: ''
         },
         tooltip: {
             trigger: 'axis'
