@@ -61,6 +61,7 @@ $(document).ready(function () {
                 plantTypeFilter.val(['_none']).trigger("change");
                 return;
                 break;
+			
         }
 
         $.each(fuel_keys,function(i,item) {
@@ -69,4 +70,22 @@ $(document).ready(function () {
 
         plantTypeFilter.val(fuel_names).trigger("change");
     });
+	
+	
+	   $('button[name="plant_map_type"]').click(function() {
+		   var btn_val = $(this).val();
+		    switch(btn_val) {
+				case 'windspeed':
+					dashboardState.filter.showtemp = 'off';
+					dashboardState.setFilter('windspeed', 'on');
+					
+					return;
+					break;
+				case 'temp':
+					dashboardState.filter.windspeed = 'off';
+					dashboardState.setFilter('showtemp', 'on');
+					return;
+					break;
+			}
+	   });
 });

@@ -250,11 +250,11 @@
                                             </button>
                                         </div>
 										
-										<div class="btn-group">
-                                            <button name="plant_type_predef[windspeed]" value="windspeed" type="button"
+										<div class="btn-group2">
+                                            <button name="plant_map_type" value="windspeed" type="button"
                                                     class="btn btn-default">mean windspeed mp/h
                                             </button>
-                                            <button name="plant_type_predef[temp]" value="temp" type="button"
+                                            <button name="plant_map_type" value="temp" type="button"
                                                     class="btn btn-default">mean Temp/mean sunlight hrs
                                             </button>
                                             
