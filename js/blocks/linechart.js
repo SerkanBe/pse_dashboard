@@ -2,7 +2,6 @@ var echartLine;
 $(document).ready(function () {
     echartLine = echarts.init(document.getElementById('echart_line'), echart_theme);
     dashboardState.registerForFilterChange(['state'],'updateLinegraph');
-
 })
 
 function updateLinegraph() {
@@ -18,36 +17,31 @@ function updateLinegraph() {
         "state[]":dashboardState.get('state'),
         "place": 'linechart',
         "between[year]": dateRange,
-        "order_by[year]": "ASC",
-        "order_by[month]": "ASC",
-        "order_by[fuel]": "ASC",
-        "columns[]": ["year","month", "fuel"],
+        "order_by[year, fuel]": "ASC",
+        "columns[]": ["year", "fuel"],
         "aggr[amount]": "SUM",
-        "group_by[]": ["fuel","month","year"],
+        "group_by[]": ["year", "fuel"],
         //"!fuel[]": ["All utility-scale solar","other","Other biomass","Other gases","All solar"],
     }).done(function (data) {
-        var monthlyXValues = [];
+        var years = [];
         var fuels = {};
         var legend = [];
         for (var i = dateRange.start; i <= dateRange.end; i++) {
-            for(var month=1;month<=12;month++) {
-                monthlyXValues.push(month*1+"-"+i*1); // Just make sure we have an element for every year we want to show.
-            }
+            years.push(i); // Just make sure we have an element for every year we want to show.
         }
 
         $.each(data, function (i, item) {
             if (typeof fuels[item.fuel] == 'undefined') {
                 fuels[item.fuel] = [];
-                $.each(monthlyXValues, function (i, xValue) {
+                $.each(years, function (i, year) {
                     fuels[item.fuel][i] = 0
                 })
             }
             if(legend.indexOf(item.fuel*1 == -1)) {
                 legend.push(item.fuel);
             }
-            console.log(item.month*1+"-"+item.year*1);
 
-            fuels[item.fuel][monthlyXValues.indexOf(item.month*1+'-'+item.year*1)] = item.SUM_amount;
+            fuels[item.fuel][years.indexOf(item.year*1)] = item.SUM_amount;
         });
 
         lineChartOptions.series = [];
@@ -56,7 +50,6 @@ function updateLinegraph() {
                 name: fuel,
                 type: 'line',
                 smooth: true,
-                show:false,
                 itemStyle: {
                     normal: {
                         areaStyle: {
@@ -64,11 +57,12 @@ function updateLinegraph() {
                         }
                     }
                 },
+
                 data: fuel_data
             });
         });
 
-        lineChartOptions.xAxis[0].data = monthlyXValues;
+        lineChartOptions.xAxis[0].data = years;
 
         lineChartOptions.legend.data = legend;
         echartLine.setOption(lineChartOptions);
