@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>EIA Dashboard</title>
+    <!--title>EIA Dashboard</title-->
 
     <!-- Bootstrap -->
     <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -50,6 +50,10 @@
         <div class="col-md-3 left_col">
             <div class="left_col scroll-view">
 
+			
+			<div class="navbar nav_title" style="border: 0;">
+              <a href="index.php" class="site_title"><i class="fa fa-paw"></i> <span>EIA Dashboard</span></a>
+            </div>
 
                 <div class="clearfix"></div>
 
@@ -183,7 +187,7 @@
             <div class="">
                 <div class="page-title">
                     <div class="title_left">
-                        <h3>EIA Dashboard</h3>
+                        <!--h3>EIA Dashboard</h3-->
                     </div>
                 </div>
 
@@ -213,18 +217,18 @@
 
                             </div>
 
-                            <div class="x_title">
+                            <!--div class="x_title">
                                 <h2>Filter Plants</h2>
-                                <!--ul class="nav navbar-right panel_toolbox">
+                                <ul class="nav navbar-right panel_toolbox">
                                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                     </li>
-                                </ul-->
+                                </ul>
                                 <div class="clearfix"></div>
-                            </div>
+                            </div-->
                             <div class="row">
                                 <div class="col-md-12 col-sm-12 col-xs-12">
                                     <div class="x_content">
-                                        <h4>By energy source</h4>
+                                        <h4>Filter Plants by energy source</h4>
                                         <select name="plant_type" multiple="multiple" style="width:100%"></select>
                                         <br><br>
                                         <div class="clearfix"></div>

@@ -7,9 +7,7 @@ function updateUsMap() {
     }
 
     $.getJSON('/api/plant.php', {
-        //fuelinput,
-        //TODO fix initialization of chart without specific fuelfilter
-        //TODO do not reload full map after new markers are set
+        
         //"state[]": 'US-TX',
         "group_by[]": ["plant_lat, plant_lon"],
         //"range[limit]": 100,
@@ -31,13 +29,25 @@ function updateUsMap() {
         });
         usMap.addMarkers(myMarkers);
     });
-}
 
+}
+console.log(dashboardState.statedata.avgwindspeed);
 $(document).ready(function () {
     $('#jvectormap_usa').vectorMap({
         map: 'us_aea',
         regionsSelectable: true,
         backgroundColor: 'white',
+		
+		series: {
+			regions: [{
+				scale: ['#DEEBF7', '#08519C'],
+				attribute: 'fill',
+				values: dashboardState.statedata.avgwindspeed,
+				min: 12.91,
+				max: 31.44 
+			}]
+		},
+		
         regionStyle: {
             initial: {
                 fill: '#009688',
