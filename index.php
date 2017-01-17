@@ -50,10 +50,10 @@
         <div class="col-md-3 left_col">
             <div class="left_col scroll-view">
 
-			
-			<div class="navbar nav_title" style="border: 0;">
-              <a href="index.php" class="site_title"><i class="fa fa-paw"></i> <span>EIA Dashboard</span></a>
-            </div>
+
+                <div class="navbar nav_title" style="border: 0;">
+                    <a href="index.php" class="site_title"><i class="fa fa-paw"></i> <span>EIA Dashboard</span></a>
+                </div>
 
                 <div class="clearfix"></div>
 
@@ -254,8 +254,41 @@
                             </div>
                         </div>
                     </div>
-                </div>
 
+                </div>
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="x_panel">
+                            <div class="x_title">
+                                <h2>Growth of source-usage</h2>
+                                <ul class="nav navbar-right panel_toolbox">
+                                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                    </li>
+                                </ul>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="x_content">
+                                <div id="fuel_growth_linechart" style="height:350px;"></div>
+
+                                <h4>Filter by energy source</h4>
+                                <div class="btn-group">
+                                    <button name="fuel_growth_predef[green]" value="green" type="button"
+                                            class="btn btn-default">Green-Energy
+                                    </button>
+                                    <button name="fuel_growth_predef[brown]" value="brown" type="button"
+                                            class="btn btn-default">Coal/Oil/Gas
+                                    </button>
+                                    <button name="fuel_growth_predef[nuclear]" value="nuclear" type="button"
+                                            class="btn btn-default">Nuclear
+                                    </button>
+                                    <button name="fuel_growth_predef[_all]" value="_all" type="button"
+                                            class="btn btn-default">All
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="row">
                     <div class="col-md-12 col-sm-12 col-xs-12">
@@ -404,6 +437,7 @@
             <script type="application/javascript" src="/js/blocks/piechart.js"></script>
             <script type="application/javascript" src="/js/blocks/timeline.js"></script>
             <script type="application/javascript" src="/js/blocks/linechart.js"></script>
+            <script type="application/javascript" src="/js/blocks/fuelGrowthLine.js"></script>
 
             <script type="application/javascript" src="/js/blocks/us_map.js"></script>
             <script type="application/javascript" src="/js/blocks/filter.js"></script>

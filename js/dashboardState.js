@@ -82,6 +82,16 @@ var dashboardState = {
         }
     },
 
+    getGreenFuels: function () {
+        var greenOnes = {};
+        $.each(dashboardState.fuelType.green, function(i,item) {
+            $.each(item, function(j, fuel_key) {
+                greenOnes[dashboardState.fuels[fuel_key]] = false;
+            });
+        })
+
+        return greenOnes;
+    },
     fuelType: {
         green: {
             solar: [
