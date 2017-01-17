@@ -1,4 +1,6 @@
 var usMap;
+
+
 function updateUsMap() {
 
     usMap.removeAllMarkers();
@@ -30,8 +32,60 @@ function updateUsMap() {
         usMap.addMarkers(myMarkers);
     });
 
+
+
 }
-console.log(dashboardState.statedata.avgwindspeed);
+
+
+function updateUsMap2() {
+	
+		if (dashboardState.filter.mapclear == 'on'){
+			
+			usMap.series.regions[0].clear();
+			//usMap.series.regions[0].params.min = undefined;
+			//usMap.series.regions[0].params.max = undefined;
+			//usMap.series.regions[0].params.min = 2120;
+			//usMap.series.regions[0].params.max = 3806;
+			//usMap.series.regions[0].setScale(['#009688', '#009688']);
+			//usMap.series.regions[0].setValues(dashboardState.statedata.sunlighttotalhrs);
+			dashboardState.filter.mapclear = 'off';
+			//dashboardState.setFilter('mapclear', 'off');
+			
+			return;
+		}
+	
+		if (dashboardState.filter.windspeed == 'on'){
+		console.log("in windspeed: "+dashboardState.filter.windspeed);
+		console.log("in windspeed: showtemp: "+dashboardState.filter.showtemp);
+		dashboardState.filter.showtemp = 'off';
+		usMap.series.regions[0].clear();
+		usMap.series.regions[0].params.min = undefined;
+		usMap.series.regions[0].params.max = undefined;
+		usMap.series.regions[0].params.min = 12.91;
+		usMap.series.regions[0].params.max = 31.44;
+		usMap.series.regions[0].setScale(['#DEEBF7', '#08519C']);
+		usMap.series.regions[0].setValues(dashboardState.statedata.avgwindspeed);
+		return;
+	}
+
+	if (dashboardState.filter.showtemp == 'on'){
+		console.log("in showtemp: "+dashboardState.filter.showtemp);
+		console.log("in showtemp: widspeed: "+dashboardState.filter.windspeed);
+		dashboardState.filter.windspeed = 'off';
+		usMap.series.regions[0].clear();
+		usMap.series.regions[0].params.min = undefined;
+		usMap.series.regions[0].params.max = undefined;
+		usMap.series.regions[0].params.min = 2120;
+		usMap.series.regions[0].params.max = 3806;
+		usMap.series.regions[0].setScale(['#feeee5', '#f95800']);
+		usMap.series.regions[0].setValues(dashboardState.statedata.sunlighttotalhrs);
+		return;
+	}
+}
+	
+	
+	
+	
 $(document).ready(function () {
     $('#jvectormap_usa').vectorMap({
         map: 'us_aea',
@@ -40,11 +94,11 @@ $(document).ready(function () {
 		
 		series: {
 			regions: [{
-				scale: ['#DEEBF7', '#08519C'],
+				scale: [],
 				attribute: 'fill',
-				values: dashboardState.statedata.avgwindspeed,
-				min: 12.91,
-				max: 31.44 
+				values: [],
+				min: [],
+				max: [] 
 			}]
 		},
 		
@@ -88,4 +142,5 @@ $(document).ready(function () {
     usMap = $('#jvectormap_usa').vectorMap('get', 'mapObject');
     //updateUsMap();
     dashboardState.registerForFilterChange(['state','plantFuel'],'updateUsMap');
+	dashboardState.registerForFilterChange(['windspeed','showtemp'],'updateUsMap2');
 })
