@@ -1,7 +1,7 @@
 var echartLine;
 $(document).ready(function () {
     echartLine = echarts.init(document.getElementById('echart_line'), echart_theme);
-    dashboardState.registerForFilterChange(['state','year','yearend'],'updateLinegraph');
+    dashboardState.registerForFilterChange(['state'],'updateLinegraph');
 })
 
 function updateLinegraph() {
@@ -118,6 +118,18 @@ function updateLinegraph() {
         }],
         grid: {
             y2: 120,
+        },
+        dataZoom : {
+            show : true,
+            realtime : true,
+            y: 36,
+            height: 20,
+            //backgroundColor: 'rgba(221,160,221,0.5)',
+            //dataBackgroundColor: 'rgba(138,43,226,0.5)',
+            //fillerColor: 'rgba(38,143,26,0.6)',
+            //handleColor: 'rgba(128,43,16,0.8)',
+            //xAxisIndex:[],
+            //yAxisIndex:[],
         },
         series: []
     };

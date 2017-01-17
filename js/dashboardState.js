@@ -74,6 +74,7 @@ var dashboardState = {
     },
 
     triggerChartUpdates: function(filter) {
+        if(filter == 'yearend') return;
         if(typeof this.filterCallbacks[filter] != 'undefined') {
             $.each(this.filterCallbacks[filter].concat(this.filterCallbacks['_all']), function (i, item) {
                 window[item]();
