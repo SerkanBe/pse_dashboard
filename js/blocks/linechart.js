@@ -1,7 +1,7 @@
 var echartLine;
 $(document).ready(function () {
     echartLine = echarts.init(document.getElementById('echart_line'), echart_theme);
-    dashboardState.registerForFilterChange(['state'],'updateLinegraph');
+    dashboardState.registerForFilterChange(['state'], 'updateLinegraph');
 })
 
 function updateLinegraph() {
@@ -14,7 +14,7 @@ function updateLinegraph() {
         }
     });
     $.getJSON('/api/elec_gen.php', {
-        "state[]":dashboardState.get('state'),
+        "state[]": dashboardState.get('state'),
         "place": 'linechart',
         "between[year]": dateRange,
         "order_by[year, fuel]": "ASC",
@@ -37,11 +37,11 @@ function updateLinegraph() {
                     fuels[item.fuel][i] = 0;
                 })
             }
-            if(legend.indexOf(item.fuel*1 == -1)) {
+            if (legend.indexOf(item.fuel * 1 == -1)) {
                 legend.push(item.fuel);
             }
 
-            fuels[item.fuel][years.indexOf(item.year*1)] = item.SUM_amount;
+            fuels[item.fuel][years.indexOf(item.year * 1)] = item.SUM_amount;
         });
 
         lineChartOptions.series = [];
@@ -84,9 +84,9 @@ function updateLinegraph() {
                     unit = 'GW/h';
                     colorEl = '<span style="display:inline-block;margin-right:5px;'
                         + 'border-radius:10px;width:9px;height:9px;background-color:' + item.color + '"></span>';
-                    item.value *=1;
-                    if(item.value > 100000) {
-                        item.value = item.value/1000;
+                    item.value *= 1;
+                    if (item.value > 100000) {
+                        item.value = item.value / 1000;
                         unit = 'TW/h';
                     }
                     res += '<br/><span style="float:right">' + colorEl + item.seriesName + ' : ' + numberFormatter.format(item.value.toFixed(2)) + ' ' + unit + '</span>';
@@ -143,9 +143,9 @@ function updateLinegraph() {
         grid: {
             y2: 120,
         },
-        dataZoom : {
-            show : true,
-            realtime : true,
+        dataZoom: {
+            show: true,
+            realtime: true,
             y: 36,
             height: 20,
             //backgroundColor: 'rgba(221,160,221,0.5)',

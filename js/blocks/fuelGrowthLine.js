@@ -77,10 +77,6 @@ function updateFuelGrowthLine() {
     var greenFuels = dashboardState.getGreenFuels();
 
     var lineChartOptions = {
-        title: {
-            text: 'Line Graph',
-            subtext: 'Subtitle'
-        },
         tooltip: {
             trigger: 'axis',
             transitionDuration: 0,
@@ -179,8 +175,8 @@ $('button[name="fuel_growth_predef"]').click(function () {
     var fuel_keys = [];
     var selections = {};
 
-    $.each(fuelGrowthLine.getOption().series,function(i,item) {
-       selections[item.name] = false;
+    $.each(fuelGrowthLine.getOption().series, function (i, item) {
+        selections[item.name] = false;
     });
 
     switch (btn_val) {
@@ -196,7 +192,9 @@ $('button[name="fuel_growth_predef"]').click(function () {
             fuel_keys = dashboardState.fuelType.nuclear;
             break;
         case '_all':
-            $.each(selections,function(i,item){selections[i] = true})
+            $.each(selections, function (i, item) {
+                selections[i] = true
+            })
             fuel_keys = [];
             break;
         case '_none':
@@ -205,11 +203,8 @@ $('button[name="fuel_growth_predef"]').click(function () {
     }
 
     $.each(fuel_keys, function (i, item) {
-        console.log(item);
-            selections[dashboardState.fuels[item]] = true;
+        selections[dashboardState.fuels[item]] = true;
     });
-    console.log(fuel_keys);
-console.log(selections);
     var options = {
         legend: {
             selected: selections,

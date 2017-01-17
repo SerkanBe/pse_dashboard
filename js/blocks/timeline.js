@@ -3,8 +3,8 @@ $(document).ready(function () {
     slider = document.getElementById('slider');
 
     noUiSlider.create(slider, {
-        start: [2001,2015],
-		connect: [false, true, false],
+        start: [2001, 2015],
+        connect: [false, true, false],
         step: 1,
         range: {
             'min': [2001],
@@ -18,11 +18,12 @@ $(document).ready(function () {
     });
 
     slider.noUiSlider.on('change', function () {
-		// ADJUST piechart 
-		dashboardState.setFilter('year',slider.noUiSlider.get()[0]*1);
-		dashboardState.setFilter('yearend',slider.noUiSlider.get()[1]*1);
+        // ADJUST piechart
+        dashboardState.setFilter('year', slider.noUiSlider.get()[0] * 1);
+        dashboardState.setFilter('yearend', slider.noUiSlider.get()[1] * 1);
 
-		$("#top5").innerHTML = "Top 5 gen. fuels "+ ~~slider.noUiSlider.get()[0] +" - "+ ~~slider.noUiSlider.get()[1] ;
-		$("#linecharttotal").innerHTML = "Energy generation by fuel average "+ ~~slider.noUiSlider.get()[0] +" - "+ ~~slider.noUiSlider.get()[1] ;
+        $("#top_gen_fuels > .range").html("(" + ~~slider.noUiSlider.get()[0] + " - " + ~~slider.noUiSlider.get()[1]+")");
+        $("#top_ren_fuels > .range").html("(" + ~~slider.noUiSlider.get()[0] + " - " + ~~slider.noUiSlider.get()[1]+")");
+        $("#gen_sectors > .range").html("(" + ~~slider.noUiSlider.get()[0] + " - " + ~~slider.noUiSlider.get()[1]+")");
     });
 })

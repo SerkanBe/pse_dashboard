@@ -79,8 +79,8 @@
                                     <li><a href="form_buttons.html">Form Buttons</a></li>
                                 </ul>
                             </li>
-                            <li><a><i class="fa fa-desktop"></i> UI Elements <span
-                                            class="fa fa-chevron-down"></span></a>
+                            <li><a><i class="fa fa-desktop"></i> UI Elements
+                                    <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
                                     <li><a href="general_elements.html">General Elements</a></li>
                                     <li><a href="media_gallery.html">Media Gallery</a></li>
@@ -99,8 +99,8 @@
                                     <li><a href="tables_dynamic.html">Table Dynamic</a></li>
                                 </ul>
                             </li>
-                            <li><a><i class="fa fa-bar-chart-o"></i> Data Presentation <span
-                                            class="fa fa-chevron-down"></span></a>
+                            <li><a><i class="fa fa-bar-chart-o"></i> Data Presentation
+                                    <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
                                     <li><a href="chartjs.html">Chart JS</a></li>
                                     <li><a href="chartjs2.html">Chart JS2</a></li>
@@ -120,8 +120,8 @@
                     <div class="menu_section">
                         <h3>Live On</h3>
                         <ul class="nav side-menu">
-                            <li><a><i class="fa fa-bug"></i> Additional Pages <span
-                                            class="fa fa-chevron-down"></span></a>
+                            <li><a><i class="fa fa-bug"></i> Additional Pages
+                                    <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
                                     <li><a href="e_commerce.html">E-commerce</a></li>
                                     <li><a href="projects.html">Projects</a></li>
@@ -140,8 +140,8 @@
                                     <li><a href="pricing_tables.html">Pricing Tables</a></li>
                                 </ul>
                             </li>
-                            <li><a><i class="fa fa-sitemap"></i> Multilevel Menu <span
-                                            class="fa fa-chevron-down"></span></a>
+                            <li><a><i class="fa fa-sitemap"></i> Multilevel Menu
+                                    <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
                                     <li><a href="#level1_1">Level One</a>
                                     <li><a>Level One<span class="fa fa-chevron-down"></span></a>
@@ -158,8 +158,8 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li><a href="javascript:void(0)"><i class="fa fa-laptop"></i> Landing Page <span
-                                            class="label label-success pull-right">Coming Soon</span></a></li>
+                            <li><a href="javascript:void(0)"><i class="fa fa-laptop"></i> Landing Page
+                                    <span class="label label-success pull-right">Coming Soon</span></a></li>
                         </ul>
                     </div>
 
@@ -198,7 +198,7 @@
                     <div class="col-md-6 col-sm-6 col-xs-12">
                         <div class="x_panel">
                             <div class="x_title">
-                                <h2>Excess/Shortage</h2>
+                                <h2>Plant locations</h2>
                                 <ul class="nav navbar-right panel_toolbox">
                                     <li>
                                         <a class="collapse-link">
@@ -233,34 +233,26 @@
                                         <br><br>
                                         <div class="clearfix"></div>
                                         <div class="btn-group">
-                                            <button name="plant_type_predef" value="green" type="button"
-                                                    class="btn btn-default">Green-Energy
+                                            <button name="plant_type_predef" value="green" type="button" class="btn btn-default">Green-Energy
                                             </button>
-                                            <button name="plant_type_predef" value="brown" type="button"
-                                                    class="btn btn-default">Coal/Oil/Gas
+                                            <button name="plant_type_predef" value="brown" type="button" class="btn btn-default">Coal/Oil/Gas
                                             </button>
-                                            <button name="plant_type_predef" value="nuclear" type="button"
-                                                    class="btn btn-default">Nuclear
+                                            <button name="plant_type_predef" value="nuclear" type="button" class="btn btn-default">Nuclear
                                             </button>
-                                            <button name="plant_type_predef" value="_all" type="button"
-                                                    class="btn btn-default">All
+                                            <button name="plant_type_predef" value="_all" type="button" class="btn btn-default">All
                                             </button>
-                                            <button name="plant_type_predef" value="_none" type="button"
-                                                    class="btn btn-default">Clear
+                                            <button name="plant_type_predef" value="_none" type="button" class="btn btn-default">Clear
                                             </button>
                                         </div>
-										
-										<div class="btn-group2">
-                                            <button name="plant_map_type" value="windspeed" type="button"
-                                                    class="btn btn-default">mean windspeed mp/h
+
+                                        <div class="btn-group2">
+                                            <button name="plant_map_type" value="windspeed" type="button" class="btn btn-default">mean windspeed mp/h
                                             </button>
-                                            <button name="plant_map_type" value="temp" type="button"
-                                                    class="btn btn-default">mean Temp/mean sunlight hrs
+                                            <button name="plant_map_type" value="temp" type="button" class="btn btn-default">mean Temp/mean sunlight hrs
                                             </button>
-											<button name="plant_map_type" value="clear" type="button"
-                                                    class="btn btn-default">Clear
+                                            <button name="plant_map_type" value="clear" type="button" class="btn btn-default">Clear
                                             </button>
-                                            
+
                                         </div>
                                     </div>
                                 </div>
@@ -285,20 +277,15 @@
 
                                 <h4>Filter by energy source</h4>
                                 <div class="btn-group">
-                                    <button name="fuel_growth_predef" value="green" type="button"
-                                            class="btn btn-default">Green-Energy
+                                    <button name="fuel_growth_predef" value="green" type="button" class="btn btn-default">Green-Energy
                                     </button>
-                                    <button name="fuel_growth_predef" value="brown" type="button"
-                                            class="btn btn-default">Coal/Oil/Gas
+                                    <button name="fuel_growth_predef" value="brown" type="button" class="btn btn-default">Coal/Oil/Gas
                                     </button>
-                                    <button name="fuel_growth_predef" value="nuclear" type="button"
-                                            class="btn btn-default">Nuclear
+                                    <button name="fuel_growth_predef" value="nuclear" type="button" class="btn btn-default">Nuclear
                                     </button>
-                                    <button name="fuel_growth_predef" value="_all" type="button"
-                                            class="btn btn-default">All
+                                    <button name="fuel_growth_predef" value="_all" type="button" class="btn btn-default">All
                                     </button>
-                                    <button name="fuel_growth_predef" value="_none" type="button"
-                                            class="btn btn-default">Clear
+                                    <button name="fuel_growth_predef" value="_none" type="button" class="btn btn-default">Clear
                                     </button>
                                 </div>
                             </div>
@@ -324,7 +311,7 @@
                     <div class="col-md-4 col-sm-4 col-xs-12">
                         <div class="x_panel">
                             <div class="x_title">
-                                <h2 id="top5">Top generation fuels</h2>
+                                <h2 id="top_gen_fuels">Top generation fuels <span class="range">(2001-2015)</span></h2>
                                 <ul class="nav navbar-right panel_toolbox">
                                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                     </li>
@@ -340,7 +327,7 @@
                     <div class="col-md-4 col-sm-4 col-xs-12">
                         <div class="x_panel">
                             <div class="x_title">
-                                <h2 id="top5">Top renewable fuels</h2>
+                                <h2 id="top_ren_fuels">Top renewable fuels <span class="range">(2001-2015)</span></h2>
                                 <ul class="nav navbar-right panel_toolbox">
                                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                     </li>
@@ -355,7 +342,7 @@
                     <div class="col-md-4 col-sm-4 col-xs-12">
                         <div class="x_panel">
                             <div class="x_title">
-                                <h2>Electricity generating sectors</h2>
+                                <h2 id="gen_sectors">Electricity generating sectors <span class="range">(2001-2015)</span></h2>
                                 <ul class="nav navbar-right panel_toolbox">
                                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                     </li>
@@ -402,8 +389,7 @@
                         <div class="pull-right">
                             Energy Admin Dashboard - Powered by <a href="https://www.eia.gov/">EIA</a>
                         </div>
-                        <div class="clearfix">
-                        </div>
+                        <div class="clearfix"></div>
                     </footer>
                     <!-- /footer content -->
                 </div>
@@ -426,11 +412,9 @@
             <script type="application/javascript" src="../vendors/fastclick/lib/fastclick.js"></script>
 
             <!-- jQuery Sparklines -->
-            <script type="application/javascript"
-                    src="../vendors/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
+            <script type="application/javascript" src="../vendors/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
             <!-- easy-pie-chart -->
-            <script type="application/javascript"
-                    src="../vendors/jquery.easy-pie-chart/dist/jquery.easypiechart.min.js"></script>
+            <script type="application/javascript" src="../vendors/jquery.easy-pie-chart/dist/jquery.easypiechart.min.js"></script>
 
             <!-- ECharts -->
             <script type="application/javascript" src="../vendors/echarts/dist/echarts.js"></script>
@@ -444,8 +428,7 @@
             <script type="application/javascript" src="/vendors/select2/dist/js/select2.full.min.js"></script>
 
             <!-- jQuery custom content scroller -->
-            <script type="application/javascript"
-                    src="../vendors/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+            <script type="application/javascript" src="../vendors/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
 
             <!-- Custom Theme Scripts -->
             <script type="application/javascript" src="../build/js/custom.js"></script>
