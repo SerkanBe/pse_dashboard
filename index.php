@@ -60,7 +60,7 @@
                 <!-- sidebar menu -->
                 <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
                     <div class="menu_section">
-                        <h3>General</h3>
+                        <h2>Menu</h2>
                         <ul class="nav side-menu">
                             <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
@@ -69,7 +69,7 @@
                                     <li><a href="index3.html">Dashboard3</a></li>
                                 </ul>
                             </li>
-                            <li><a><i class="fa fa-edit"></i> Forms <span class="fa fa-chevron-down"></span></a>
+                            <li><a><i class="fa fa-edit"></i> Edit <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
                                     <li><a href="form.html">General Form</a></li>
                                     <li><a href="form_advanced.html">Advanced Components</a></li>
@@ -79,7 +79,7 @@
                                     <li><a href="form_buttons.html">Form Buttons</a></li>
                                 </ul>
                             </li>
-                            <li><a><i class="fa fa-desktop"></i> UI Elements
+                            <li><a><i class="fa fa-desktop"></i> Dashboards
                                     <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
                                     <li><a href="general_elements.html">General Elements</a></li>
@@ -99,7 +99,7 @@
                                     <li><a href="tables_dynamic.html">Table Dynamic</a></li>
                                 </ul>
                             </li>
-                            <li><a><i class="fa fa-bar-chart-o"></i> Data Presentation
+                            <li><a><i class="fa fa-bar-chart-o"></i> Custom Charts
                                     <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
                                     <li><a href="chartjs.html">Chart JS</a></li>
@@ -109,7 +109,7 @@
                                     <li><a href="other_charts.html">Other Charts</a></li>
                                 </ul>
                             </li>
-                            <li><a><i class="fa fa-clone"></i>Layouts <span class="fa fa-chevron-down"></span></a>
+                            <li><a><i class="fa fa-clone"></i>Compare <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
                                     <li><a href="fixed_sidebar.html">Fixed Sidebar</a></li>
                                     <li><a href="fixed_footer.html">Fixed Footer</a></li>
@@ -117,7 +117,8 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="menu_section">
+					
+                    <!--div class="menu_section">
                         <h3>Live On</h3>
                         <ul class="nav side-menu">
                             <li><a><i class="fa fa-bug"></i> Additional Pages
@@ -161,7 +162,7 @@
                             <li><a href="javascript:void(0)"><i class="fa fa-laptop"></i> Landing Page
                                     <span class="label label-success pull-right">Coming Soon</span></a></li>
                         </ul>
-                    </div>
+                    </div-->
 
                 </div>
                 <!-- /sidebar menu -->
@@ -260,6 +261,44 @@
                         </div>
                     </div>
 
+			<div class="col-md-3 col-sm-3 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Fuel net top gen. in GW/h</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li> 
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+
+                    <div id="mainb" style="height:540px;"></div>
+
+                  </div>
+                </div>
+              </div>
+			  
+			  <div class="col-md-3 col-sm-3 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Fuel net green gen. in GW/h</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li> 
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+
+                    <div id="mainb2" style="height:540px;"></div>
+
+                  </div>
+                </div>
+              </div>
+			  
+					
+	
                 </div>
                 <div class="row">
                     <div class="col-md-12 col-sm-12 col-xs-12">
@@ -437,10 +476,11 @@
             <script type="application/javascript" src="/js/blocks/timeline.js"></script>
             <script type="application/javascript" src="/js/blocks/linechart.js"></script>
             <script type="application/javascript" src="/js/blocks/fuelGrowthLine.js"></script>
+			<script type="application/javascript" src="/js/blocks/bargraph.js"></script>
 
             <script type="application/javascript" src="/js/blocks/us_map.js"></script>
             <script type="application/javascript" src="/js/blocks/filter.js"></script>
-
+			
 
 </body>
 </html>
