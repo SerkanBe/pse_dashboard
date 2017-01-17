@@ -39,6 +39,7 @@
 
     <!-- Custom Theme Style -->
     <link href="../build/css/custom.css" rel="stylesheet">
+    
     <!-- Custom Theme Scripts -->
     <script type="application/javascript" src="../build/js/custom.min.js"></script>
 
@@ -59,25 +60,13 @@
 	
     <!-- jQuery custom content scroller -->
     <script src="../vendors/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+    <link href="../vendors/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
 	
 </head>
 
  <body class="nav-md">
 
 		<script type="application/javascript" src="js/dashboardState.js"></script>
-
-			
-		<!-- Bootstrap -->
-    <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome -->
-    <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <!-- NProgress -->
-    <link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
-    <!-- jQuery custom content scroller -->
-    <link href="../vendors/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
-
-    <!-- Custom Theme Style -->
-    <link href="../build/css/custom.min.css" rel="stylesheet">
 
 
   <body class="nav-md footer_fixed">
