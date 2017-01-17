@@ -103,6 +103,13 @@ function updateLinegraph() {
         toolbox: {
             show: true,
             feature: {
+                dataZoom: {
+                    show: true,
+                    title: {
+                        dataZoom: 'Data zoom',
+                        dataZoomReset: 'Reset zoom',
+                    }
+                },
                 magicType: {
                     show: true,
                     title: {

@@ -1,8 +1,7 @@
-
 var fuelGrowthLine;
 $(document).ready(function () {
     fuelGrowthLine = echarts.init(document.getElementById('fuel_growth_linechart'), echart_theme);
-    dashboardState.registerForFilterChange(['state'],'updateFuelGrowthLine');
+    dashboardState.registerForFilterChange(['state'], 'updateFuelGrowthLine');
 })
 
 function updateFuelGrowthLine() {
@@ -15,7 +14,7 @@ function updateFuelGrowthLine() {
         }
     });
     $.getJSON('/api/elec_gen.php', {
-        "state[]":dashboardState.get('state'),
+        "state[]": dashboardState.get('state'),
         "place": 'growthChart',
         "between[year]": dateRange,
         "order_by[year, fuel]": "ASC",
@@ -27,12 +26,12 @@ function updateFuelGrowthLine() {
         var years = [];
         var fuels = {};
         var legend = [];
-        for (var i = dateRange.start+1; i <= dateRange.end; i++) {
+        for (var i = dateRange.start + 1; i <= dateRange.end; i++) {
             years.push(i); // Just make sure we have an element for every year we want to show.
         }
         var lastItems = {};
         $.each(data, function (i, item) {
-            if(typeof lastItems[item.fuel] == 'undefined') {
+            if (typeof lastItems[item.fuel] == 'undefined') {
                 lastItems[item.fuel] = item;
                 return;
             }
@@ -43,11 +42,11 @@ function updateFuelGrowthLine() {
                     fuels[item.fuel][i] = 0;
                 })
             }
-            if(legend.indexOf(item.fuel*1 == -1)) {
+            if (legend.indexOf(item.fuel * 1 == -1)) {
                 legend.push(item.fuel);
             }
 
-            fuels[item.fuel][years.indexOf(item.year*1)] = (item.SUM_amount/lastItems[item.fuel].SUM_amount)-1;
+            fuels[item.fuel][years.indexOf(item.year * 1)] = (item.SUM_amount / lastItems[item.fuel].SUM_amount) - 1;
             lastItems[item.fuel] = item;
         });
 
@@ -90,9 +89,9 @@ function updateFuelGrowthLine() {
                 var res = params[0].name;
                 var colorEl = '';
                 $.each(params, function (i, item) {
-                        colorEl = '<span style="display:inline-block;margin-right:5px;'
-                            + 'border-radius:10px;width:9px;height:9px;background-color:' + item.color + '"></span>';
-                        res += '<br/><span style="float:right">' + colorEl + item.seriesName + ' : ' + numberFormatter.format((item.value*100).toFixed(2)) + '%</span>';
+                    colorEl = '<span style="display:inline-block;margin-right:5px;'
+                        + 'border-radius:10px;width:9px;height:9px;background-color:' + item.color + '"></span>';
+                    res += '<br/><span style="float:right">' + colorEl + item.seriesName + ' : ' + numberFormatter.format((item.value * 100).toFixed(2)) + '%</span>';
                 });
                 return res;
             }
@@ -107,7 +106,13 @@ function updateFuelGrowthLine() {
         toolbox: {
             show: true,
             feature: {
-                dataZoom: {show: true},
+                dataZoom: {
+                    show: true,
+                    title: {
+                        dataZoom: 'Data zoom',
+                        dataZoomReset: 'Reset zoom',
+                    }
+                },
                 magicType: {
                     show: true,
                     title: {
@@ -144,9 +149,9 @@ function updateFuelGrowthLine() {
             x2: 50,
             y2: 100,
         },
-        dataZoom : {
-            show : true,
-            realtime : true,
+        dataZoom: {
+            show: true,
+            realtime: true,
             y: 40,
             height: 50,
 
@@ -168,14 +173,14 @@ function updateFuelGrowthLine() {
 $(document).ready(updateFuelGrowthLine);
 
 
-$('button[name^="fuel_growth_predef"]').click(function() {
+$('button[name^="fuel_growth_predef"]').click(function () {
     var btn_val = $(this).val();
 
     var selected = {}; // plantTypeFilter.val() || [];
     var fuel_keys = [];
-    switch(btn_val) {
+    switch (btn_val) {
         case 'green':
-            $.each(dashboardState.fuelType.green,function(i,item) {
+            $.each(dashboardState.fuelType.green, function (i, item) {
                 fuel_keys = fuel_keys.concat(item);
             });
             break;
@@ -195,8 +200,8 @@ $('button[name^="fuel_growth_predef"]').click(function() {
             break;
     }
 
-    $.each(fuel_keys,function(i,item) {
-        $.each(dashboardState.plantFuel[item],function(j,k) {
+    $.each(fuel_keys, function (i, item) {
+        $.each(dashboardState.plantFuel[item], function (j, k) {
             selected[k] = false;
         })
     });
