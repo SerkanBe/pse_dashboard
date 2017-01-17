@@ -321,7 +321,7 @@
                     <div class="col-md-4 col-sm-4 col-xs-12">
                         <div class="x_panel">
                             <div class="x_title">
-                                <h2 id="top5">Top generation fuels in 1000 MW/h</h2>
+                                <h2 id="top5">Top generation fuels</h2>
                                 <ul class="nav navbar-right panel_toolbox">
                                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                     </li>
@@ -352,7 +352,7 @@
                     <div class="col-md-4 col-sm-4 col-xs-12">
                         <div class="x_panel">
                             <div class="x_title">
-                                <h2>Electricity generating sectors in 1000 MW/h</h2>
+                                <h2>Electricity generating sectors</h2>
                                 <ul class="nav navbar-right panel_toolbox">
                                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                     </li>
@@ -375,7 +375,7 @@
                     <div class="col-md-12 col-sm-12 col-xs-12">
                         <div class="x_panel">
                             <div class="x_title">
-                                <h2>Electricity generation by fuel in 1000 MW/h</h2>
+                                <h2>Electricity generation by fuel</h2>
                                 <ul class="nav navbar-right panel_toolbox">
                                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                     </li>

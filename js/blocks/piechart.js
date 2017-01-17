@@ -12,6 +12,7 @@ $(document).ready(function () {
 	dashboardState.registerForFilterChange(['year','yearend','state'],'createGeneratingSectorsPie');
 });
 function updatePieChart() {
+    var dateRange = {start: dashboardState.get('year'), end: dashboardState.get('yearend')};
     echartPieCollapse.showLoading('default', {
         text: 'Lade Daten...',
         effect: 'bubble',
@@ -19,21 +20,9 @@ function updatePieChart() {
             fontSize: 20
         }
     });
-	
-		function aggregateYears(){
-			var year = dashboardState.get('year');
-			var yearend = dashboardState.get('yearend');
-			var y = [];
-			for (i = year;i<=yearend;i++){
-			 y.push(i);
-			}
-			
-			return y;
-		}
-		
-		//console.log(aggregateYears());
+
     $.getJSON('/api/elec_gen.php', {
-		"year[]": aggregateYears(),
+        "between[year]": dateRange,
 		"state[]": dashboardState.get('state'),
         "group_by[]": ["fuel"],
         "order_by[SUM_amount]": "DESC",
@@ -53,8 +42,18 @@ function updatePieChart() {
         echartPieCollapse.setOption({
             tooltip: {
                 trigger: 'item',
-                formatter: "{a} <br/>{b} : {c} ({d}%)"
-				
+                formatter: function (item, ticket, callback) {
+                    console.log(item);
+                    var unit = '';
+
+                    unit = 'GW/h';
+                    item.value *= 1;
+                    if (item.value > 100000) {
+                        item.value = item.value / 1000;
+                        unit = 'TW/h';
+                    }
+                    return (item.dataIndex+1)+'. '+item.name+' : ' + numberFormatter.format(item.value.toFixed(2)) + ' ' + unit + ' (' + item.percent + ' %)';
+                }
             },
             legend: {
                 orient: 'vertical',
@@ -81,7 +80,7 @@ function updatePieChart() {
             },
             calculable: true,
             series: [{
-                name: 'Area Mode',
+                name: 'Top fuels',
 				itemStyle: {
                     normal: {
                         label: {
@@ -115,6 +114,7 @@ function updateGeneratingSectorsPie() {
 }
 
 function createGeneratingSectorsPie() {
+    var dateRange = {start: dashboardState.get('year'), end: dashboardState.get('yearend')};
     generatingSectorsPie.showLoading('default', {
         text: 'Lade Daten...',
         effect: 'bubble',
@@ -157,7 +157,18 @@ function createGeneratingSectorsPie() {
         generatingSectorsPie.setOption({
             tooltip: {
                 trigger: 'item',
-                formatter: "{a} <br/>{b} : {c} ({d}%)"
+                formatter: function (item, ticket, callback) {
+                    console.log(item);
+                    var unit = '';
+
+                    unit = 'GW/h';
+                    item.value *= 1;
+                    if (item.value > 100000) {
+                        item.value = item.value / 1000;
+                        unit = 'TW/h';
+                    }
+                    return (item.dataIndex+1)+'. '+item.name+' : ' + numberFormatter.format(item.value.toFixed(2)) + ' ' + unit + ' (' + item.percent + ' %)';
+                }
             },
             legend: {
                 orient: 'horizontal',
@@ -212,6 +223,7 @@ function createGeneratingSectorsPie() {
 }
 
 function updatePieChartTopRenewable() {
+    var dateRange = {start: dashboardState.get('year'), end: dashboardState.get('yearend')};
     echartPieTopRenewable.showLoading('default', {
         text: 'Lade Daten...',
         effect: 'bubble',
@@ -219,21 +231,9 @@ function updatePieChartTopRenewable() {
             fontSize: 20
         }
     });
-	
-		function aggregateYears(){
-			var year = dashboardState.get('year');
-			var yearend = dashboardState.get('yearend');
-			var y = [];
-			for (i = year;i<=yearend;i++){
-			 y.push(i);
-			}
 
-			return y;
-		}
-		
-		
     $.getJSON('/api/elec_gen.php', {
-		"year[]": aggregateYears(),
+        "between[year]": dateRange,
 		"state[]": dashboardState.get('state'),
         "group_by[]": ["fuel"],
         "order_by[SUM_amount]": "DESC",
@@ -245,7 +245,7 @@ function updatePieChartTopRenewable() {
         var columns = [];
         $.each(data, function (i, item) {
 			//console.log(data[i].fuel);
-			
+
 			if(['wind','All solar','conventional hydroelectric','geothermal'].indexOf(item.fuel) > -1){
 				columns.push(item.fuel);
 				values.push({name: item.fuel, value: item.SUM_amount});
@@ -256,8 +256,19 @@ function updatePieChartTopRenewable() {
         echartPieTopRenewable.setOption({
             tooltip: {
                 trigger: 'item',
-                formatter: "{a} <br/>{b} : {c} ({d}%)"
-				
+                formatter: function (item, ticket, callback) {
+                    console.log(item);
+                    var unit = '';
+
+                    unit = 'GW/h';
+                    item.value *= 1;
+                    if (item.value > 100000) {
+                        item.value = item.value / 1000;
+                        unit = 'TW/h';
+                    }
+                    return (item.dataIndex+1)+'. '+item.name+' : ' + numberFormatter.format(item.value.toFixed(2)) + ' ' + unit + ' (' + item.percent + ' %)';
+                }
+
             },
             legend: {
                 orient: 'vertical',
