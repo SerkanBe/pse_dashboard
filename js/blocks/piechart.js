@@ -178,7 +178,7 @@ function createGeneratingSectorsPie() {
             series: [{
                 name: 'Parent sectors',
                 type: 'pie',
-                radius: ['50%', '55%'],
+                radius: ['60%', '70%'],
                 center: ['50%', '35%'],
                 itemStyle: {
                     normal: {
@@ -193,7 +193,7 @@ function createGeneratingSectorsPie() {
             }, {
                 name: 'Child sectors',
                 type: 'pie',
-                radius: ['20%','50%'],
+                radius: ['25%','50%'],
                 center: ['50%', '35%'],
                 itemStyle: {
                     normal: {
