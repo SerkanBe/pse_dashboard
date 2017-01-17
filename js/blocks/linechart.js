@@ -1,11 +1,18 @@
 var echartLine;
 $(document).ready(function () {
     echartLine = echarts.init(document.getElementById('echart_line'), echart_theme);
-    dashboardState.registerForFilterChange(['state'],['updateLinegraph']);
+    dashboardState.registerForFilterChange(['state','year','yearend'],'updateLinegraph');
 })
 
 function updateLinegraph() {
     var dateRange = {start: dashboardState.get('year'), end: dashboardState.get('yearend')};
+    echartLine.showLoading('default', {
+        text: 'Lade Daten...',
+        effect: 'bubble',
+        textStyle: {
+            fontSize: 20
+        }
+    });
     $.getJSON('/api/elec_gen.php', {
         "state[]":dashboardState.get('state'),
         "place": 'linechart',
@@ -14,7 +21,7 @@ function updateLinegraph() {
         "columns[]": ["year", "fuel"],
         "aggr[amount]": "SUM",
         "group_by[]": ["year", "fuel"],
-        "!fuel[]": ["All utility-scale solar","other","Other biomass","Other gases","All solar"],
+        //"!fuel[]": ["All utility-scale solar","other","Other biomass","Other gases","All solar"],
     }).done(function (data) {
         var years = [];
         var fuels = {};
@@ -55,9 +62,11 @@ function updateLinegraph() {
             });
         });
 
-        lineChartOptions.xAxis.data = years;
+        lineChartOptions.xAxis[0].data = years;
+
         lineChartOptions.legend.data = legend;
-        echartLine.setOption(lineChartOptions,true);
+        echartLine.setOption(lineChartOptions);
+        echartLine.hideLoading();
     });
 
     var lineChartOptions = {
@@ -71,7 +80,7 @@ function updateLinegraph() {
         legend: {
             x: 'center',
             y: 'bottom',
-            data: []
+            data: [],
         },
 
         toolbox: {
@@ -102,11 +111,14 @@ function updateLinegraph() {
             type: 'category',
             boundaryGap: false,
             data: [],
-            //data: ['2001', '2002', '2003', '2004', '2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014', //'2015', '2016']
         }],
         yAxis: [{
-            type: 'value'
+            type: 'value',
+            boundaryGap: false,
         }],
+        grid: {
+            y2: 120,
+        },
         series: []
     };
 
