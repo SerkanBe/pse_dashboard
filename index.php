@@ -425,7 +425,19 @@
                             <div class="x_content">
 
                                 <div id="echart_line" style="height:400px;"></div>
-
+                                <h4>Filter by energy source</h4>
+                                <div class="btn-group">
+                                    <button name="elec_gen_predef" value="green" type="button" class="btn btn-default">Green-Energy
+                                    </button>
+                                    <button name="elec_gen_predef" value="brown" type="button" class="btn btn-default">Coal/Oil/Gas
+                                    </button>
+                                    <button name="elec_gen_predef" value="nuclear" type="button" class="btn btn-default">Nuclear
+                                    </button>
+                                    <button name="elec_gen_predef" value="_all" type="button" class="btn btn-default">All
+                                    </button>
+                                    <button name="elec_gen_predef" value="_none" type="button" class="btn btn-default">Clear
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>

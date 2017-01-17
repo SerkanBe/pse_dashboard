@@ -53,7 +53,7 @@ function updateSourceCompareBar() {
             fuels[item.fuel] = lasts[item.fuel] - firsts[item.fuel]
 
         });
-        
+
 
         lineChartOptions.series = [];
         $.each(fuels, function (fuel, fuel_data) {

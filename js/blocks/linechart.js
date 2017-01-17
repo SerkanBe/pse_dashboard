@@ -164,3 +164,49 @@ function updateLinegraph() {
 
 }
 $(document).ready(updateLinegraph);
+
+
+$('button[name="elec_gen_predef"]').click(function () {
+    var btn_val = $(this).val();
+
+    var fuel_keys = [];
+    var selections = {};
+
+    $.each(echartLine.getOption().series, function (i, item) {
+        selections[item.name] = false;
+    });
+
+    switch (btn_val) {
+        case 'green':
+            $.each(dashboardState.fuelType.green, function (i, item) {
+                fuel_keys = fuel_keys.concat(item);
+            });
+            break;
+        case 'brown':
+            fuel_keys = dashboardState.fuelType.brown;
+            break;
+        case 'nuclear':
+            fuel_keys = dashboardState.fuelType.nuclear;
+            break;
+        case '_all':
+            $.each(selections, function (i, item) {
+                selections[i] = true
+            })
+            fuel_keys = [];
+            break;
+        case '_none':
+            fuel_keys = [];
+            break;
+    }
+
+    $.each(fuel_keys, function (i, item) {
+        selections[dashboardState.fuels[item]] = true;
+    });
+    var options = {
+        legend: {
+            selected: selections,
+        }
+    }
+
+    echartLine.setOption(options);
+});
