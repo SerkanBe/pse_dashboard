@@ -1,14 +1,15 @@
 var echartLine;
 $(document).ready(function () {
     echartLine = echarts.init(document.getElementById('echart_line'), echart_theme);
+    dashboardState.registerForFilterChange(['state'],['updateLinegraph']);
 })
 
 function updateLinegraph() {
     var dateRange = {start: dashboardState.get('year'), end: dashboardState.get('yearend')};
     $.getJSON('/api/elec_gen.php', {
-        //"state[]": (dashboardState.filter.state),
+        "state[]":dashboardState.get('state'),
         "place": 'linechart',
-        "between[year][]": dateRange,
+        "between[year]": dateRange,
         "order_by[year, fuel]": "ASC",
         "columns[]": ["year", "fuel"],
         "aggr[amount]": "SUM",
@@ -20,8 +21,7 @@ function updateLinegraph() {
         for (var i = dateRange.start; i <= dateRange.end; i++) {
             years.push(i); // Just make sure we have an element for every year we want to show.
         }
-
-        // 1:
+        
         $.each(data, function (i, item) {
             if (typeof fuels[item.fuel] == 'undefined') {
                 fuels[item.fuel] = [];
@@ -29,7 +29,7 @@ function updateLinegraph() {
                     fuels[item.fuel][i] = 0
                 })
             }
-            if(legend.indexOf(item.fuel == -1)) {
+            if(legend.indexOf(item.fuel*1 == -1)) {
                 legend.push(item.fuel);
             }
 
@@ -56,7 +56,7 @@ function updateLinegraph() {
 
         lineChartOptions.xAxis.data = years;
         lineChartOptions.legend.data = legend;
-        echartLine.setOption(lineChartOptions);
+        echartLine.setOption(lineChartOptions,true);
     });
 
     var lineChartOptions = {
