@@ -7,6 +7,8 @@ $(document).ready(function () {
         placeholder: "Select the fuel of the plants to filter",
         allowClear: true
     });
+
+    var plantTypeFilterOptions = [];
     $.getJSON('/api/plant.php', {
         "columns[]": ["fuel"],
         "aggr[*]": "COUNT",
@@ -19,12 +21,17 @@ $(document).ready(function () {
             }
             option = new Option(item.fuel,item.fuel)
             plantTypeFilter.append(option);
+
+            plantTypeFilterOptions.push(item.fuel);
         })
     });
 
     plantTypeFilter.change(function() {
-        dashboardState.setFilter('plantFuel', $(this).val());
-
+        if($(this).val() != null) {
+            dashboardState.setFilter('plantFuel', $(this).val());
+        } else {
+            dashboardState.setFilter('plantFuel', '_none');
+        }
     });
 
 
@@ -45,6 +52,14 @@ $(document).ready(function () {
                 break;
             case 'nuclear':
                 fuel_keys = dashboardState.fuelType.nuclear;
+                break;
+            case '_all':
+                plantTypeFilter.val(plantTypeFilterOptions).trigger("change");
+                return;
+                break;
+            case '_none':
+                plantTypeFilter.val(['_none']).trigger("change");
+                return;
                 break;
         }
 

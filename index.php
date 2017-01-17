@@ -238,6 +238,12 @@
                                             <button name="plant_type_predef[nuclear]" value="nuclear" type="button"
                                                     class="btn btn-default">Nuclear
                                             </button>
+                                            <button name="plant_type_predef[_all]" value="_all" type="button"
+                                                    class="btn btn-default">All
+                                            </button>
+                                            <button name="plant_type_predef[_none]" value="_none" type="button"
+                                                    class="btn btn-default">Clear
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
@@ -390,7 +396,7 @@
 
             <!-- Custom Theme Scripts -->
             <script type="application/javascript" src="../build/js/custom.js"></script>
-            
+
             <script type="application/javascript" src="/js/blocks/piechart.js"></script>
             <script type="application/javascript" src="/js/blocks/timeline.js"></script>
             <script type="application/javascript" src="/js/blocks/linechart.js"></script>

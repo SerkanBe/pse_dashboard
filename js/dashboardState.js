@@ -9,7 +9,7 @@ var dashboardState = {
         yearend: 2015,
         state: ['*'],
         fuel: ['*'],
-        plant_fuel: ['*']
+        plant_fuel: ['']
     },
     setFilter: function (filter, values) {
         if (dashboardState.filter[filter] == null || typeof dashboardState.filter[filter] == 'undefined') {
