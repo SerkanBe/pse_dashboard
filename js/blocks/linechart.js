@@ -13,7 +13,8 @@ function updateLinegraph() {
         "order_by[year, fuel]": "ASC",
         "columns[]": ["year", "fuel"],
         "aggr[amount]": "SUM",
-        "group_by[]": ["year", "fuel"]
+        "group_by[]": ["year", "fuel"],
+        "!fuel[]": ["All utility-scale solar","other","Other biomass","Other gases","All solar"],
     }).done(function (data) {
         var years = [];
         var fuels = {};
@@ -21,7 +22,7 @@ function updateLinegraph() {
         for (var i = dateRange.start; i <= dateRange.end; i++) {
             years.push(i); // Just make sure we have an element for every year we want to show.
         }
-        
+
         $.each(data, function (i, item) {
             if (typeof fuels[item.fuel] == 'undefined') {
                 fuels[item.fuel] = [];
@@ -70,7 +71,6 @@ function updateLinegraph() {
         legend: {
             x: 'center',
             y: 'bottom',
-            padding: 15,
             data: []
         },
 
