@@ -12,7 +12,7 @@ function updateUsMap() {
         //TODO do not reload full map after new markers are set
         //"state[]": 'US-TX',
         "group_by[]": ["plant_lat, plant_lon"],
-        "range[limit]": 100,
+        //"range[limit]": 100,
         "columns[]": ["plant_name", "plant_lat", "plant_lon"],
         "year[]": dashboardState.get('year'),
         "state[]": dashboardState.get('state'),
