@@ -233,19 +233,19 @@
                                         <br><br>
                                         <div class="clearfix"></div>
                                         <div class="btn-group">
-                                            <button name="plant_type_predef[green]" value="green" type="button"
+                                            <button name="plant_type_predef" value="green" type="button"
                                                     class="btn btn-default">Green-Energy
                                             </button>
-                                            <button name="plant_type_predef[brown]" value="brown" type="button"
+                                            <button name="plant_type_predef" value="brown" type="button"
                                                     class="btn btn-default">Coal/Oil/Gas
                                             </button>
-                                            <button name="plant_type_predef[nuclear]" value="nuclear" type="button"
+                                            <button name="plant_type_predef" value="nuclear" type="button"
                                                     class="btn btn-default">Nuclear
                                             </button>
-                                            <button name="plant_type_predef[_all]" value="_all" type="button"
+                                            <button name="plant_type_predef" value="_all" type="button"
                                                     class="btn btn-default">All
                                             </button>
-                                            <button name="plant_type_predef[_none]" value="_none" type="button"
+                                            <button name="plant_type_predef" value="_none" type="button"
                                                     class="btn btn-default">Clear
                                             </button>
                                         </div>
@@ -285,17 +285,20 @@
 
                                 <h4>Filter by energy source</h4>
                                 <div class="btn-group">
-                                    <button name="fuel_growth_predef[green]" value="green" type="button"
+                                    <button name="fuel_growth_predef" value="green" type="button"
                                             class="btn btn-default">Green-Energy
                                     </button>
-                                    <button name="fuel_growth_predef[brown]" value="brown" type="button"
+                                    <button name="fuel_growth_predef" value="brown" type="button"
                                             class="btn btn-default">Coal/Oil/Gas
                                     </button>
-                                    <button name="fuel_growth_predef[nuclear]" value="nuclear" type="button"
+                                    <button name="fuel_growth_predef" value="nuclear" type="button"
                                             class="btn btn-default">Nuclear
                                     </button>
-                                    <button name="fuel_growth_predef[_all]" value="_all" type="button"
+                                    <button name="fuel_growth_predef" value="_all" type="button"
                                             class="btn btn-default">All
+                                    </button>
+                                    <button name="fuel_growth_predef" value="_none" type="button"
+                                            class="btn btn-default">Clear
                                     </button>
                                 </div>
                             </div>

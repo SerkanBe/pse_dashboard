@@ -173,11 +173,16 @@ function updateFuelGrowthLine() {
 $(document).ready(updateFuelGrowthLine);
 
 
-$('button[name^="fuel_growth_predef"]').click(function () {
+$('button[name="fuel_growth_predef"]').click(function () {
     var btn_val = $(this).val();
 
-    var selected = {}; // plantTypeFilter.val() || [];
     var fuel_keys = [];
+    var selections = {};
+
+    $.each(fuelGrowthLine.getOption().series,function(i,item) {
+       selections[item.name] = false;
+    });
+
     switch (btn_val) {
         case 'green':
             $.each(dashboardState.fuelType.green, function (i, item) {
@@ -191,24 +196,23 @@ $('button[name^="fuel_growth_predef"]').click(function () {
             fuel_keys = dashboardState.fuelType.nuclear;
             break;
         case '_all':
-            plantTypeFilter.val(plantTypeFilterOptions).trigger("change");
-            return;
+            $.each(selections,function(i,item){selections[i] = true})
+            fuel_keys = [];
             break;
         case '_none':
-            plantTypeFilter.val(['_none']).trigger("change");
-            return;
+            fuel_keys = [];
             break;
     }
 
     $.each(fuel_keys, function (i, item) {
-        $.each(dashboardState.plantFuel[item], function (j, k) {
-            selected[k] = false;
-        })
+        console.log(item);
+            selections[dashboardState.fuels[item]] = true;
     });
-
+    console.log(fuel_keys);
+console.log(selections);
     var options = {
         legend: {
-            selected: selected,
+            selected: selections,
         }
     }
 
