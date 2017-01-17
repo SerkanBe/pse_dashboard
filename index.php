@@ -260,6 +260,56 @@
                         </div>
                     </div>
 
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <div class="x_panel">
+                            <div class="x_title">
+                                <h2>Sources 2001 vs 2015</h2>
+                                <ul class="nav navbar-right panel_toolbox">
+                                    <li>
+                                        <a class="collapse-link">
+                                            <i class="fa fa-chevron-up"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="x_content">
+
+                                <div class="resize_window1">
+                                    <div id="source_compare" style="height:350px !important;"></div>
+                                    <div style="height:20px;"></div>
+                                </div>
+
+                            </div>
+
+                            <!--div class="x_title">
+                                <h2>Filter Plants</h2>
+                                <ul class="nav navbar-right panel_toolbox">
+                                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                    </li>
+                                </ul>
+                                <div class="clearfix"></div>
+                            </div-->
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <div class="x_content">
+                                        <div class="btn-group">
+                                            <button name="source_compare_predef" value="green" type="button" class="btn btn-default">Green-Energy
+                                            </button>
+                                            <button name="source_compare_predef" value="brown" type="button" class="btn btn-default">Coal/Oil/Gas
+                                            </button>
+                                            <button name="source_compare_predef" value="nuclear" type="button" class="btn btn-default">Nuclear
+                                            </button>
+                                            <button name="source_compare_predef" value="_all" type="button" class="btn btn-default">All
+                                            </button>
+                                            <button name="source_compare_predef" value="_none" type="button" class="btn btn-default">Clear
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12 col-sm-12 col-xs-12">
@@ -440,6 +490,7 @@
 
             <script type="application/javascript" src="/js/blocks/us_map.js"></script>
             <script type="application/javascript" src="/js/blocks/filter.js"></script>
+            <script type="application/javascript" src="/js/blocks/sourceCompare.js"></script>
 
 
 </body>
