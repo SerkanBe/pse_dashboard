@@ -251,6 +251,8 @@
                                             </button>
                                             <button name="plant_map_type" value="temp" type="button" class="btn btn-default">mean Temp/mean sunlight hrs
                                             </button>
+                                            <button name="plant_map_type" value="consumption" type="button" class="btn btn-default">Electricity consumption (retail)
+                                            </button>
                                             <button name="plant_map_type" value="clear" type="button" class="btn btn-default">Clear
                                             </button>
 
