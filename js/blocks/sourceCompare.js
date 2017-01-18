@@ -133,9 +133,12 @@ function updateSourceCompareBar() {
         yAxis: [{
             type: 'value',
             boundaryGap: false,
+            name: 'GW/h',
         }],
         grid: {
-            y2: 120,
+            x: 60,
+            x2: 10,
+            y2: 130,
         },
 
         series: []

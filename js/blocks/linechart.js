@@ -140,15 +140,17 @@ function updateLinegraph() {
         yAxis: [{
             type: 'value',
             boundaryGap: false,
+            name : 'GW/H',
         }],
         grid: {
+            y: 140,
             y2: 120,
         },
         dataZoom: {
             show: true,
             realtime: true,
-            y: 36,
-            height: 20,
+            y: 40,
+            height: 50,
             //backgroundColor: 'rgba(221,160,221,0.5)',
             //dataBackgroundColor: 'rgba(138,43,226,0.5)',
             //fillerColor: 'rgba(38,143,26,0.6)',
