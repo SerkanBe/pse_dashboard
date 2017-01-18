@@ -138,10 +138,11 @@ function updateFuelGrowthLine() {
         yAxis: [{
             type: 'value',
             boundaryGap: false,
+            name : 'Factor',
         }],
         grid: {
             x: 50,
-            y: 100,
+            y: 120,
             x2: 50,
             y2: 100,
         },
@@ -150,7 +151,6 @@ function updateFuelGrowthLine() {
             realtime: true,
             y: 40,
             height: 50,
-
             //backgroundColor: 'rgba(221,160,221,0.5)',
             //dataBackgroundColor: 'rgba(138,43,226,0.5)',
             //fillerColor: 'rgba(38,143,26,0.6)',

@@ -139,15 +139,17 @@ function updateLinegraph() {
         yAxis: [{
             type: 'value',
             boundaryGap: false,
+            name : 'GW/H',
         }],
         grid: {
+            y: 140,
             y2: 120,
         },
         dataZoom: {
             show: true,
             realtime: true,
-            y: 36,
-            height: 20,
+            y: 40,
+            height: 50,
             //backgroundColor: 'rgba(221,160,221,0.5)',
             //dataBackgroundColor: 'rgba(138,43,226,0.5)',
             //fillerColor: 'rgba(38,143,26,0.6)',
@@ -163,3 +165,49 @@ function updateLinegraph() {
 
 }
 $(document).ready(updateLinegraph);
+
+
+$('button[name="elec_gen_predef"]').click(function () {
+    var btn_val = $(this).val();
+
+    var fuel_keys = [];
+    var selections = {};
+
+    $.each(echartLine.getOption().series, function (i, item) {
+        selections[item.name] = false;
+    });
+
+    switch (btn_val) {
+        case 'green':
+            $.each(dashboardState.fuelType.green, function (i, item) {
+                fuel_keys = fuel_keys.concat(item);
+            });
+            break;
+        case 'brown':
+            fuel_keys = dashboardState.fuelType.brown;
+            break;
+        case 'nuclear':
+            fuel_keys = dashboardState.fuelType.nuclear;
+            break;
+        case '_all':
+            $.each(selections, function (i, item) {
+                selections[i] = true
+            })
+            fuel_keys = [];
+            break;
+        case '_none':
+            fuel_keys = [];
+            break;
+    }
+
+    $.each(fuel_keys, function (i, item) {
+        selections[dashboardState.fuels[item]] = true;
+    });
+    var options = {
+        legend: {
+            selected: selections,
+        }
+    }
+
+    echartLine.setOption(options);
+});

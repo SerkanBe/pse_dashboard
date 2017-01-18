@@ -381,7 +381,7 @@
                     <div class="col-md-4 col-sm-4 col-xs-12">
                         <div class="x_panel">
                             <div class="x_title">
-                                <h2 id="gen_sectors">Electricity generating sectors <span class="range">(2001-2015)</span></h2>
+                                <h2 id="gen_sectors">Electricity sectors <span class="range">(2001-2015)</span></h2>
                                 <ul class="nav navbar-right panel_toolbox">
                                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                     </li>
@@ -414,7 +414,19 @@
                             <div class="x_content">
 
                                 <div id="echart_line" style="height:400px;"></div>
-
+                                <h4>Filter by energy source</h4>
+                                <div class="btn-group">
+                                    <button name="elec_gen_predef" value="green" type="button" class="btn btn-default">Green-Energy
+                                    </button>
+                                    <button name="elec_gen_predef" value="brown" type="button" class="btn btn-default">Coal/Oil/Gas
+                                    </button>
+                                    <button name="elec_gen_predef" value="nuclear" type="button" class="btn btn-default">Nuclear
+                                    </button>
+                                    <button name="elec_gen_predef" value="_all" type="button" class="btn btn-default">All
+                                    </button>
+                                    <button name="elec_gen_predef" value="_none" type="button" class="btn btn-default">Clear
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
