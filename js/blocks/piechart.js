@@ -48,7 +48,7 @@ function updatePieChart() {
 
                     unit = 'GW/h';
                     item.value *= 1;
-                    if (Math.abs(item.value) > 100000) {
+                    if (item.value > 100000) {
                         item.value = item.value / 1000;
                         unit = 'TW/h';
                     }
@@ -161,7 +161,7 @@ function createGeneratingSectorsPie() {
 
                     unit = 'GW/h';
                     item.value *= 1;
-                    if (Math.abs(item.value) > 100000) {
+                    if (item.value > 100000) {
                         item.value = item.value / 1000;
                         unit = 'TW/h';
                     }
@@ -260,7 +260,7 @@ function updatePieChartTopRenewable() {
 
                     unit = 'GW/h';
                     item.value *= 1;
-                    if (Math.abs(item.value) > 100000) {
+                    if (item.value > 100000) {
                         item.value = item.value / 1000;
                         unit = 'TW/h';
                     }

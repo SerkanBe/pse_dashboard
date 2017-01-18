@@ -17,8 +17,7 @@ function updateLinegraph() {
         "state[]": dashboardState.get('state'),
         "place": 'linechart',
         "between[year]": dateRange,
-        "order_by[year]": "ASC",
-        "order_by[fuel]": "ASC",
+        "order_by[year, fuel]": "ASC",
         "columns[]": ["year", "fuel"],
         "aggr[amount]": "SUM",
         "group_by[]": ["year", "fuel"],
@@ -86,7 +85,7 @@ function updateLinegraph() {
                     colorEl = '<span style="display:inline-block;margin-right:5px;'
                         + 'border-radius:10px;width:9px;height:9px;background-color:' + item.color + '"></span>';
                     item.value *= 1;
-                    if (Math.abs(item.value) > 100000) {
+                    if (item.value > 100000) {
                         item.value = item.value / 1000;
                         unit = 'TW/h';
                     }
